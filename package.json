@@ -1,0 +1,25 @@
+{
+	"name": "ally",
+	"version": "1.0.0",
+	"description": "Trabalho de conclusão de curso de Deisgn de Interação da PUC-SP",
+	"main": "server.js",
+	"license": "MIT",
+	"scripts": {
+		"start": "node server.js",
+		"dev": "nodemon server.js"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"connect-flash": "^0.1.1",
+		"ejs": "^3.1.5",
+		"express": "^4.17.1",
+		"express-ejs-layouts": "^2.5.0",
+		"express-session": "^1.17.1",
+		"mongoose": "^5.10.5",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0"
+	}
+}
