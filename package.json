@@ -5,21 +5,26 @@
 	"main": "server.js",
 	"license": "MIT",
 	"scripts": {
-		"start": "node server.js",
-		"dev": "nodemon server.js"
+		"start": "cross-env NODE_ENV=produccao node server",
+		"dev": "cross-env NODE_ENV=desenvolvimento nodemon server"
 	},
 	"devDependencies": {
+		"cross-env": "^7.0.2",
 		"nodemon": "^2.0.4"
 	},
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
 		"connect-flash": "^0.1.1",
+		"dotenv": "^8.2.0",
 		"ejs": "^3.1.5",
 		"express": "^4.17.1",
 		"express-ejs-layouts": "^2.5.0",
 		"express-session": "^1.17.1",
+		"method-override": "^3.0.0",
 		"mongoose": "^5.10.5",
+		"morgan": "^1.10.0",
 		"passport": "^0.4.1",
+		"passport-google-oauth20": "^2.0.0",
 		"passport-local": "^1.0.0"
 	}
 }

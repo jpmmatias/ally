@@ -1,0 +1,60 @@
+<div class="row mt-5">
+	<div class="col-md-6 m-auto">
+		<div class="card card-body">
+			<h1 class="text-center mb-3">Criar Conta</h1>
+			<%- include ('./Partials/messages') %>
+			<form action="/users/register" method="POST">
+				<div class="form-group">
+					<label for="name">Nome</label>
+					<input
+						type="name"
+						id="nome"
+						name="nome"
+						class="form-control"
+						placeholder="Enter Name"
+						value="<%= typeof nome != 'undefined' ? nome : '' %>"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						class="form-control"
+						placeholder="Enter Email"
+						value="<%= typeof email != 'undefined' ? email : '' %>"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="senha">Senha</label>
+					<input
+						type="password"
+						id="senha"
+						name="senha"
+						class="form-control"
+						placeholder="Create Password"
+						value="<%= typeof senha != 'undefined' ? senha : '' %>"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="senha2">Confime a Senha</label>
+					<input
+						type="password"
+						id="senha2"
+						name="senha2"
+						class="form-control"
+						placeholder="Confirme a senha"
+						value="<%= typeof senha2 != 'undefined' ? senha2 : '' %>"
+					/>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">
+					Register
+				</button>
+			</form>
+			<p class="lead mt-4">
+				Ja tem uma conta? <a href="/users/login">Login</a>
+			</p>
+		</div>
+	</div>
+</div>
