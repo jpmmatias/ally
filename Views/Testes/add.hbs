@@ -1,0 +1,25 @@
+<h3>Novo Teste</h3>
+<div class="row">
+    <form action="/testes" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="nome">
+                <label for="title">Nome</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <h5>Descrição do teste</h5>
+                <textarea id="body" name="descricao"></textarea>
+            </div>
+        </div>
+        <div class="tarefas">
+        </div>
+        <div class="row">
+            <button id="addTarefaBtn" class="btn purple" type="button">Add Tarefa</button>
+            <input type="submit" value="Salvar Teste" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
+<script src="/Javascript/script.js"></script>

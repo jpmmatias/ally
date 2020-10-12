@@ -1,0 +1,30 @@
+<h3>Editar Teste</h3>
+<div class="row">
+    <form action="/testes/editar/{{teste._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="nome" value="{{teste.nome}}">
+                <label for="title">Nome</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <h5>Descrição:</h5>
+                <textarea id="body" name="descricao">{{teste.descricao}}</textarea>
+            </div>
+        </div>
+        {{#if teste.tarefas}}
+        {{#each teste.tarefas}}
+        <h5>Tarefas:</h5>
+        <textarea id="body" name="tarefas">{{this}}</textarea>
+        {{/each}}
+
+        {{/if}}
+        <div class="row">
+            <button id="addTarefaBtn" class="btn purple" type="button">Add Tarefa</button>
+            <input type="submit" value="Salvar" class="btn">
+            <a href="/dashboard" class="btn orange">Cancelar</a>
+        </div>
+    </form>
+</div>

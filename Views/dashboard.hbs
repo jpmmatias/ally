@@ -1,0 +1,36 @@
+<h6>Dashboard</h6>
+<h3>Bem Vindo {{nome}}</h3>
+<p>Aqui estão os seus testes</p>
+<a href="/testes/add" class="btn blue">Criar teste</a>
+{{#if testes}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each testes}}
+        <tr>
+            <td><a href="/testes/{{_id}}">{{nome}}</a></td>
+            <td>{{formatarData data 'MMMM Do YYYY, h:mm:ss a'}}</td>
+            <td>
+                <a href="/testes/editar/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <form action="/testes/{{_id}}" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn red">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>Vcoê não tem testes ainda</p>
+{{/if}}

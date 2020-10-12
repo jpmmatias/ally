@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {ensureAuthenticated} = require('../Config/auth');
+const {ensureAuthenticated, ensureGuest} = require('../Config/auth');
 
-router.get('/', (req, res) => {
-	res.render('homepage');
-});
+const {mostrarHomepage, mostrarDahboard} = require('../Controllers/index');
 
-router.get('/dashboard', ensureAuthenticated, (req, res) => {
-	res.render('dashboard', {
-		nome: req.user.nome,
-	});
-});
+router.get('/', ensureGuest, mostrarHomepage);
+
+router.get('/dashboard', ensureAuthenticated, mostrarDahboard);
 
 module.exports = router;
