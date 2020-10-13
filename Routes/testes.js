@@ -1,5 +1,4 @@
 const express = require('express');
-const router = express.Router();
 const {ensureAuthenticated} = require('../Config/auth');
 const {
 	mostrarPaginaAddTeste,
@@ -9,6 +8,12 @@ const {
 	editarTeste,
 	deletarTeste,
 } = require('../Controllers/testes');
+
+const chamadaRouter = require('./chamadas');
+
+const router = express.Router();
+
+router.use('/:id/chamada', chamadaRouter);
 
 router.get('/add', ensureAuthenticated, mostrarPaginaAddTeste);
 

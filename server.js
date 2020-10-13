@@ -107,11 +107,20 @@ app.use(function (req, res, next) {
 	res.render('Erros/404');
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
 	console.log(
 		`O servidor foi iniciado no modo ${process.env.NODE_ENV} na porta ${PORT}`
 			.yellow.bold
 	);
+});
+
+//----------------Socket.io------------------
+
+//Iniciando servidor para o socket io
+const io = require('socket.io')(server);
+
+io.on('connect', (socket) => {
+	console.log('conectado');
 });
 
 //Error

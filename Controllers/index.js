@@ -1,5 +1,3 @@
-const express = require('express');
-
 //Modelo Teste
 const Teste = require('../Models/Teste');
 
