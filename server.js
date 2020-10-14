@@ -51,7 +51,7 @@ mongoose
 	.catch((err) => console.log(err));
 
 //Handlebars Helper
-const {formatarData, tipoDiferente, retornaVariavel} = require('./Helpers/hbs');
+const {formatarData, tipoDiferente} = require('./Helpers/hbs');
 
 //Handlebars
 app.engine(
@@ -118,9 +118,14 @@ const server = app.listen(PORT, () => {
 
 //Iniciando servidor para o socket io
 const io = require('socket.io')(server);
-
-io.on('connect', (socket) => {
-	console.log('conectado');
+io.on('connect', function (socket) {
+	console.log('Socket.io conectado'.green.bold);
+	//Video chamada
+	socket.on('entrarSala', (idSala) => {
+		console.log('Usuário entrou na sala');
+		socket.join(idSala);
+		socket.to(idSala).broadcast.emit('user-connected');
+	});
 });
 
 //Error

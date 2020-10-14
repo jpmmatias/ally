@@ -5,6 +5,13 @@ video.muted = true;
 
 let videoStream;
 
+socket.on('connect', () => {
+	socket.emit('entrarSala', pegarID());
+});
+socket.on('user-connected', () => {
+	conectarNovoUser();
+});
+
 navigator.mediaDevices
 	.getUserMedia({
 		video: true,
@@ -25,5 +32,14 @@ const addVideoStream = (video, stream) => {
 		video.play();
 	});
 	videoGrid.append(video);
-	console.log(video);
+};
+
+const pegarID = () => {
+	let url = window.location.href;
+	let urlSeparado = url.split('/');
+	let id = urlSeparado[4];
+	return id;
+};
+const conectarNovoUser = () => {
+	console.log('novo user conectado');
 };
