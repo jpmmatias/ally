@@ -10,7 +10,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const methodOverride = require('method-override');
-const helmet = require('helmet');
+//const helmet = require('helmet');
+const {ExpressPeerServer} = require('peer');
 const colors = require('colors');
 
 //Config geral
@@ -20,7 +21,7 @@ dotenv.config({path: '/Config/config.env'});
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Helmet middleware (Segurança do site)
-app.use(helmet());
+//app.use(helmet());
 
 //Bodyparser
 app.use(express.urlencoded({extended: false}));
@@ -114,10 +115,20 @@ const server = app.listen(PORT, () => {
 	);
 });
 
+//Criando servidor Peer JS
+
+const peerServer = ExpressPeerServer(server, {
+	debug: true,
+});
+
+app.use('/peerjs', peerServer);
+
 //----------------Socket.io------------------
 
 //Iniciando servidor para o socket io
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+	transports: ['polling'],
+});
 io.on('connect', function (socket) {
 	console.log('Socket.io conectado'.green.bold);
 	//Video chamada
