@@ -3,16 +3,45 @@ const socket = io('/');
 let userStream;
 let otherUser;
 let peerRef;
-let userVideo = document.querySelector('#userVideo');
-let partnerVideo = document.querySelector('#partnerVideo');
+let senders = [];
+let userVideo = document.createElement('video');
+let btnCompartilhar = document.querySelector('#compartilharTela');
+let partnerVideo = document.createElement('video');
+
+btnCompartilhar.addEventListener('click', shareScreen);
 
 userVideo.muted = true;
+
 const pegarID = () => {
 	let url = window.location.href;
 	let urlSeparado = url.split('/');
 	let ROOM_ID = urlSeparado[4];
 	return ROOM_ID;
 };
+var tryReconnect = function () {
+	if (socket.socket.connected === false && socket.socket.connecting === false) {
+		// use a connect() or reconnect() here if you want
+		socket.socket.connect();
+	}
+};
+
+var intervalID = setInterval(tryReconnect, 2000);
+
+socket.on('connect', () => {
+	clearInterval(intervalID);
+	partnerVideo = document.createElement('video');
+	socket.emit('roomID', pegarID());
+});
+
+socket.on('disconnect', () => {
+	socket.disconnect();
+});
+
+socket.on('userLeft', () => {
+	console.log('yppp');
+
+	partnerVideo.remove();
+});
 
 navigator.mediaDevices
 	.getUserMedia({
@@ -36,7 +65,7 @@ function callUser(userID) {
 	peerRef = createPeer(userID);
 	userStream
 		.getTracks()
-		.forEach((track) => peerRef.addTrack(track, userStream));
+		.forEach((track) => senders.push(peerRef.addTrack(track, userStream)));
 }
 
 function createPeer(userID) {
@@ -124,6 +153,7 @@ function handleNewICECandidateMsg(incoming) {
 }
 
 function handleTrackEvent(e) {
+	videoGrid.appendChild(partnerVideo);
 	partnerVideo.srcObject = e.streams[0];
 	partnerVideo.addEventListener('loadedmetadata', () => {
 		partnerVideo.play();
@@ -131,9 +161,26 @@ function handleTrackEvent(e) {
 }
 
 function addVideoStream(video, stream) {
+	videoGrid.appendChild(video);
 	video.srcObject = stream;
 	userStream = stream;
 	video.addEventListener('loadedmetadata', () => {
 		video.play();
+	});
+}
+
+function shareScreen() {
+	navigator.mediaDevices.getDisplayMedia({cursor: true}).then((stream) => {
+		const screenTrack = stream.getTracks()[0];
+		senders
+			.find((sender) => sender.track.kind === 'video')
+			.replaceTrack(screenTrack);
+		addVideoStream(userVideo, stream);
+		screenTrack.onended = function () {
+			senders
+				.find((sender) => sender.track.kind === 'video')
+				.replaceTrack(userStream.getTracks()[1]);
+			addVideoStream(userVideo, stream);
+		};
 	});
 }

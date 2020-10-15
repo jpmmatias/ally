@@ -123,7 +123,8 @@ const io = require('socket.io')(server, {
 const rooms = {};
 io.on('connect', (socket) => {
 	console.log('Socket.io conectado'.green.bold);
-	//Video chamada
+	//---------------------Video chamada-------------------------
+	let id;
 	socket.on('join room', (roomID) => {
 		console.log('entrou na sala'.green.bold);
 		if (rooms[roomID]) {
@@ -138,6 +139,10 @@ io.on('connect', (socket) => {
 		}
 	});
 
+	socket.on('roomID', (roomID) => {
+		id = roomID;
+	});
+
 	socket.on('offer', (payload) => {
 		io.to(payload.target).emit('offer', payload);
 	});
@@ -148,6 +153,11 @@ io.on('connect', (socket) => {
 
 	socket.on('ice-candidate', (incoming) => {
 		io.to(incoming.target).emit('ice-candidate', incoming.candidate);
+	});
+
+	socket.on('disconnect', () => {
+		const otherUser = rooms[id].find((id) => id !== socket.id);
+		socket.to(otherUser).emit('userLeft');
 	});
 });
 
