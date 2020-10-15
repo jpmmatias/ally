@@ -11,7 +11,6 @@ const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const methodOverride = require('method-override');
 //const helmet = require('helmet');
-const {ExpressPeerServer} = require('peer');
 const colors = require('colors');
 
 //Config geral
@@ -115,27 +114,40 @@ const server = app.listen(PORT, () => {
 	);
 });
 
-//Criando servidor Peer JS
-
-const peerServer = ExpressPeerServer(server, {
-	debug: true,
-});
-
-app.use('/peerjs', peerServer);
-
 //----------------Socket.io------------------
 
 //Iniciando servidor para o socket io
 const io = require('socket.io')(server, {
 	transports: ['polling'],
 });
-io.on('connect', function (socket) {
+const rooms = {};
+io.on('connect', (socket) => {
 	console.log('Socket.io conectado'.green.bold);
 	//Video chamada
-	socket.on('entrarSala', (idSala) => {
-		console.log('Usuário entrou na sala');
-		socket.join(idSala);
-		socket.to(idSala).broadcast.emit('user-connected');
+	socket.on('join room', (roomID) => {
+		console.log('entrou na sala'.green.bold);
+		if (rooms[roomID]) {
+			rooms[roomID].push(socket.id);
+		} else {
+			rooms[roomID] = [socket.id];
+		}
+		const otherUser = rooms[roomID].find((id) => id !== socket.id);
+		if (otherUser) {
+			socket.emit('other user', otherUser);
+			socket.to(otherUser).emit('user joined', socket.id);
+		}
+	});
+
+	socket.on('offer', (payload) => {
+		io.to(payload.target).emit('offer', payload);
+	});
+
+	socket.on('answer', (payload) => {
+		io.to(payload.target).emit('answer', payload);
+	});
+
+	socket.on('ice-candidate', (incoming) => {
+		io.to(incoming.target).emit('ice-candidate', incoming.candidate);
 	});
 });
 
