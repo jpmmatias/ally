@@ -12,6 +12,10 @@ const TesteSchema = new mongoose.Schema({
 	tarefas: {
 		type: [String],
 	},
+	url: {
+		type: String,
+		required: true,
+	},
 	user: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User',

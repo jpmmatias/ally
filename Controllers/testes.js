@@ -29,6 +29,7 @@ exports.addTeste = async (req, res, next) => {
 //Acesso            Privado
 exports.mostrarEspecificoTeste = async (req, res, next) => {
 	try {
+		const id = req.params.id;
 		let teste = await Teste.findById(req.params.id).populate('user').lean();
 		if (!teste) {
 			return res.render('Erros/404');

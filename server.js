@@ -117,49 +117,8 @@ const server = app.listen(PORT, () => {
 //----------------Socket.io------------------
 
 //Iniciando servidor para o socket io
-const io = require('socket.io')(server, {
-	transports: ['polling'],
-});
-const rooms = {};
-io.on('connect', (socket) => {
-	console.log('Socket.io conectado'.green.bold);
-	//---------------------Video chamada-------------------------
-	let id;
-	socket.on('join room', (roomID) => {
-		console.log('entrou na sala'.green.bold);
-		if (rooms[roomID]) {
-			rooms[roomID].push(socket.id);
-		} else {
-			rooms[roomID] = [socket.id];
-		}
-		const otherUser = rooms[roomID].find((id) => id !== socket.id);
-		if (otherUser) {
-			socket.emit('other user', otherUser);
-			socket.to(otherUser).emit('user joined', socket.id);
-		}
-	});
-
-	socket.on('roomID', (roomID) => {
-		id = roomID;
-	});
-
-	socket.on('offer', (payload) => {
-		io.to(payload.target).emit('offer', payload);
-	});
-
-	socket.on('answer', (payload) => {
-		io.to(payload.target).emit('answer', payload);
-	});
-
-	socket.on('ice-candidate', (incoming) => {
-		io.to(incoming.target).emit('ice-candidate', incoming.candidate);
-	});
-
-	socket.on('disconnect', () => {
-		const otherUser = rooms[id].find((id) => id !== socket.id);
-		socket.to(otherUser).emit('userLeft');
-	});
-});
+const io = require('./Sockets/Sockets');
+io.attach(server);
 
 //Error
 process.on('unhandledRejection', (err, promisse) => {

@@ -6,9 +6,12 @@ let peerRef;
 let senders = [];
 let userVideo = document.createElement('video');
 let btnCompartilhar = document.querySelector('#compartilharTela');
-let partnerVideo = document.createElement('video');
+let btnPararDeCompartilhar = document.querySelector('#pararDeCompartilhar');
+
+let partnerVideo;
 
 btnCompartilhar.addEventListener('click', shareScreen);
+btnPararDeCompartilhar.addEventListener('click', pararDeCompartilhar);
 
 userVideo.muted = true;
 
@@ -29,7 +32,7 @@ var intervalID = setInterval(tryReconnect, 2000);
 
 socket.on('connect', () => {
 	clearInterval(intervalID);
-	partnerVideo = document.createElement('video');
+	//partnerVideo = document.createElement('video');
 	socket.emit('roomID', pegarID());
 });
 
@@ -38,9 +41,10 @@ socket.on('disconnect', () => {
 });
 
 socket.on('userLeft', () => {
-	console.log('yppp');
-
 	partnerVideo.remove();
+});
+socket.on('criarOutroUserVideo', () => {
+	partnerVideo = document.createElement('video');
 });
 
 navigator.mediaDevices
@@ -50,7 +54,6 @@ navigator.mediaDevices
 	})
 	.then((stream) => {
 		addVideoStream(userVideo, stream);
-		console.log(userVideo);
 		socket.emit('join room', pegarID());
 		socket.on('other user', (userID) => {
 			callUser(userID);
@@ -59,7 +62,8 @@ navigator.mediaDevices
 		socket.on('offer', handleRecieveCall);
 		socket.on('answer', handleAnswer);
 		socket.on('ice-candidate', handleNewICECandidateMsg);
-	});
+	})
+	.catch((err) => console.log(err));
 
 function callUser(userID) {
 	peerRef = createPeer(userID);
@@ -168,8 +172,17 @@ function addVideoStream(video, stream) {
 		video.play();
 	});
 }
+function replaceVideoStream(video, stream) {
+	video.srcObject = stream;
+	userStream = stream;
+	video.addEventListener('loadedmetadata', () => {
+		video.play();
+	});
+}
 
 function shareScreen() {
+	btnPararDeCompartilhar.style.display = 'block';
+	btnCompartilhar.style.display = 'none';
 	navigator.mediaDevices.getDisplayMedia({cursor: true}).then((stream) => {
 		const screenTrack = stream.getTracks()[0];
 		senders
@@ -177,6 +190,12 @@ function shareScreen() {
 			.replaceTrack(screenTrack);
 		addVideoStream(userVideo, stream);
 		screenTrack.onended = function () {
+			navigator.mediaDevices.getUserMedia({
+				video: true,
+				audio: true,
+			});
+
+			const screenTrack = stream.getTracks()[1];
 			senders
 				.find((sender) => sender.track.kind === 'video')
 				.replaceTrack(userStream.getTracks()[1]);
