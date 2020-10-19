@@ -55,13 +55,13 @@ mongoose
 	.catch((err) => console.log(err));
 
 //Handlebars Helper
-const {formatarData, tipoDiferente} = require('./Helpers/hbs');
+const {formatarData, tipoDiferente,stringfy} = require('./Helpers/hbs');
 
 //Handlebars
 app.engine(
 	'.hbs',
 	expshbs({
-		helpers: {formatarData, tipoDiferente},
+		helpers: {formatarData, tipoDiferente,stringfy},
 		defaultLayout: 'main',
 		extname: '.hbs',
 	})
@@ -98,6 +98,8 @@ app.use((req, res, next) => {
 app.use('/', require('./Routes/index'));
 app.use('/users', require('./Routes/users'));
 app.use('/testes', require('./Routes/testes'));
+app.use('/calendario', require('./Routes/calendario'));
+
 
 const PORT = process.env.PORT || 5000;
 

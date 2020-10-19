@@ -13,4 +13,8 @@ module.exports = {
 			return '';
 		}
 	},
+	//Retorna JSON
+	stringfy:function(context) {
+		return JSON.stringify(context);
+	}
 };
