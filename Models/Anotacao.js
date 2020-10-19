@@ -16,6 +16,6 @@ const AnotacoesSchema = new mongoose.Schema({
 	},
 });
 
-const Anotacao = mongoose.model('Teste', TesteSchema);
+const Anotacao = mongoose.model('Anotacao', AnotacoesSchema);
 
 module.exports = Anotacao;

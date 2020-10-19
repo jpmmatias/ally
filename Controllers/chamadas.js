@@ -6,6 +6,9 @@ const Teste = require('../Models/Teste');
 //Modelo User
 const User = require('../Models/User');
 
+//Modelo Anotação
+const Anotacao = require('../Models/Anotacao');
+
 //descrição         Mostrar sala da chamada
 //route             GET /
 //Acesso            Privado
@@ -56,11 +59,7 @@ exports.mostrarLobby = async (req, res, next) => {
 //Acesso            Privado
 exports.addAnotacao = async (req, res, next) => {
 	try {
-		let teste = await Teste.findById(req.params.id).lean();
-		teste = await Teste.findOneAndUpdate(
-			{_id: req.params.id},
-			{$push: {anotacoes: req.body.anotacoes}}
-		);
+		await Anotacao.create({anotacao: req.body.anotacao, teste: req.params.id});
 		res.end();
 	} catch (err) {
 		console.log(err);
