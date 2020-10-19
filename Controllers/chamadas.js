@@ -50,3 +50,19 @@ exports.mostrarLobby = async (req, res, next) => {
 		return res.render('Erros/404');
 	}
 };
+
+//descrição         Adicionar teste
+//route             PUT /testes/:id/chamada/anotacao
+//Acesso            Privado
+exports.addAnotacao = async (req, res, next) => {
+	try {
+		let teste = await Teste.findById(req.params.id).lean();
+		teste = await Teste.findOneAndUpdate(
+			{_id: req.params.id},
+			{$push: {anotacoes: req.body.anotacoes}}
+		);
+		res.end();
+	} catch (err) {
+		console.log(err);
+	}
+};

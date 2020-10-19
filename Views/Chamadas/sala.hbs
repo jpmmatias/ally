@@ -4,6 +4,26 @@
 </div>
 <button id="compartilharTela" class=' btn blue'>Compartilhar tela</button>
 <button id="pararDeCompartilhar" style="display: none;" class=' btn blue'>Parar de compartilhar tela</button>
+<div>
+    <div class="col s6">
+        <h3>Tarefas</h3>
+        <ul>
+            {{#each teste.tarefas as |tarefa|}}
+            <li>{{tarefa}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col s6">
+        <h3>Anotações</h3>
+        <form action="/testes/{{teste._id}}/chamada/anotacao" method="POST" id="anotacoes">
+            <input type="hidden" name="_method" value="PUT">
+            <textarea name="anotacoes" placeholder="Escreve sua anotações"></textarea>
+            <input type="submit">Salvar anotação</input>
+        </form>
+    </div>
+</div>
+
+
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="/socket.io/socket.io.js" defer></script>
 <script src="/Javascript/chamadas.js" defer></script>

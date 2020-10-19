@@ -20,6 +20,9 @@ const TesteSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User',
 	},
+	anotacoes: {
+		type: [String],
+	},
 	data: {
 		type: Date,
 		default: Date.now,

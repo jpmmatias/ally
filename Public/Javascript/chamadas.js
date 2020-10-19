@@ -8,6 +8,8 @@ let userVideo = document.createElement('video');
 let btnCompartilhar = document.querySelector('#compartilharTela');
 let btnPararDeCompartilhar = document.querySelector('#pararDeCompartilhar');
 
+const submitTarefa = document.querySelector('#anotacoes');
+
 let partnerVideo;
 
 btnCompartilhar.addEventListener('click', shareScreen);
@@ -172,34 +174,31 @@ function addVideoStream(video, stream) {
 		video.play();
 	});
 }
-function replaceVideoStream(video, stream) {
-	video.srcObject = stream;
-	userStream = stream;
-	video.addEventListener('loadedmetadata', () => {
-		video.play();
-	});
-}
 
 function shareScreen() {
 	btnPararDeCompartilhar.style.display = 'block';
 	btnCompartilhar.style.display = 'none';
 	navigator.mediaDevices.getDisplayMedia({cursor: true}).then((stream) => {
 		const screenTrack = stream.getTracks()[0];
-		senders
-			.find((sender) => sender.track.kind === 'video')
-			.replaceTrack(screenTrack);
-		addVideoStream(userVideo, stream);
-		screenTrack.onended = function () {
-			navigator.mediaDevices.getUserMedia({
-				video: true,
-				audio: true,
-			});
-
-			const screenTrack = stream.getTracks()[1];
+		if (senders.length > 0) {
 			senders
 				.find((sender) => sender.track.kind === 'video')
-				.replaceTrack(userStream.getTracks()[1]);
+				.replaceTrack(screenTrack);
 			addVideoStream(userVideo, stream);
-		};
+		}
 	});
 }
+
+submitTarefa.addEventListener('click', sendForm);
+
+const sendFomrm = (e) => {
+	e.preventDefault();
+	let id = pegarID();
+	let ajax = new XMLHttpRequest();
+	ajax.open('PUT', `http://localhost:5000/testes/${id}/chamada`);
+	ajax.onreadystatechange = () => {
+		console.log(ajax.response);
+	};
+	ajax.send();
+	return false;
+};
