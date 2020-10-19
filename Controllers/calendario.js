@@ -4,8 +4,22 @@ const Teste = require('../Models/Teste');
 //descrição         Mostrar calendário
 //route             GET /
 //Acesso            Privado
+exports.mostrarCalendario =  (req, res, next) => {
+    
+	try {
+        res.render('calendario');
+    }
+    catch (err) {
+		console.log(err);
+        return res.render('Erros/404');
+    }
+}
 
-exports.mostrarCalendario = async (req, res, next) => {
+//descrição         Pegar dados pro calendario
+//route             GET /data
+//Acesso            Privado
+
+exports.mostrarDadosProCalendario =  async (req, res, next) => {
     let ObjectId = require('mongoose').Types.ObjectId; 
 	try {
         let todosTestes =[]
@@ -13,12 +27,10 @@ exports.mostrarCalendario = async (req, res, next) => {
             testes.forEach(teste => {
                 todosTestes.push(teste)
             });
-            res.render('calendario',{
-                testes:testes.map(teste => teste.toJSON())
-            });
+            res.send({testes:todosTestes});
+           
     })}
     catch (err) {
 		console.log(err);
         return res.render('Erros/404');
-    }
-}
+    }}
