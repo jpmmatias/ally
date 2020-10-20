@@ -27,7 +27,7 @@ exports.mostrarDadosProCalendario =  async (req, res, next) => {
             testes.forEach(teste => {
                 todosTestes.push(teste)
             });
-            res.send({testes:todosTestes});
+            res.send(todosTestes);
            
     })}
     catch (err) {

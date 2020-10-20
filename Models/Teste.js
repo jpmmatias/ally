@@ -14,14 +14,14 @@ const TesteSchema = new mongoose.Schema({
 	},
 	url: {
 		type: String,
-		required: true,
+		// required: true,
 	},
 	user: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User',
 	},
-	anotacoes: {
-		type: [String],
+	dataMarcada:{
+		type:Date
 	},
 	data: {
 		type: Date,

@@ -1,15 +1,26 @@
 const createCalendar = async (data) => {
     let calendarEl = document.getElementById('calendar');
-    let testes = data
+    let testes =   JSON.parse(data)
+    console.log(testes)
+    let events =[]
+    testes.forEach(teste => {
+        events.push({title:teste.nome,start:teste.dataMarcada})
+    });
     let calendar = new FullCalendar.Calendar(calendarEl, {
         height: 550,
         initialView: 'dayGridMonth',
         timeZone: 'local',
+        headerToolbar:{
+            left:'prev,next today',
+            centet:'title',
+            right:'dayGridMonth, timeGridWeek,timeGridDay',
+        },
+        events,
      
     });
 
     calendar.render();
-    console.log(testes)
+    
   }
 
 const fetchData = ()=>{
