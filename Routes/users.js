@@ -7,17 +7,23 @@ const {
 	mostrarPaginaRegister,
 	lidarLogin,
 	logout,
+	mostrarPaginaRegisterTester,
+	criarUsuarioTester
 } = require('../Controllers/users');
 const {ensureGuest, ensureAuthenticated} = require('../Config/auth');
 const passport = require('passport');
 
-router.get('/login', mostrarPaginaLogin, ensureGuest);
+router.get('/login', ensureGuest, mostrarPaginaLogin);
 
-router.get('/register', mostrarPaginaRegister, ensureGuest);
+router.get('/register', ensureGuest, mostrarPaginaRegister);
 
-router.post('/register', criarUsuario, ensureGuest);
+router.get('/register/tester',ensureGuest, mostrarPaginaRegisterTester);
 
-router.post('/login', lidarLogin, ensureGuest);
+router.post('/register',ensureGuest, criarUsuario );
+
+router.post('/register/tester',ensureGuest, criarUsuarioTester);
+
+router.post('/login',ensureGuest, lidarLogin);
 
 router.get(
 	'/login/google',

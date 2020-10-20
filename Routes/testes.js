@@ -7,6 +7,7 @@ const {
 	mostrarPaginaPraEditar,
 	editarTeste,
 	deletarTeste,
+	mostrarPaginaDeConvidarTesters
 } = require('../Controllers/testes');
 
 const chamadaRouter = require('./chamadas');
@@ -26,5 +27,7 @@ router.get('/editar/:id', ensureAuthenticated, mostrarPaginaPraEditar);
 router.put('/editar/:id', ensureAuthenticated, editarTeste);
 
 router.delete('/:id', ensureAuthenticated, deletarTeste);
+
+router.get('/add/:id/convidar', ensureAuthenticated, mostrarPaginaDeConvidarTesters);
 
 module.exports = router;

@@ -1,5 +1,8 @@
 <h6>Dashboard</h6>
 <h3>Bem Vindo {{nome}}</h3>
+{{#if tipo}}
+{{> _convites this}}
+{{/if}}
 <p>Aqui estão os seus testes</p>
 <a href="/testes/add" class="btn blue">Criar teste</a>
 {{#if testes}}

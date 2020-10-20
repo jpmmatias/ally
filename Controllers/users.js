@@ -46,7 +46,7 @@ exports.mostrarPaginaRegister = (req, res, next) => {
 };
 
 //descrição         Cria nova conta
-//route             GET /users/register
+//route             POST /users/register
 //Acesso            Pulico
 exports.criarUsuario = (req, res, next) => {
 	const {nome, email, senha, senha2} = req.body;
@@ -127,3 +127,103 @@ exports.criarUsuario = (req, res, next) => {
 		});
 	}
 };
+
+//descrição         Mostrar página de registrar tester
+//route             GET /users/register/tester
+//Acesso            Pulico
+exports.mostrarPaginaRegisterTester = (req, res, next) => {
+	res.render('register', {
+		layout: 'loginLayout',
+		tester:'tester'
+	});
+};
+
+
+//descrição         Cria nova conta para tester
+//route             POST /users/register/tester
+//Acesso            Pulico
+exports.criarUsuarioTester = (req, res, next) => {
+	const {nome, email, senha, senha2} = req.body;
+	let erros = [];
+
+	//Checando os requisitados
+	if (!nome || !email || !senha || !senha2) {
+		erros.push({
+			msg: 'Por favor preencha todos os campos',
+		});
+	}
+
+	//Checando se as senhas são iguais
+	if (senha !== senha2) {
+		console.log('erro senha n igual')
+
+		erros.push({
+			msg: 'Senhas não estão iguais',
+		});
+	}
+
+	//Checando tamanho da senha
+	if (senha.length < 6) {
+		console.log('erro senha')
+
+		erros.push({
+			msg: 'Senha deve ter no minimo 6 caracteres',
+		});
+	}
+
+	if (erros.length > 0) {
+		console.log(erros);
+		res.render('register', {
+			layout: 'loginLayout',
+			erros,
+			nome,
+			email,
+			senha,
+			senha2,
+		});
+	} else {
+		//Passou na validação
+		User.findOne({email: email}).then((user) => {
+			if (user) {
+				//Usuário ja existe
+				erros.push({msg: 'Email ja foi registrado'});
+				console.log('erro')
+				res.render('register', {
+					layout: 'loginLayout',
+					erros,
+					nome,
+					email,
+					senha,
+					senha2,
+				});
+			} else {
+				const novoUser = new User({
+					nome,
+					email,
+					senha,
+					tipo:'tester'
+				});
+				//Hash senha
+				bcrypt.genSalt(10, (err, salt) =>
+					bcrypt.hash(novoUser.senha, salt, (err, hash) => {
+						if (err) {
+							throw err;
+						} else {
+							novoUser.senha = hash;
+
+							//Salvando usuário na DB
+							novoUser
+								.save()
+								.then((user) => {
+									req.flash('success_msg', 'Você foi registrado com sucesso!');
+									res.redirect('/users/login');
+								})
+								.catch((err) => console.log(err));
+						}
+					})
+				);
+			}
+		});
+	}
+};
+

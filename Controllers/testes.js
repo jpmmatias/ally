@@ -3,6 +3,9 @@ const express = require('express');
 //Modelo Teste
 const Teste = require('../Models/Teste');
 
+//Modelo User
+const User = require('../Models/User');
+
 //descrição         Mostrar pagina para adicionar teste
 //route             GET /testes/add
 //Acesso            Privado
@@ -21,8 +24,8 @@ exports.addTeste = async (req, res, next) => {
 		var dataMarcada = (new Date(dataMarcadaSeFormatacao - tzoffset)).toISOString().slice(0, -1);
 		console.log(dataMarcada)
 		req.body.user = req.user.id;
-		await Teste.create({nome:req.body.nome,descricao:req.body.descricao,tarefas:req.body.tarefas,url:req.body.url,user:req.body.user,dataMarcada:dataMarcada});
-		res.redirect('/dashboard');
+		let novoTeste = await Teste.create({nome:req.body.nome,descricao:req.body.descricao,tarefas:req.body.tarefas,url:req.body.url,user:req.body.user,dataMarcada:dataMarcada});
+		res.redirect(`testes/add/${novoTeste._id}/convidar/`);
 	} catch (err) {
 		console.log(err);
 		res.render('Erros/500');
@@ -111,4 +114,33 @@ exports.deletarTeste = async (req, res, next) => {
 		console.log(err);
 		return res.render('Erros/500');
 	}
+};
+
+//descrição         Mostrar pagina para convidar testers
+//route             Get /testes/add/convidar/:id
+//Acesso            Privado
+exports.mostrarPaginaDeConvidarTesters = async (req, res, next) => {
+	let teste = await Teste.findById(req.params.id).lean();
+	try {
+		const teste = await Teste.findOne({
+		_id: req.params.id,}).lean();
+		const users = await User.find()
+		const userCriador = await User.findOne({
+			_id: req.user.id,}).lean();
+
+	if (!teste) {
+		return res.render('Erros/404');
+	}
+
+	if (teste.user != req.user.id) {
+		res.redirect('/dashboard');
+	} else{
+		res.render('Testes/convidarTesters',{teste, userCriador, users});
+	}
+
+	} catch (err) {
+		console.log(err)
+		return res.render('Erros/500');
+	}
+	
 };
