@@ -54,8 +54,8 @@ exports.mostrarLobby = async (req, res, next) => {
 	}
 };
 
-//descrição         Adicionar teste
-//route             PUT /testes/:id/chamada/anotacao
+//descrição         Adicionar anotação
+//route             POST /testes/:id/chamada/anotacao
 //Acesso            Privado
 exports.addAnotacao = async (req, res, next) => {
 	try {

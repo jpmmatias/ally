@@ -23,19 +23,23 @@ const UserSchema = new mongoose.Schema({
 		default: 'empresa'
 	},
 	mandarConvite:[{
-		userNome:{type: String, default:''}, 
+		userNomeTester:{type: String, default:''}, 
+		testerIdTester: {type: mongoose.Schema.Types.ObjectId, ref: 'Teste'},
+		_id: false 
 		}],
-	convite:[{
+	convites:[{
 		userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-		testeId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+		testeId: {type: mongoose.Schema.Types.ObjectId, ref: 'Teste'},
 		userNome: {type: String, default: ''},
-		testeNome: {type: String, default: ''}
+		testeNome: {type: String, default: ''},
+		_id: false 
 	}],
 	testesAceitos:[{
 		userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 		testeId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 		userNome: {type: String, default: ''},
-		testeNome: {type: String, default: ''}
+		testeNome: {type: String, default: ''},	
+		_id: false 
 	}],
 	data: {
 		type: Date,

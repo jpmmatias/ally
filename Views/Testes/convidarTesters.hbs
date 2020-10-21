@@ -1,6 +1,32 @@
 <h3>Convidar Testers</h3>
 {{teste.nome}}
 {{userCriador.nome}}
-<p>
-    {{users}}
-</p>
+{{#if users}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Convidar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each users as |user|}}
+        <tr id="tr">
+            <td>{{user.nome}}</td>
+            <td>
+                <form action="" method="POST" id="form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" id='convidar' onclick="mandarConvite('{{user.nome}}')" class="btn blue">
+                        <span>Convidar</span>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>Vcoê não tem testes ainda</p>
+{{/if}}
+
+<script src="/Javascript/convites.js"></script>

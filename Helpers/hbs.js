@@ -14,10 +14,18 @@ module.exports = {
 		}
 	},
 
-	//Retorna JSON
+	//Retorna string
 	stringfy:function(context) {
 		return JSON.stringify(context);
 	},
+
+	//Retorn equal
+	ifCond: function(v1, v2, options) {
+		if(v1 === v2) {
+		  return options.fn(this);
+		}
+		return options.inverse(this);
+	  }
 
 
 

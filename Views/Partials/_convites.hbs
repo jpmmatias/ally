@@ -1,2 +1,33 @@
 <h4>Convites</h4>
 {{convites}}
+{{#if convites}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each convites as |convite|}}
+        <tr>
+            <td>{{convite.userNome}}</td>
+            <td>
+                <button type="submit" id="aceitarBtn" class="btn blue">
+                    Aceitar
+                </button>
+                <button type="submit" id="recusarBtn" class="btn red">
+                    Recusar
+                </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>Vcoê não tem convites ainda</p>
+{{/if}}
+
+<script src="/Javascript/convites.js"></script>

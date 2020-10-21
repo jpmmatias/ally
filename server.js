@@ -55,13 +55,13 @@ mongoose
 	.catch((err) => console.log(err));
 
 //Handlebars Helper
-const {formatarData, tipoDiferente,stringfy} = require('./Helpers/hbs');
+const {formatarData, tipoDiferente,stringfy,ifCond} = require('./Helpers/hbs');
 
 //Handlebars
 app.engine(
 	'.hbs',
 	expshbs({
-		helpers: {formatarData, tipoDiferente,stringfy},
+		helpers: {formatarData, tipoDiferente,stringfy,ifCond},
 		defaultLayout: 'main',
 		extname: '.hbs',
 	})

@@ -5,10 +5,10 @@ let otherUser;
 let peerRef;
 let senders = [];
 let userVideo = document.createElement('video');
-let btnCompartilhar = document.querySelector('#compartilharTela');
-let btnPararDeCompartilhar = document.querySelector('#pararDeCompartilhar');
-
-const submitTarefa = document.querySelector('#anotacoes');
+const btnCompartilhar = document.querySelector('#compartilharTela');
+const btnPararDeCompartilhar = document.querySelector('#pararDeCompartilhar');
+const btnAnotacao = document.querySelector('.btnanotacao');
+const anotacao = document.querySelector('#anotacoes');
 
 let partnerVideo;
 
@@ -189,16 +189,27 @@ function shareScreen() {
 	});
 }
 
-submitTarefa.addEventListener('click', sendForm);
+let mandarAnotacao = ()=> {
+	let anotacaoValor = anotacao.value
+	let id = pegarID()
+	return fetch(`http://localhost:5000/testes/${id}/chamada/anotacao`,{
+		method: 'POST', 
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		  },
+		body: JSON.stringify({anotacao: anotacaoValor})
+	}).then((res)=>{
+		//console.log(res)
+	}).catch(err=>{
+		console.log(err)
+	})
+   }
 
-const sendFomrm = (e) => {
-	e.preventDefault();
-	let id = pegarID();
-	let ajax = new XMLHttpRequest();
-	ajax.open('PUT', `http://localhost:5000/testes/${id}/chamada`);
-	ajax.onreadystatechange = () => {
-		console.log(ajax.response);
-	};
-	ajax.send();
-	return false;
-};
+
+btnAnotacao.addEventListener('click', mandarAnotacao);
+
+
+
+
+   

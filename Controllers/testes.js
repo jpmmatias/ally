@@ -6,6 +6,8 @@ const Teste = require('../Models/Teste');
 //Modelo User
 const User = require('../Models/User');
 
+let ObjectId = require('mongodb').ObjectID;
+
 //descrição         Mostrar pagina para adicionar teste
 //route             GET /testes/add
 //Acesso            Privado
@@ -124,7 +126,7 @@ exports.mostrarPaginaDeConvidarTesters = async (req, res, next) => {
 	try {
 		const teste = await Teste.findOne({
 		_id: req.params.id,}).lean();
-		const users = await User.find()
+		const users = await User.find({tipo:'tester'}).lean()
 		const userCriador = await User.findOne({
 			_id: req.user.id,}).lean();
 
@@ -137,6 +139,52 @@ exports.mostrarPaginaDeConvidarTesters = async (req, res, next) => {
 	} else{
 		res.render('Testes/convidarTesters',{teste, userCriador, users});
 	}
+
+	} catch (err) {
+		console.log(err)
+		return res.render('Erros/500');
+	}
+	
+};
+
+//descrição         Convidar Tester
+//route             POST /testes/add/convidar/:id
+//Acesso            Privado
+exports.convidarTester = async (req, res, next) => {
+	try {
+		let nome = req.body.nome
+		let userCridadorId = req.user.id
+		const teste = await Teste.findById(req.params.id).lean();
+		let tester = await User.findOne({nome:nome}).lean()
+		let updateUserCridador={
+			mandarConvite:{userNomeTester:nome, testerIdTester:tester._id}
+		}
+		if (!teste) {
+			return res.render('Erros/404');
+		}
+		else if  (teste.user != req.user.id) {
+			res.redirect('/dashboard');
+		} else{
+			let filterCria = new Array(  {userNomeTester:nome, testerIdTester: new ObjectId(tester._id)} );
+			let userCriador = await User.findOneAndUpdate({_id: userCridadorId,mandarConvite:{ $nin :filterCria}},{ $push :updateUserCridador},{
+				new: true
+				 
+			  }).lean();
+
+			  if (!userCriador) {
+				  console.log('user criado')
+			  }
+			  else{
+				let updateTester = {
+					convites:{userId:userCridadorId,testeId:teste._id,userNome:req.user.nome,testeNome:teste.nome}
+				}
+
+				tester = await User.findOneAndUpdate({nome:nome},{ $push:updateTester},{
+					new:true
+				}).lean()
+			  }
+			
+		}
 
 	} catch (err) {
 		console.log(err)
