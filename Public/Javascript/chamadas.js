@@ -4,6 +4,9 @@ let userStream;
 let otherUser;
 let peerRef;
 let senders = [];
+const começarGravarBtn = document.getElementById("gravar");
+const videogravacao = document.getElementById("gravacao")
+const pararGravarBtn = document.getElementById("parar");
 let userVideo = document.createElement('video');
 const btnCompartilhar = document.querySelector('#compartilharTela');
 const btnPararDeCompartilhar = document.querySelector('#pararDeCompartilhar');
@@ -188,6 +191,27 @@ function shareScreen() {
 		}
 	});
 }
+
+começarGravarBtn.addEventListener("click",()=>{
+	recorder = new MediaRecorder(userStream);
+	const chunks = [];
+	recorder.ondataavailable = e => chunks.push(e.data);
+	recorder.onstop = e => {
+	  const completeBlob = new Blob(chunks, { type: chunks[0].type });
+	  videogravacao.src = URL.createObjectURL(completeBlob);
+	  videogravacao.controls=true
+	};
+  
+	recorder.start();
+} );
+pararGravarBtn.addEventListener("click", () => {
+	alert('aadasasd')
+	pararGravarBtn.setAttribute("disabled", true);
+	começarGravarBtn.removeAttribute("disabled");
+  
+	recorder.stop();
+	userStream.getVideoTracks()[0].stop();
+  });
 
 let mandarAnotacao = ()=> {
 	let anotacaoValor = anotacao.value
