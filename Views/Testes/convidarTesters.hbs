@@ -14,12 +14,10 @@
         <tr id="tr">
             <td>{{user.nome}}</td>
             <td>
-                <form action="" method="POST" id="form">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" id='convidar' onclick="mandarConvite('{{user.nome}}')" class="btn blue">
-                        <span>Convidar</span>
-                    </button>
-                </form>
+                <input type="hidden" name="_method" value="POST">
+                <button id='convidar' onclick="mandarConvite('{{user.nome}}')" class="btn blue">
+                    <span>Convidar</span>
+                </button>
             </td>
         </tr>
         {{/each}}
@@ -29,4 +27,4 @@
 <p>Vcoê não tem testes ainda</p>
 {{/if}}
 
-<script src="/Javascript/convites.js"></script>
+<script src="/Javascript/convite.js"></script>

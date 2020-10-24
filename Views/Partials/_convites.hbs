@@ -1,11 +1,9 @@
 <h4>Convites</h4>
-{{convites}}
 {{#if convites}}
 <table class="striped">
     <thead>
         <tr>
             <th>Nome</th>
-            <th>Data</th>
             <th></th>
         </tr>
     </thead>
@@ -14,10 +12,14 @@
         <tr>
             <td>{{convite.userNome}}</td>
             <td>
-                <button type="submit" id="aceitarBtn" class="btn blue">
+                <button
+                    onclick="aceitarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')"
+                    class="btn blue">
                     Aceitar
                 </button>
-                <button type="submit" id="recusarBtn" class="btn red">
+                <button
+                    onclick="recusarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')"
+                    id="recusarBtn" class="btn red">
                     Recusar
                 </button>
                 </form>
@@ -29,5 +31,26 @@
 {{else}}
 <p>Vcoê não tem convites ainda</p>
 {{/if}}
-
-<script src="/Javascript/convites.js"></script>
+{{#if testesAceitos}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Nome do teste</th>
+            <th>Nome do criador</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each testesAceitos as |teste|}}
+        <tr>
+            <td>
+                {{teste.testeNome}}
+            </td>
+            <td>
+                {{teste.userNome}}
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}
+<script src="/Javascript/convite.js"></script>

@@ -8,7 +8,9 @@ const {
 	editarTeste,
 	deletarTeste,
 	mostrarPaginaDeConvidarTesters,
-	convidarTester
+	convidarTester,
+	aceitarConviteTeste,
+	recusarConviteTeste
 } = require('../Controllers/testes');
 
 const chamadaRouter = require('./chamadas');
@@ -32,5 +34,10 @@ router.delete('/:id', ensureAuthenticated, deletarTeste);
 router.get('/add/:id/convidar', ensureAuthenticated, mostrarPaginaDeConvidarTesters);
 
 router.post('/add/:id/convidar', ensureAuthenticated, convidarTester);
+
+router.post('/add/:id/convidar/aceitar', ensureAuthenticated, aceitarConviteTeste);
+
+router.post('/add/:id/convidar/recusar', ensureAuthenticated, recusarConviteTeste);
+
 
 module.exports = router;

@@ -24,7 +24,8 @@ const UserSchema = new mongoose.Schema({
 	},
 	mandarConvite:[{
 		userNomeTester:{type: String, default:''}, 
-		testerIdTester: {type: mongoose.Schema.Types.ObjectId, ref: 'Teste'},
+		testerIdTester: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+		testeId: {type: mongoose.Schema.Types.ObjectId, ref: 'Teste'},
 		_id: false 
 		}],
 	convites:[{

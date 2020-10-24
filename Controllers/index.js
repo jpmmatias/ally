@@ -22,6 +22,7 @@ exports.mostrarDahboard = async (req, res, next) => {
 			nome: req.user.nome,
 			tipo:req.user.tipo,
 			convites:user.convites,
+			testesAceitos:user.testesAceitos,
 			testes,
 		});
 	} catch (err) {

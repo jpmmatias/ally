@@ -113,6 +113,11 @@ app.use(function (req, res, next) {
 	res.render('Erros/404');
 });
 
+app.use('/favicon.ico', (req, res, next) => {
+    console.log('favicon handler');
+    res.sendStatus(200);
+});
+
 const server = app.listen(PORT, () => {
 	console.log(
 		`O servidor foi iniciado no modo ${process.env.NODE_ENV} na porta ${PORT}`
