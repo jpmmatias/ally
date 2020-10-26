@@ -192,13 +192,36 @@ function shareScreen() {
 	});
 }
 
+let videoUpload = (videoUrl)=> {
+	let id = pegarID()
+	 //create any headers we want
+	 let h = new Headers();
+	 h.append('Accept', 'application/json'); //what we expect back
+	 //bundle the files and data we want to send to the server
+	 let fd = new FormData();
+	 
+	 fd.append('video', videoUrl, `${id}.mp4`);
+	console.log(fd)
+
+	return fetch(`http://localhost:5000/testes/${id}/chamada/videoUpload`,{
+		method: 'POST', 
+		headers:h,
+		body: fd
+	}).then((res)=>{
+		console.log(res)
+	}).catch(err=>{
+		console.log(err)
+	})
+   }
+   let recorder;
 começarGravarBtn.addEventListener("click",()=>{
 	recorder = new MediaRecorder(userStream);
 	const chunks = [];
 	recorder.ondataavailable = e => chunks.push(e.data);
 	recorder.onstop = e => {
-	  const completeBlob = new Blob(chunks, { type: chunks[0].type });
+	  const completeBlob = new Blob(chunks, {  'type' : 'video/mp4;' });
 	  videogravacao.src = URL.createObjectURL(completeBlob);
+	  videoUpload(completeBlob)
 	  videogravacao.controls=true
 	};
   
@@ -212,6 +235,8 @@ pararGravarBtn.addEventListener("click", () => {
 	recorder.stop();
 	userStream.getVideoTracks()[0].stop();
   });
+
+ 
 
 let mandarAnotacao = ()=> {
 	let anotacaoValor = anotacao.value

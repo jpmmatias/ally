@@ -6,4 +6,7 @@ module.exports = {
 	GOOGLE_CLIENT_SECRET: 'EmIueDLoIMlogUrhjbQ2EvZu',
 	GOOGLE_EMAIL: 'allyticc@gmail.com',
 	GOOGLE_EMAIL_SENHA: 'P6Cn58LLvEKo',
+	S3_KEY_ID:'AKIAIRWWJCDR45LKSQJQ',
+	S3_KEY_SECRET:'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',
 };
+

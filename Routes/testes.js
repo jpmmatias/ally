@@ -7,17 +7,17 @@ const {
 	mostrarPaginaPraEditar,
 	editarTeste,
 	deletarTeste,
-	mostrarPaginaDeConvidarTesters,
-	convidarTester,
-	aceitarConviteTeste,
-	recusarConviteTeste
 } = require('../Controllers/testes');
 
 const chamadaRouter = require('./chamadas');
 
+const conviteRouter = require('./convites');
+
 const router = express.Router();
 
 router.use('/:id/chamada', chamadaRouter);
+
+router.use('/add/:id/convidar', conviteRouter);
 
 router.get('/add', ensureAuthenticated, mostrarPaginaAddTeste);
 
@@ -30,14 +30,5 @@ router.get('/editar/:id', ensureAuthenticated, mostrarPaginaPraEditar);
 router.put('/editar/:id', ensureAuthenticated, editarTeste);
 
 router.delete('/:id', ensureAuthenticated, deletarTeste);
-
-router.get('/add/:id/convidar', ensureAuthenticated, mostrarPaginaDeConvidarTesters);
-
-router.post('/add/:id/convidar', ensureAuthenticated, convidarTester);
-
-router.post('/add/:id/convidar/aceitar', ensureAuthenticated, aceitarConviteTeste);
-
-router.post('/add/:id/convidar/recusar', ensureAuthenticated, recusarConviteTeste);
-
 
 module.exports = router;
