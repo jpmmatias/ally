@@ -194,19 +194,18 @@ function shareScreen() {
 
 let videoUpload = (videoUrl)=> {
 	let id = pegarID()
-	 //create any headers we want
-	 let h = new Headers();
-	 h.append('Accept', 'application/json'); //what we expect back
-	 //bundle the files and data we want to send to the server
-	 let fd = new FormData();
-	 
-	 fd.append('video', videoUrl, `${id}.mp4`);
-	console.log(fd)
-
+	let url = URL.createObjectURL(videoUrl);
+	fileReader = new FileReader()
+	fileReader.readAsDataURL( videoUrl )
+	let videoPost = new File([videoUrl], `${id}_${Date.now()}.mp4`);
+	let fd = new FormData();
+	fd.append('video',videoPost)
+	//fd.append('video', videoUrl, `${id}_${Date.now()}.mp4`);
 	return fetch(`http://localhost:5000/testes/${id}/chamada/videoUpload`,{
 		method: 'POST', 
-		headers:h,
-		body: fd
+		body:fileReader,
+		contentType: false,
+        processData: false,
 	}).then((res)=>{
 		console.log(res)
 	}).catch(err=>{
