@@ -6,6 +6,9 @@ const Teste = require('../Models/Teste');
 //Modelo User
 const User = require('../Models/User');
 
+const fs = require('fs');
+
+
 
 
 
@@ -13,8 +16,6 @@ const User = require('../Models/User');
 //route             POST testes/:id/chamada/videoUpload
 //Acesso            Privado
 exports.videoUpload = (req, res, next) => {
-    console.log(req.body)
-    console.log(req.file)
     res.json({status:'ok'})
 };
 

@@ -195,30 +195,34 @@ function shareScreen() {
 let videoUpload = (videoUrl)=> {
 	let id = pegarID()
 	let url = URL.createObjectURL(videoUrl);
-	fileReader = new FileReader()
+	let	fileReader = new FileReader()
 	fileReader.readAsDataURL( videoUrl )
-	let videoPost = new File([videoUrl], `${id}_${Date.now()}.mp4`);
-	let fd = new FormData();
-	fd.append('video',videoPost)
-	//fd.append('video', videoUrl, `${id}_${Date.now()}.mp4`);
-	return fetch(`http://localhost:5000/testes/${id}/chamada/videoUpload`,{
-		method: 'POST', 
-		body:fileReader,
-		contentType: false,
-        processData: false,
-	}).then((res)=>{
-		console.log(res)
-	}).catch(err=>{
-		console.log(err)
-	})
+	fileReader.onload=(e)=>{
+		let fd = new FormData();
+		let blob = new Blob([e.target.result], { 'type' : 'video/mp4;' });
+		fd.append('video',blob,`${id}_${Date.now()}.mp4`)
+		console.log(fd)
+		return fetch(`http://localhost:5000/testes/${id}/chamada/videoUpload`,{
+			method: 'POST', 
+			body:fd,
+		}).then((res)=>{
+			console.log(res)
+		}).catch(err=>{
+			console.log(err)
+		})
+	}
+	
+	console.log(fd,fileReader)
    }
-   let recorder;
+
+let recorder;
 começarGravarBtn.addEventListener("click",()=>{
 	recorder = new MediaRecorder(userStream);
 	const chunks = [];
 	recorder.ondataavailable = e => chunks.push(e.data);
 	recorder.onstop = e => {
 	  const completeBlob = new Blob(chunks, {  'type' : 'video/mp4;' });
+	
 	  videogravacao.src = URL.createObjectURL(completeBlob);
 	  videoUpload(completeBlob)
 	  videogravacao.controls=true
@@ -226,6 +230,7 @@ começarGravarBtn.addEventListener("click",()=>{
   
 	recorder.start();
 } );
+
 pararGravarBtn.addEventListener("click", () => {
 	alert('aadasasd')
 	pararGravarBtn.setAttribute("disabled", true);
