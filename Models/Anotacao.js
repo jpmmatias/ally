@@ -8,6 +8,7 @@ const AnotacoesSchema = new mongoose.Schema({
 	teste: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Teste',
+		required:true
 	},
 
 	data: {

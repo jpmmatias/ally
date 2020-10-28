@@ -8,7 +8,8 @@ const {
 	lidarLogin,
 	logout,
 	mostrarPaginaRegisterTester,
-	criarUsuarioTester
+	criarUsuarioTester,
+	deletarConta
 } = require('../Controllers/users');
 const {ensureGuest, ensureAuthenticated} = require('../Config/auth');
 const passport = require('passport');
@@ -45,5 +46,7 @@ router.get(
 );
 
 router.get('/logout', ensureAuthenticated, logout);
+
+router.get('/deletar', ensureAuthenticated, deletarConta);
 
 module.exports = router;
