@@ -1,0 +1,7 @@
+<h1>Videos</h1>
+{{#if videos}}
+{{#each videos as |video|}}
+<video autoplay controls type='video/mp4' src={{video.filePath}}></video>
+{{/each}}
+
+{{/if}}

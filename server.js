@@ -16,8 +16,11 @@ const colors = require('colors');
 //Config geral
 dotenv.config({path: '/Config/config.env'});
 
-//Pasta de arquivos estaticos
+//Pastas de arquivos estaticos
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Uploads')));
+
+
 
 //Helmet middleware (Segurança do site)
 //app.use(helmet());

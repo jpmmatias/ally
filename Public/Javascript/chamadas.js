@@ -199,9 +199,7 @@ let videoUpload = (videoUrl)=> {
 	fileReader.readAsDataURL( videoUrl )
 	fileReader.onload=(e)=>{
 		let fd = new FormData();
-		let blob = new Blob([e.target.result], { 'type' : 'video/mp4;' });
-		fd.append('video',blob,`${id}_${Date.now()}.mp4`)
-		console.log(fd)
+		fd.append('video',videoUrl,`${id}_${Date.now()}.mp4`)
 		return fetch(`http://localhost:5000/testes/${id}/chamada/videoUpload`,{
 			method: 'POST', 
 			body:fd,
@@ -211,9 +209,7 @@ let videoUpload = (videoUrl)=> {
 			console.log(err)
 		})
 	}
-	
-	console.log(fd,fileReader)
-   }
+	   }
 
 let recorder;
 começarGravarBtn.addEventListener("click",()=>{
@@ -223,7 +219,7 @@ começarGravarBtn.addEventListener("click",()=>{
 	recorder.onstop = e => {
 	  const completeBlob = new Blob(chunks, {  'type' : 'video/mp4;' });
 	
-	  videogravacao.src = URL.createObjectURL(completeBlob);
+	 videogravacao.src = URL.createObjectURL(completeBlob);
 	  videoUpload(completeBlob)
 	  videogravacao.controls=true
 	};
