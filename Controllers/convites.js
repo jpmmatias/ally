@@ -1,10 +1,11 @@
 const express = require('express');
-
+const {transporter,testerAcietou} = require('../Config/nodemailer');
 //Modelo Teste
 const Teste = require('../Models/Teste');
 
 //Modelo User
 const User = require('../Models/User');
+
 
 let ObjectId = require('mongodb').ObjectID;
 
@@ -97,7 +98,19 @@ exports.aceitarConviteTeste = async (req, res, next) => {
 
 		let tester = await User.findOneAndUpdate(filtroTester,{$pull:{convites:testerConvite}},{new:true}) 
 		let userCriador=await User.findOneAndUpdate(filtroUser,{$pull:{mandarConvite:userCriadorMandarConvite}},{new:true})
-		tester = await User.findOneAndUpdate(filtroTester,{$push:{testesAceitos:testerConvite}},{new:true}) 
+		tester = await User.findOneAndUpdate(filtroTester,{$push:{testesAceitos:testerConvite}},{new:true})
+		console.log(tester.nome)
+		console.log(testerAcietou(tester.nome,userCriador.email,testeNome))
+		transporter.sendMail(testerAcietou(tester.nome,userCriador.email,testeNome),(err,info)=>{
+			if (err) {
+				console.log(err)
+			}
+			if (info) {
+				console.log(info)
+			}
+		
+		})
+		
 		return res.end()
 		 
 	 } catch (err) {
