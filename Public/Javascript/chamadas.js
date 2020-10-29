@@ -12,45 +12,10 @@ const btnCompartilhar = document.querySelector('#compartilharTela');
 const btnPararDeCompartilhar = document.querySelector('#pararDeCompartilhar');
 const btnAnotacao = document.querySelector('.btnanotacao');
 const anotacao = document.querySelector('#anotacoes');
-
 let partnerVideo;
-
-btnCompartilhar.addEventListener('click', shareScreen);
-btnPararDeCompartilhar.addEventListener('click', pararDeCompartilhar);
+let recorder;
 
 userVideo.muted = true;
-
-const pegarID = () => {
-	let url = window.location.href;
-	let urlSeparado = url.split('/');
-	let ROOM_ID = urlSeparado[4];
-	return ROOM_ID;
-};
-var tryReconnect = function () {
-	if (socket.socket.connected === false && socket.socket.connecting === false) {
-		// use a connect() or reconnect() here if you want
-		socket.socket.connect();
-	}
-};
-
-var intervalID = setInterval(tryReconnect, 2000);
-
-socket.on('connect', () => {
-	clearInterval(intervalID);
-	//partnerVideo = document.createElement('video');
-	socket.emit('roomID', pegarID());
-});
-
-socket.on('disconnect', () => {
-	socket.disconnect();
-});
-
-socket.on('userLeft', () => {
-	partnerVideo.remove();
-});
-socket.on('criarOutroUserVideo', () => {
-	partnerVideo = document.createElement('video');
-});
 
 navigator.mediaDevices
 	.getUserMedia({
@@ -70,14 +35,30 @@ navigator.mediaDevices
 	})
 	.catch((err) => console.log(err));
 
-function callUser(userID) {
+const pegarID = () => {
+	let url = window.location.href;
+	let urlSeparado = url.split('/');
+	let ROOM_ID = urlSeparado[4];
+	return ROOM_ID;
+};
+
+const tryReconnect =  ()=> {
+	if (socket.socket.connected === false && socket.socket.connecting === false) {
+		// use a connect() or reconnect() here if you want
+		socket.socket.connect();
+	}
+};
+
+let intervalID = setInterval(tryReconnect, 2000);
+
+const callUser = (userID)=> {
 	peerRef = createPeer(userID);
 	userStream
 		.getTracks()
 		.forEach((track) => senders.push(peerRef.addTrack(track, userStream)));
 }
 
-function createPeer(userID) {
+const createPeer = (userID)=> {
 	const peer = new RTCPeerConnection({
 		iceServers: [
 			{
@@ -97,7 +78,7 @@ function createPeer(userID) {
 	return peer;
 }
 
-function handleNegotiationNeededEvent(userID) {
+const handleNegotiationNeededEvent = (userID)=> {
 	peerRef
 		.createOffer()
 		.then((offer) => {
@@ -114,7 +95,7 @@ function handleNegotiationNeededEvent(userID) {
 		.catch((e) => console.log(e));
 }
 
-function handleRecieveCall(incoming) {
+const handleRecieveCall = (incoming)=> {
 	peerRef = createPeer();
 	const desc = new RTCSessionDescription(incoming.sdp);
 	peerRef
@@ -140,12 +121,12 @@ function handleRecieveCall(incoming) {
 		});
 }
 
-function handleAnswer(message) {
+const handleAnswer=(message)=> {
 	const desc = new RTCSessionDescription(message.sdp);
 	peerRef.setRemoteDescription(desc).catch((e) => console.log(e));
 }
 
-function handleICECandidateEvent(e) {
+const handleICECandidateEvent = (e)=> {
 	if (e.candidate) {
 		const payload = {
 			target: otherUser,
@@ -155,13 +136,13 @@ function handleICECandidateEvent(e) {
 	}
 }
 
-function handleNewICECandidateMsg(incoming) {
+const handleNewICECandidateMsg = (incoming)=> {
 	const candidate = new RTCIceCandidate(incoming);
 
 	peerRef.addIceCandidate(candidate).catch((e) => console.log(e));
 }
 
-function handleTrackEvent(e) {
+const handleTrackEvent=(e)=> {
 	videoGrid.appendChild(partnerVideo);
 	partnerVideo.srcObject = e.streams[0];
 	partnerVideo.addEventListener('loadedmetadata', () => {
@@ -169,7 +150,7 @@ function handleTrackEvent(e) {
 	});
 }
 
-function addVideoStream(video, stream) {
+const addVideoStream=(video, stream)=> {
 	videoGrid.appendChild(video);
 	video.srcObject = stream;
 	userStream = stream;
@@ -178,7 +159,7 @@ function addVideoStream(video, stream) {
 	});
 }
 
-function shareScreen() {
+const shareScreen=() =>{
 	btnPararDeCompartilhar.style.display = 'block';
 	btnCompartilhar.style.display = 'none';
 	navigator.mediaDevices.getDisplayMedia({cursor: true}).then((stream) => {
@@ -192,7 +173,7 @@ function shareScreen() {
 	});
 }
 
-let videoUpload = (videoUrl)=> {
+const videoUpload = (videoUrl)=> {
 	let id = pegarID()
 	let url = URL.createObjectURL(videoUrl);
 	let	fileReader = new FileReader()
@@ -211,7 +192,24 @@ let videoUpload = (videoUrl)=> {
 	}
 	   }
 
-let recorder;
+
+const mandarAnotacao = ()=> {
+	let anotacaoValor = anotacao.value
+	let id = pegarID()
+	return fetch(`http://localhost:5000/testes/${id}/chamada/anotacao`,{
+		method: 'POST', 
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		  },
+		body: JSON.stringify({anotacao: anotacaoValor})
+	}).then((res)=>{
+		//console.log(res)
+	}).catch(err=>{
+		console.log(err)
+	})
+   }
+
 começarGravarBtn.addEventListener("click",()=>{
 	recorder = new MediaRecorder(userStream);
 	const chunks = [];
@@ -236,27 +234,27 @@ pararGravarBtn.addEventListener("click", () => {
 	userStream.getVideoTracks()[0].stop();
   });
 
- 
+  socket.on('connect', () => {
+	clearInterval(intervalID);
+	socket.emit('roomID', pegarID());
+});
 
-let mandarAnotacao = ()=> {
-	let anotacaoValor = anotacao.value
-	let id = pegarID()
-	return fetch(`http://localhost:5000/testes/${id}/chamada/anotacao`,{
-		method: 'POST', 
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		  },
-		body: JSON.stringify({anotacao: anotacaoValor})
-	}).then((res)=>{
-		//console.log(res)
-	}).catch(err=>{
-		console.log(err)
-	})
-   }
+socket.on('disconnect', () => {
+	socket.disconnect();
+});
 
+socket.on('userLeft', () => {
+	partnerVideo.remove();
+});
+socket.on('criarOutroUserVideo', () => {
+	partnerVideo = document.createElement('video');
+});
 
 btnAnotacao.addEventListener('click', mandarAnotacao);
+
+btnCompartilhar.addEventListener('click', shareScreen);
+
+btnPararDeCompartilhar.addEventListener('click', pararDeCompartilhar);
 
 
 
