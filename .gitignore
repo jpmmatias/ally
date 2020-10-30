@@ -1,5 +1,4 @@
 node_modules/
-Config/
 logs
 *.log
 npm-debug.log*
