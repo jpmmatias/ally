@@ -1,0 +1,138 @@
+@import 'cores';
+#logoLogin {
+	margin-top: 3.019vh;
+	margin-left: 7.5vw;
+}
+
+#loginSection {
+	width: 100vw;
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	gap: 0px 0px;
+	grid-template-areas: '. . .';
+	main {
+		width: 518px;
+		grid-column: 2;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		align-self: center;
+		h1 {
+			text-align: center;
+			font-size: 2rem;
+			margin-bottom: 0.625rem;
+			color: $roxo;
+		}
+		form {
+			div {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				label {
+					color: $azul;
+					margin-bottom: 0.625rem;
+					font-size: 1.125rem;
+				}
+
+				input[type='email'],
+				input[type='password'] {
+					width: 100%;
+					font-size: 1rem;
+					border: 1px solid $azul;
+					border-radius: 6px;
+					padding: 0.65rem 1rem;
+				}
+				input[type='submit'] {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					align-self: center;
+					width: 17.5rem;
+					height: 3.125rem;
+					font-size: 1.25rem;
+					color: white;
+					background-color: $azul;
+					font-weight: 700;
+					border-radius: 51px;
+					border: 0px;
+				}
+
+				margin-bottom: 1.6875rem;
+			}
+		}
+		div.ou {
+			text-align: center;
+			font-size: 1.25rem;
+			margin-bottom: 2.125rem;
+			position: relative;
+			font-weight: 700;
+			&::after {
+				content: '';
+				width: 40%;
+				border-bottom: solid 1px $azul;
+				position: absolute;
+				left: 5%;
+				top: 50%;
+				z-index: -1;
+			}
+			&::before {
+				content: '';
+				width: 40%;
+				border-bottom: solid 1px $azul;
+				position: absolute;
+				left: 55%;
+				top: 50%;
+				z-index: -1;
+			}
+		}
+		.google-btn {
+			align-self: center;
+			width: 346px;
+			height: 51px;
+			border-radius: 51px;
+			box-shadow: 0px 3px 4px 2px rgba(125, 124, 124, 0.16);
+			a {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+				color: $roxo;
+				text-decoration: none;
+			}
+			.google-icon-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 40px;
+				height: 50px;
+				border-radius: 2px;
+			}
+			.google-icon {
+				margin-top: 2px;
+				margin-left: 11px;
+				width: 17px;
+				height: 17px;
+			}
+			.btn-text {
+				display: flex;
+				align-self: center;
+				text-align: center;
+				font-size: 1.25rem;
+				letter-spacing: 0.2px;
+			}
+			margin-bottom: 30px;
+		}
+		div.npossui {
+			text-align: center;
+			font-size: 18px;
+
+			a {
+				color: $azul;
+			}
+		}
+	}
+}

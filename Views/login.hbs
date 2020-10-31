@@ -1,30 +1,39 @@
-<h3> Ally</h3>
-<div class="section">
-    <p class="lead">Acessibilidade Digital</p>
-</div>
-<div class="divider"></div>
-<div class="section">
-
-    <div class="row">
-        <form class="col s12" action="/users/login" method="POST">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" type="email" name='email' class="validate">
-                    <label for="email">Email</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="password" type="password" name="password">
-                    <label for="password">Senha</labe>
-                </div>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit">Enviar
-
-            </button>
-        </form>
-    </div>
-    <a href="/users/login/google" class="btn red darken-1">
-        <i class="fab fa-google left"></i> Log In com Google
+<header>
+    <a href="/">
+        <img src="\Imagens\Logo.svg" alt="Logo do Ally" id="logoLogin">
     </a>
+</header>
+<section id="loginSection">
+    <main>
+        <h1>Crie uma Conta</h1>
+        <form action="/users/login" method="POST">
+            <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" name='email' placeholder="Insira seu e-mail">
+            </div>
+            <div>
+                <label for="password">Senha</label>
+                <input id="password" type="password" name="password" placeholder="Digite sua senha">
+            </div>
+            <div>
+                <input value="Login" type="submit">
+            </div>
+        </form>
+        <div class="ou">Ou</div>
+        <div class="google-btn" role="button">
+            <a aria-label="Link para entrar usando o google" href="/users/login/google">
+                <div "google-icon-wrapper">
+                    <img class="google-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                        alt="Icone do Goole">
+                </div>
+                <span class="btn-text">Continuar com Google</span>
+            </a>
+        </div>
+        <div class="npossui">
+            Não possui conta? <a href="/users/register">Entre aqui</a>
+        </div>
+    </main>
+</section>
+
 </div>

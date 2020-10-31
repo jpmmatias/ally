@@ -13,3 +13,136 @@ body {
 ul {
   padding: 0;
 }
+
+#logoLogin {
+  margin-top: 3.019vh;
+  margin-left: 7.5vw;
+}
+
+#loginSection {
+  width: 100vw;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . .";
+}
+#loginSection main {
+  width: 518px;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+}
+#loginSection main h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.625rem;
+  color: #02011d;
+}
+#loginSection main form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1.6875rem;
+}
+#loginSection main form div label {
+  color: #1632e8;
+  margin-bottom: 0.625rem;
+  font-size: 1.125rem;
+}
+#loginSection main form div input[type=email],
+#loginSection main form div input[type=password] {
+  width: 100%;
+  font-size: 1rem;
+  border: 1px solid #1632e8;
+  border-radius: 6px;
+  padding: 0.65rem 1rem;
+}
+#loginSection main form div input[type=submit] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 17.5rem;
+  height: 3.125rem;
+  font-size: 1.25rem;
+  color: white;
+  background-color: #1632e8;
+  font-weight: 700;
+  border-radius: 51px;
+  border: 0px;
+}
+#loginSection main div.ou {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 2.125rem;
+  position: relative;
+  font-weight: 700;
+}
+#loginSection main div.ou::after {
+  content: "";
+  width: 40%;
+  border-bottom: solid 1px #1632e8;
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  z-index: -1;
+}
+#loginSection main div.ou::before {
+  content: "";
+  width: 40%;
+  border-bottom: solid 1px #1632e8;
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  z-index: -1;
+}
+#loginSection main .google-btn {
+  align-self: center;
+  width: 346px;
+  height: 51px;
+  border-radius: 51px;
+  box-shadow: 0px 3px 4px 2px rgba(125, 124, 124, 0.16);
+  margin-bottom: 30px;
+}
+#loginSection main .google-btn a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #02011d;
+  text-decoration: none;
+}
+#loginSection main .google-btn .google-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 50px;
+  border-radius: 2px;
+}
+#loginSection main .google-btn .google-icon {
+  margin-top: 2px;
+  margin-left: 11px;
+  width: 17px;
+  height: 17px;
+}
+#loginSection main .google-btn .btn-text {
+  display: flex;
+  align-self: center;
+  text-align: center;
+  font-size: 1.25rem;
+  letter-spacing: 0.2px;
+}
+#loginSection main div.npossui {
+  text-align: center;
+  font-size: 18px;
+}
+#loginSection main div.npossui a {
+  color: #1632e8;
+}
