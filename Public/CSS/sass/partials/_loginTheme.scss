@@ -5,13 +5,13 @@
 }
 
 #loginSection {
+	overflow-x: hidden;
 	width: 100vw;
-	height: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr;
 	gap: 0px 0px;
 	grid-template-areas: '. . .';
+	
 	main {
 		width: 518px;
 		grid-column: 2;
@@ -19,7 +19,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-content: center;
-		align-self: center;
+		justify-self: center;
 		h1 {
 			text-align: center;
 			font-size: 2rem;
@@ -38,7 +38,8 @@
 				}
 
 				input[type='email'],
-				input[type='password'] {
+				input[type='password'],
+				input[type='text']  {
 					width: 100%;
 					font-size: 1rem;
 					border: 1px solid $azul;
@@ -66,7 +67,7 @@
 		div.ou {
 			text-align: center;
 			font-size: 1.25rem;
-			margin-bottom: 2.125rem;
+			margin-bottom: 1rem;
 			position: relative;
 			font-weight: 700;
 			&::after {
@@ -124,7 +125,7 @@
 				font-size: 1.25rem;
 				letter-spacing: 0.2px;
 			}
-			margin-bottom: 30px;
+			margin-bottom: 20px;
 		}
 		div.npossui {
 			text-align: center;
