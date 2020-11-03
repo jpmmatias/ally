@@ -1,0 +1,39 @@
+.btn-login {
+  border: 3px solid var(--color-blue);
+  border-radius: 20px;
+  padding: 6px 15px;
+}
+
+.btn-cta {
+  display: inline-block;
+  margin-top: 3rem;
+  color: var(--color-white);
+  background: var(--color-blue);
+  font-size: 1.8rem;
+  /* letter-spacing: 0.1rem; */
+  padding: 1.6rem 1.8rem;
+  font-weight: 700;
+  border-radius: 2.5rem;
+
+  cursor: pointer;
+
+  transition-duration: 0.5s;
+  transition-property: background-color;
+  transition-timing-function: ease;
+
+  &:hover {
+    background-color: #2d13b2;
+  }
+}
+
+.btn-orientacoes {
+  display: inline-block;
+  margin-top: 3rem;
+  color: var(--color-blue);
+  border: 3px solid var(--color-blue);
+  font-size: 1.8rem;
+
+  padding: 1rem 2rem;
+  font-weight: 700;
+  border-radius: 3em;
+}

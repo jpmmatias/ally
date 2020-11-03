@@ -3,13 +3,37 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  /* a cada 1rem será considera 10px */
+  font-size: 62.5%;
 }
 
 body {
   font-family: "museo-sans", sans-serif;
+  color: var(--color-black);
+  font-size: 1.6rem;
 }
 
 ul {
+  margin: 0;
   padding: 0;
+  list-style-type: none;
 }
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+h2 {
+  margin: 0 30rem 3rem;
+  font-size: 3.2rem;
+  text-align: center;
+}
+
