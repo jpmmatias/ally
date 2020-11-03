@@ -1,1 +1,209 @@
-<h1>homepage</h1>
+<body>
+    {{!-- skip links --}}
+    <ul class="skip-links">
+        <li><a href="#menu">Pular para menu</a></li>
+        <li><a href="#conteudo">Pular para conteúdo</a></li>
+        <li><a href="#footer">Pular para rodapé</a></li>
+    </ul>
+    {{!-- / skip links --}}
+
+
+    {{!-- header --}}
+    <header>
+        <div class="container">
+
+            {{!-- navbar --}}
+            <nav class="main-nav" aria-label="Navegação principal">
+                <div class="logo">
+                    <a href="/"><img src="img/logo-ally.svg" alt="Logo Ally"></a>
+                </div>
+
+                {{!-- menu --}}
+                <div class="menu-section">
+
+                    {{!-- menu mobile --}}
+                    <div class="menu-toggle">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    {{!-- / menu mobile --}}
+
+                    <ul id="menu">
+                        <li><a href="">Sobre nós</a></li>
+                        <li><a href="">Contato</a></li>
+                        <li><a class="highlight" href="">Seja pago para testar</a></li>
+                        <li><a href="">Criar conta</a></li>
+                        <li><a class="btn-login" href="">Entrar</a></li>
+                    </ul>
+                </div>
+                {{!-- / menu --}}
+
+            </nav>
+            {{!-- / navbar --}}
+
+
+            {{!-- banner --}}
+            <div id="banner">
+                <div class="banner-text">
+                    <h1>Teste a usabilidade e acessibilidade do seu site com pessoas com deficiência visual</h1>
+                    <p>Teste remotos com feedbacks em tempo real.</p>
+                    <a class="btn-cta" href="">Quero testar meu site</a>
+                </div>
+                <img src="img/banner.svg" alt="...">
+            </div>
+            {{!-- / banner --}}
+            
+        </div>
+
+    </header>
+    {{!-- / header --}}
+
+
+    <main id="conteudo">
+
+        {{!-- video explicativo --}}
+        <section id="video">
+            <div class="container">
+                <h2>Você sabe como as pessoas que usam leitores de tela, navegam no seu site? </h2>
+                <img src="img/video.png" alt="Video">
+            </div>
+        </section>
+        {{!-- / video explicativo --}}
+
+
+        {{!-- como funciona --}}
+        <section id="como-funciona">
+            <div class="container">
+                <h2>Como funcionam os <br>testes de acessibilidade</h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <img src="img/1.svg" alt="..." aria-hidden="true">
+                        <h3>Agendamento</h3>
+                        <p>Entre em contato com os usuários e agende os testes de acessibilidade.</p>
+                    </div>
+
+                    <div class="step">
+                        <img src="img/2.svg" alt="..." aria-hidden="true">
+                        <h3>Testes em tempo real, com compartilhamento de tela</h3>
+                        <p>Entre em contato com os usuários e agende os testes de acessibilidade.</p>
+                    </div>
+                    <div class="step">
+                        <img src="img/3.svg" alt="..." aria-hidden="true">
+                        <h3>Resultado</h3>
+                        <p>Entre em contato com os usuários e agende os testes de acessibilidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- / como funciona --}}
+
+
+        {{!-- por onde comecar --}}
+        <section id="orientacoes">
+            <div class="container">
+                <h2>Por onde começar a aplicar <br>acessibilidade no meu site?</h2>
+                <p>Separamos algumas dicas de como começar a <br>implantar acessibilidade Web</p>
+                <a class="btn-orientacoes" href="/">Quero saber por onde começar</a>
+            </div>
+        </section>
+        {{!-- / por onde começar --}}
+
+
+        {{!-- motivos --}}
+        <section id="motivos">
+            <div class="container">
+                <h2>Motivos para tornar seu site acessível </h2>
+                <p class="subtitle">Selecionamos 4 motivos para começar a testar com a gente</p>
+                <div class="itens-motivos">
+                    <div class="item">
+                        <span>1</span>
+                        <h3>Conformidade com a lei</h3>
+                        <p>A acessibilidade nos sites é obrigatória para organizações públicas e privadas, conforme a
+                            Lei
+                            Brasileira
+                            de Inclusão. Mantenha-se protegido de processos judiciais.</p>
+                    </div>
+                    <div class="item">
+                        <span>2</span>
+                        <h3>Expansão de público</h3>
+                        <p>A acessibilidade nos sites é obrigatória para organizações públicas e privadas, conforme a
+                            Lei
+                            Brasileira
+                            de Inclusão. Mantenha-se protegido de processos judiciais.</p>
+                    </div>
+                    <div class="item">
+                        <span>3</span>
+                        <h3>Maior visibilidade</h3>
+                        <p>A acessibilidade afeta a visibilidade do seu site em páginas de busca e auxilia na otimização
+                            de
+                            mecanismos de pesquisa (SEO) </p>
+                    </div>
+                    <div class="item">
+                        <span>4</span>
+                        <h3>Responsabilidade Social</h3>
+                        <p>Quando você torna seu site acessível, você defende que, de outra forma, aqueles que seriam
+                            excluídos
+                            dos
+                            recursos digitais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- / motivos --}}
+
+
+        {{!-- call to action --}}
+        <section id="call-to-action">
+            <div class="cta container">
+
+                <div class="cta-text">
+                    <h2>Pronto para começar <br>a testar seu site?</h2>
+                    <p>Comece hoje a encontrar pessoas e compreender<br> suas experiências.</p>
+                    <a class="btn-cta" href="">Quero testar meu site</a>
+                </div>
+                <img src="img/banner.svg" alt="...">
+
+            </div>
+        </section>
+        {{!-- / call to action --}}
+
+    </main>
+
+    <div class="container">
+
+        {{!-- footer --}}
+        <footer id="footer">
+
+            <div class="logo">
+                <a href=""><img src="img/logo-ally.svg" alt="..."></a>
+                <p>Plataforma que tem o propósito de criar conexão entre empresas e usuários com deficiência visual,
+                    por
+                    meio de
+                    testes de acessibilidade em sites</p>
+            </div>
+
+            <nav class="footer-nav">
+                <div class="col">
+                    <p>Páginas</p>
+                    <ul>
+                        <li>Sobre nós</li>
+                        <li>Contato</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p>Redes Sociais</p>
+                    <ul>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Linkedin</li>
+                    </ul>
+                </div>
+            </nav>
+
+        </footer>
+        {{!-- / footer --}}
+    </div>
+
+</body>

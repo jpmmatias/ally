@@ -1,0 +1,26 @@
+#footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 30px 10px;
+    margin: 4rem 3rem;
+    .footer-nav {
+      display: flex;
+    }
+  
+    .logo {
+      padding-right: 20rem;
+    }
+  
+    .col {
+      margin: 0 3.5rem;
+      p {
+        font-weight: 900;
+        margin-bottom: 10px;
+      }
+  
+      ul li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  
