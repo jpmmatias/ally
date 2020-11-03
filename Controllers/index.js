@@ -14,6 +14,12 @@ exports.mostrarHomepage = (req, res, next) => {
 	res.render('homepage');
 };
 
+//descrição         Mostrar landing page tester
+//route             GET /
+//Acesso            Publico
+exports.mostrarLandingTester = (req, res, next) => {
+	res.render('landingTester');
+};
 
 //descrição         Mostrar dashboard
 //route             GET /dashboard
