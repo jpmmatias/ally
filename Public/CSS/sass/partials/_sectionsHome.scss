@@ -1,0 +1,141 @@
+
+#video {
+  margin-top: 8rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  background: linear-gradient(
+    3deg,
+    rgba(249, 252, 255, 0.9) 0%,
+    rgba(251, 253, 255, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+#como-funciona {
+  margin: 10rem 0;
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    margin: 5rem auto;
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  img {
+    max-width: 320px;
+    margin: 10px auto;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+    font-weight: 900;
+  }
+
+  p {
+    padding: 10px 50px;
+    line-height: 1.5;
+  }
+}
+
+#orientacoes {
+  padding: 7rem 0;
+  text-align: center;
+  background: linear-gradient(
+    3deg,
+    rgba(255, 254, 246, 0.8) 0%,
+    rgba(255, 255, 251, 0.8) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  p {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+}
+
+#motivos {
+  margin: 10rem 0;
+  text-align: center;
+
+  .subtitle {
+    font-size: 2.4rem;
+  }
+  .itens-motivos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 30px 10px;
+    margin: 5rem auto;
+    padding: 0 6rem 0 12rem;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-right: 10rem;
+    p {
+      margin: 2rem 0;
+      line-height: 1.5;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}
+
+.item span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem;
+  background: var(--color-blue);
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 2.2rem;
+  color: var(--color-white);
+}
+
+#call-to-action {
+  background: linear-gradient(
+    3deg,
+    rgba(249, 252, 255, 0.9) 0%,
+    rgba(251, 253, 255, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+
+  .cta {
+    display: flex;
+  }
+
+  .cta-text {
+    text-align: right;
+    order: 1;
+    margin-top: 10rem;
+    margin-left: 23rem;
+
+    h2 {
+      text-align: right;
+      margin: 0;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+    }
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  img {
+    max-width: 50rem;
+    margin-left: 3rem;
+  }
+}
+
