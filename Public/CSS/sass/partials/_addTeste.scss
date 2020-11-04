@@ -1,0 +1,96 @@
+@import 'cores';
+#addTeste{
+    display: flex;
+    height: 80%;   
+    width:90%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1{
+        font-size: 4.5rem;
+        margin-bottom: 5.2rem;
+    }
+    form {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        .sec2addTeste{
+            margin-left: 6rem;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            label {
+                color: $azul;
+                font-weight: 700;
+                margin-bottom: 1.5rem;
+                font-size: 1.8rem;
+            }
+
+            input[type='text'],
+            input[type='url']
+              {
+                width: 100%;
+                font-family: "museo-sans", sans-serif;
+                height: 2.8rem;
+                padding: .5rem;
+                font-size: 1.6rem;
+                border: 1px solid #8692A6;
+                border-radius: 6px;
+              
+            }
+            input[type="time"]{
+                border: 1px solid #8692A6;
+                font-family: "museo-sans", sans-serif;
+                border-radius: 6px;
+                padding: .5rem;
+            }
+            input[type="date"]{
+                padding: .5rem;
+                border: 1px solid #8692A6;
+                font-family: "museo-sans", sans-serif;
+                border-radius: 6px;
+            }
+            textarea{
+                font-family: "museo-sans", sans-serif;
+                width: 100%;
+                padding: 1rem;
+                border: 1px solid #8692A6;
+                border-radius: 6px;
+                height: 10rem;
+            }
+            input[type='submit'] {
+                font-family: "museo-sans", sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 17.5rem;
+                height: 3.5rem;
+                font-size: 1.6rem;
+                color: white;
+                background-color: $azul;
+                font-weight: 700;
+                border-radius: 5.1rem;
+                border: 0px;
+            }
+            margin-bottom: 3.2rem;
+        }
+        #addTarefaBtn{
+            cursor: pointer;
+            border-radius: 5.1rem;
+            color: $azul;
+            font-weight: 700;
+            border: 4px $azul solid;
+            font-size: 1.6rem;
+            background-color: #fff;
+            width: 17.5rem;
+            height: 4rem;
+
+        }
+    }
+}

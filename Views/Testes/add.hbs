@@ -1,43 +1,45 @@
-<h3>Novo Teste</h3>
-<div class="row">
-    <form action="/testes" method="POST" class="col s12">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="title" name="nome">
-                <label for="title">Nome</label>
-            </div>
+<div class="cotainerDashboard">
+    {{> _sidebar}}
+    <div class="contentDashboard">
+        <div id="addTeste">
+            <h1>Novo Teste</h1>
+            <form action="/testes" method="POST">
+                <div class="sec1addTeste">
+                    <div class="input-field">
+                        <label for="title">Nome do Teste</label>
+                        <input placeholder="Qual o nome do Teste" type="text" id="title" name="nome">
+                    </div>
+                    <div class="input-field">
+                        <label for="mensgaemdeboasvindas">Mensagem de Boas Vindas (opcional)</label>
+                        <textarea
+                            placeholder="Esta é a primeira coisa que os participantes vão ver antes do ínicio da sessão"
+                            id="body" name="mensgaemdeboasvindas"></textarea>
+                    </div>
+                    <div class="input-field">
+                        <label for="cenario">Cenário (opcional)</label>
+                        <textarea id="body" name="cenario"></textarea>
+                    </div>
+                    <div class="tarefas">
+                    </div>
+                    <button id="addTarefaBtn" type="button">+ Adicionar Tarefa</button>
+                </div>
+                <div class="sec2addTeste">
+                    <div class="input-field">
+                        <label for="title">Site URL</label>
+                        <input placeholder="Site URL" type="url" id="url" name="url">
+                    </div>
+                    <div class="input-field">
+                        <label for="diaMarcado">Dia</label>
+                        <input type="date" id="diaMarcado" name="diaMarcado">
+                    </div>
+                    <div class="input-field">
+                        <label for="horarioMarcado">Horario</label>
+                        <input type="time" id="horarioMarcado" name="horarioMarcado">
+                    </div>
+                    <input type="submit" value="Próximo">
+                </div>
+            </form>
         </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="url" id="url" name="url">
-                <label for="title">URL:</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <h5>Descrição do teste</h5>
-                <textarea id="body" name="descricao"></textarea>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="date" id="diaMarcado" name="diaMarcado">
-                <label for="diaMarcado">Dia</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="time" id="horarioMarcado" name="horarioMarcado">
-                <label for="horarioMarcado">Horario</label>
-            </div>
-        </div>
-        <div class="tarefas">
-        </div>
-        <div class="row">
-            <button id="addTarefaBtn" class="btn purple" type="button">Add Tarefa</button>
-            <input type="submit" value="Salvar Teste" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
-        </div>
-    </form>
+    </div>
 </div>
 <script src="/Javascript/script.js"></script>

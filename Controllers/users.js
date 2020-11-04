@@ -252,6 +252,24 @@ exports.deletarConta = async (req, res, next) => {
 	
 };
 
+//descrição         	Atualizar user
+//route             	PUT /users/atualizar
+//Acesso            	privado
+exports.atualizarConta = async (req, res, next) => {
+	try {
+		
+		await User.findOneAndUpdate({_id: req.user._id},req.body,{
+			new:true
+		})
+		res.json('deu certo');
+	} catch (err) {
+		console.log(err)
+		res.json('deu errado');
+	}
+	
+	
+};
+
 
 //descrição         Cria nova conta para tester
 //route             POST /users/register/tester

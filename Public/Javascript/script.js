@@ -1,14 +1,14 @@
 const btnTarefa = document.querySelector('#addTarefaBtn');
 const areaTarefas = document.querySelector('.tarefas');
+let nTarefas = 1;
 
 function addTesteInput() {
 	const div = document.createElement('div');
-	const h5 = document.createElement('h5');
+	const label = document.createElement('label');
 	const textArea = document.createElement('textarea');
-	h5.innerText = 'Tarefa';
+	label.innerHTML =`<label for='tarefas'>Tarefa ${nTarefas++}</label> `
 	textArea.name = 'tarefas';
-	div.classList.add('row');
-	div.appendChild(h5);
+	div.appendChild(label);
 	div.appendChild(textArea);
 	areaTarefas.appendChild(div);
 }

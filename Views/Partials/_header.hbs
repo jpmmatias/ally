@@ -1,0 +1,15 @@
+<div class="topHeader">
+    <ul>
+        <li>
+            <span>Perfil</span>
+        </li>
+        {{#if convites}}
+        {{#each convites as |convite|}}
+        <li>
+            <span>{{convite.userNome}}</span>
+            <span>{{convite.testeNome}}</span>
+        </li>
+        {{/each}}
+        {{/if}}
+    </ul>
+</div>

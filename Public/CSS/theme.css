@@ -547,7 +547,7 @@ h2 {
 div.contentDashboard div.grid {
   display: flex;
   height: 80%;
-  width: 65%;
+  width: 90%;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 3rem;
@@ -567,6 +567,96 @@ div.contentDashboard div.grid div#calendar button {
   background-color: #3B1AE3 !important;
   border: 0.2px #7780ff solid !important;
   font-family: "museo-sans", sans-serif !important;
+}
+
+#addTeste {
+  display: flex;
+  height: 80%;
+  width: 90%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#addTeste h1 {
+  font-size: 4.5rem;
+  margin-bottom: 5.2rem;
+}
+#addTeste form {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+#addTeste form .sec2addTeste {
+  margin-left: 6rem;
+}
+#addTeste form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 3.2rem;
+}
+#addTeste form div label {
+  color: #3B1AE3;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+#addTeste form div input[type=text],
+#addTeste form div input[type=url] {
+  width: 100%;
+  font-family: "museo-sans", sans-serif;
+  height: 2.8rem;
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  border: 1px solid #8692A6;
+  border-radius: 6px;
+}
+#addTeste form div input[type=time] {
+  border: 1px solid #8692A6;
+  font-family: "museo-sans", sans-serif;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+#addTeste form div input[type=date] {
+  padding: 0.5rem;
+  border: 1px solid #8692A6;
+  font-family: "museo-sans", sans-serif;
+  border-radius: 6px;
+}
+#addTeste form div textarea {
+  font-family: "museo-sans", sans-serif;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #8692A6;
+  border-radius: 6px;
+  height: 10rem;
+}
+#addTeste form div input[type=submit] {
+  font-family: "museo-sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17.5rem;
+  height: 3.5rem;
+  font-size: 1.6rem;
+  color: white;
+  background-color: #3B1AE3;
+  font-weight: 700;
+  border-radius: 5.1rem;
+  border: 0px;
+}
+#addTeste form #addTarefaBtn {
+  cursor: pointer;
+  border-radius: 5.1rem;
+  color: #3B1AE3;
+  font-weight: 700;
+  border: 4px #3B1AE3 solid;
+  font-size: 1.6rem;
+  background-color: #fff;
+  width: 17.5rem;
+  height: 4rem;
 }
 
 @media (max-width: 768px) {
