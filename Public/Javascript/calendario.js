@@ -7,7 +7,7 @@ const createCalendar = async (data) => {
         events.push({title:teste.nome,start:teste.dataMarcada})
     });
     let calendar = new FullCalendar.Calendar(calendarEl, {
-        height: 550,
+        height: 'auto',
         locale: 'pt-br',
         initialView: 'dayGridMonth',
         timeZone: 'local',
@@ -34,6 +34,9 @@ const fetchData = ()=>{
  
 }
 
-fetchData()
+window.onload(
+    fetchData()
+)
+
 
 
