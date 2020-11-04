@@ -18,6 +18,10 @@ body {
   font-size: 1.6rem;
 }
 
+button {
+  font-family: "museo-sans", sans-serif;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -417,6 +421,84 @@ nav.main-nav ul#menu .highlight {
 }
 #footer .col ul li {
   margin-bottom: 10px;
+}
+
+.cotainerDashboard {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+
+aside.side-menu {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FBFBFD;
+}
+aside.side-menu .logo {
+  margin-bottom: 8rem;
+  margin-top: 3rem;
+  width: 75%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+aside.side-menu .logo img {
+  width: 10rem;
+  height: 6.3rem;
+}
+aside.side-menu nav.navAside {
+  display: flex;
+  width: 100%;
+  height: 60%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+aside.side-menu nav.navAside ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+aside.side-menu nav.navAside ul li {
+  display: flex;
+  width: 75%;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+aside.side-menu nav.navAside ul li a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #02011d;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 4fr;
+}
+aside.side-menu nav.navAside ul li a img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+aside.side-menu nav.navAside form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+aside.side-menu nav.navAside form button {
+  cursor: pointer;
+  width: 75%;
+  font-weight: 700;
+  font-size: 1.4rem;
+  height: 3.5rem;
+  border-radius: 51px;
+  color: #fff;
+  background-color: #1632e8;
+  border: 0px;
+  box-shadow: none;
 }
 
 @media (max-width: 768px) {

@@ -1,8 +1,12 @@
-<h6>Dashboard</h6>
-<h3>Bem Vindo {{nome}}</h3>
-{{#ifCond tipo 'tester'}}
-{{> _convites this}}
-{{/ifCond}}
-{{#ifCond tipo 'empresa'}}
-{{> _testes this}}
-{{/ifCond}}
+<div class="cotainerDashboard">
+    {{> _sidebar}}
+    <div class="contentDashboard">
+        <h3>Bem Vindo {{nome}}</h3>
+        {{#ifCond tipo 'tester'}}
+        {{> _convites this}}
+        {{/ifCond}}
+        {{#ifCond tipo 'empresa'}}
+        {{> _testes this}}
+        {{/ifCond}}
+    </div>
+</div>
