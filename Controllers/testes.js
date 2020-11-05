@@ -15,7 +15,13 @@ exports.mostrarPaginaAddTeste = (req, res, next) => {
 	res.render('Testes/add');
 };
 
-// (Mon Jan 02 2012 00:00:00 GMT+0100 (CET))
+//descrição         Mostrar pagina para adicionar teste
+//route             GET /testes/add/finalizado
+//Acesso            Privado
+exports.mostrarPaginaAddTesteFinalizado = (req, res, next) => {
+	res.render('Testes/addFinalizado');
+};
+
 //descrição         Adicionar teste
 //route             POST /testes
 //Acesso            Privado
