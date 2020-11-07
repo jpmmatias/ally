@@ -167,10 +167,27 @@ const shareScreen=() =>{
 			senders
 				.find((sender) => sender.track.kind === 'video')
 				.replaceTrack(screenTrack);
-			addVideoStream(userVideo, stream);
+				addVideoStream(userVideo, stream);
 		}
-	});
+		screenTrack.onended=()=>{
+			alert('hello')
+			pararDeCompartilharF()
+		}
+	}) ;
 }
+
+const pararDeCompartilharF = ()=>{
+	btnPararDeCompartilhar.style.display = 'none';
+	btnCompartilhar.style.display = 'block';
+	navigator.mediaDevices.getUserMedia({video: true,
+		audio: true}).then((stream) => {
+		addVideoStream(userVideo, stream);
+		senders.find((sender) => sender.track.kind === 'video').replaceTrack(stream.getVideoTracks()[0])
+		
+	}) 
+}
+
+
 
 const videoUpload = (videoUrl)=> {
 	let id = pegarID()
@@ -203,7 +220,6 @@ const mandarAnotacao = ()=> {
 		  },
 		body: JSON.stringify({anotacao: anotacaoValor})
 	}).then((res)=>{
-		//console.log(res)
 	}).catch(err=>{
 		console.log(err)
 	})
@@ -230,9 +246,8 @@ começarGravarBtn.addEventListener("click", async ()=>{
 pararGravarBtn.addEventListener("click", () => {
 	pararGravarBtn.setAttribute("disabled", true);
 	começarGravarBtn.removeAttribute("disabled");
-  
 	recorder.stop();
-	userStream.getVideoTracks()[0].stop();
+	//userStream.getVideoTracks()[0].stop();
   });
 
   socket.on('connect', () => {
@@ -247,6 +262,7 @@ socket.on('disconnect', () => {
 socket.on('userLeft', () => {
 	partnerVideo.remove();
 });
+
 socket.on('criarOutroUserVideo', () => {
 	partnerVideo = document.createElement('video');
 });
@@ -255,7 +271,7 @@ btnAnotacao.addEventListener('click', mandarAnotacao);
 
 btnCompartilhar.addEventListener('click', shareScreen);
 
-btnPararDeCompartilhar.addEventListener('click', pararDeCompartilhar);
+btnPararDeCompartilhar.addEventListener('click', pararDeCompartilharF);
 
 
 

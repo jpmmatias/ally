@@ -8,7 +8,6 @@ const path = require('path');
 
 //Servidor local
 const pathV = path.join(__dirname, '../Uploads/Videos')
-console.log(pathV)
  const storage = multer.diskStorage({
      destination:(req,file,cb)=>{
          cb(null,pathV)
