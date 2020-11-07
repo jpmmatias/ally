@@ -10,30 +10,10 @@ const pararGravarBtn = document.getElementById("parar");
 let userVideo = document.createElement('video');
 const btnCompartilhar = document.querySelector('#compartilharTela');
 const btnPararDeCompartilhar = document.querySelector('#pararDeCompartilhar');
-const btnAnotacao = document.querySelector('.btnanotacao');
-const anotacao = document.querySelector('#anotacoes');
 let partnerVideo;
 let recorder;
 
 userVideo.muted = true;
-
-navigator.mediaDevices
-	.getUserMedia({
-		video: true,
-		audio: true,
-	})
-	.then((stream) => {
-		addVideoStream(userVideo, stream);
-		socket.emit('join room', pegarID());
-		socket.on('other user', (userID) => {
-			callUser(userID);
-			otherUser = userID;
-		});
-		socket.on('offer', handleRecieveCall);
-		socket.on('answer', handleAnswer);
-		socket.on('ice-candidate', handleNewICECandidateMsg);
-	})
-	.catch((err) => console.log(err));
 
 const pegarID = () => {
 	let url = window.location.href;
@@ -187,8 +167,6 @@ const pararDeCompartilharF = ()=>{
 	}) 
 }
 
-
-
 const videoUpload = (videoUrl)=> {
 	let id = pegarID()
 	let url = URL.createObjectURL(videoUrl);
@@ -208,22 +186,23 @@ const videoUpload = (videoUrl)=> {
 	}
 	   }
 
-
-const mandarAnotacao = ()=> {
-	let anotacaoValor = anotacao.value
-	let id = pegarID()
-	return fetch(`http://localhost:5000/testes/${id}/chamada/anotacao`,{
-		method: 'POST', 
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		  },
-		body: JSON.stringify({anotacao: anotacaoValor})
-	}).then((res)=>{
-	}).catch(err=>{
-		console.log(err)
+navigator.mediaDevices
+	.getUserMedia({
+		video: true,
+		audio: true,
 	})
-   }
+	.then((stream) => {
+		addVideoStream(userVideo, stream);
+		socket.emit('join room', pegarID());
+		socket.on('other user', (userID) => {
+			callUser(userID);
+			otherUser = userID;
+		});
+		socket.on('offer', handleRecieveCall);
+		socket.on('answer', handleAnswer);
+		socket.on('ice-candidate', handleNewICECandidateMsg);
+	})
+	.catch((err) => console.log(err));
 
 começarGravarBtn.addEventListener("click", async ()=>{
 	 userStream = await navigator.mediaDevices.getDisplayMedia({
@@ -247,7 +226,6 @@ pararGravarBtn.addEventListener("click", () => {
 	pararGravarBtn.setAttribute("disabled", true);
 	começarGravarBtn.removeAttribute("disabled");
 	recorder.stop();
-	//userStream.getVideoTracks()[0].stop();
   });
 
   socket.on('connect', () => {
@@ -266,8 +244,6 @@ socket.on('userLeft', () => {
 socket.on('criarOutroUserVideo', () => {
 	partnerVideo = document.createElement('video');
 });
-
-btnAnotacao.addEventListener('click', mandarAnotacao);
 
 btnCompartilhar.addEventListener('click', shareScreen);
 
