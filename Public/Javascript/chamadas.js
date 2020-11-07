@@ -138,28 +138,27 @@ const addVideoStream=(video, stream)=> {
 	});
 }
 
-const shareScreen=() =>{
+const shareScreen= async () =>{
 	btnPararDeCompartilhar.style.display = 'block';
 	btnCompartilhar.style.display = 'none';
-	navigator.mediaDevices.getDisplayMedia({cursor: true}).then((stream) => {
+	await navigator.mediaDevices.getDisplayMedia({cursor: true}).then((stream) => {
 		const screenTrack = stream.getTracks()[0];
 		if (senders.length > 0) {
 			senders
 				.find((sender) => sender.track.kind === 'video')
 				.replaceTrack(screenTrack);
-				addVideoStream(userVideo, stream);
+				 addVideoStream(userVideo, stream);
 		}
 		screenTrack.onended=()=>{
-			alert('hello')
 			pararDeCompartilharF()
 		}
 	}) ;
 }
 
-const pararDeCompartilharF = ()=>{
+const pararDeCompartilharF = async () =>{
 	btnPararDeCompartilhar.style.display = 'none';
 	btnCompartilhar.style.display = 'block';
-	navigator.mediaDevices.getUserMedia({video: true,
+	await navigator.mediaDevices.getUserMedia({video: true,
 		audio: true}).then((stream) => {
 		addVideoStream(userVideo, stream);
 		senders.find((sender) => sender.track.kind === 'video').replaceTrack(stream.getVideoTracks()[0])
