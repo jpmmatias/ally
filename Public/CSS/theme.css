@@ -659,6 +659,13 @@ div.contentDashboard div.grid div#calendar button {
   height: 4rem;
 }
 
+#video-grid {
+  display: flex;
+}
+#video-grid video {
+  width: 400px;
+}
+
 div#addTesteFinalizadoContainer {
   display: flex;
   height: 80%;

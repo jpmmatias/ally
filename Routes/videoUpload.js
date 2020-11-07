@@ -4,11 +4,14 @@ const {ensureAuthenticated} = require('../Config/auth');
 const multer = require('multer');
 const {videoUpload} = require('../Controllers/videoUpload')
 const Video = require('../Models/Video');
+const path = require('path');
 
 //Servidor local
+const pathV = path.join(__dirname, '../Uploads/Videos')
+console.log(pathV)
  const storage = multer.diskStorage({
      destination:(req,file,cb)=>{
-         cb(null,'Uploads/Videos')
+         cb(null,pathV)
      },
      filename:(req,file,cb)=>{
          const ext =file.originalname

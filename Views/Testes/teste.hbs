@@ -1,29 +1,34 @@
-<div class="row">
-    <h3>{{teste.nome}}</h3>
-    <div class="col s12 m8">
-        <div class="card story">
-            <div class="card-content">
-                <span class="card-title">{{formatarData teste.data 'MMMM Do YYYY, h:mm:ss a'}}</span>
-                {{{teste.descricao}}}
-                {{#if teste.tarefas }}
-                <h5>Tarefas</h5>
-                <ul>
-                    {{#each teste.tarefas}}
-                    <li>{{this}}</li>
-                    {{/each}}
-                </ul>
-                {{/if}}
+<div class="cotainerDashboard">
+    {{> _sidebar}}
+    <div class="contentDashboard">
+        <div class="row">
+            <h3>{{teste.nome}}</h3>
+            <div class="col s12 m8">
+                <div class="card story">
+                    <div class="card-content">
+                        <span class="card-title">{{formatarData teste.data 'MMMM Do YYYY, h:mm:ss a'}}</span>
+                        {{{teste.descricao}}}
+                        {{#if teste.tarefas }}
+                        <h5>Tarefas</h5>
+                        <ul>
+                            {{#each teste.tarefas}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <button class="btn orange"> <a href="/testes/{{teste._id}}/chamada/lobby">Ir para o lobby</a> </button>
-    </div>
-    <div class="col s12 m4">
-        <div class="card center-align">
-            <div class="card-content">
-                <span class="card-title">{{teste.user.nome}}</span>
-                <p>Criador do teste</p>
+            <div class="row">
+                <button class="btn orange"> <a href="/testes/{{teste._id}}/chamada">Ir para Chamada</a> </button>
+            </div>
+            <div class="col s12 m4">
+                <div class="card center-align">
+                    <div class="card-content">
+                        <span class="card-title">{{teste.user.nome}}</span>
+                        <p>Criador do teste</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

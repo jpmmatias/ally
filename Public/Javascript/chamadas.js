@@ -44,7 +44,6 @@ const pegarID = () => {
 
 const tryReconnect =  ()=> {
 	if (socket.socket.connected === false && socket.socket.connecting === false) {
-		// use a connect() or reconnect() here if you want
 		socket.socket.connect();
 	}
 };
@@ -210,7 +209,10 @@ const mandarAnotacao = ()=> {
 	})
    }
 
-começarGravarBtn.addEventListener("click",()=>{
+começarGravarBtn.addEventListener("click", async ()=>{
+	 userStream = await navigator.mediaDevices.getDisplayMedia({
+		video: { mediaSource: "screen" }
+	  });
 	recorder = new MediaRecorder(userStream);
 	const chunks = [];
 	recorder.ondataavailable = e => chunks.push(e.data);
@@ -226,7 +228,6 @@ começarGravarBtn.addEventListener("click",()=>{
 } );
 
 pararGravarBtn.addEventListener("click", () => {
-	alert('aadasasd')
 	pararGravarBtn.setAttribute("disabled", true);
 	começarGravarBtn.removeAttribute("disabled");
   
