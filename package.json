@@ -9,7 +9,6 @@
 		"dev": "cross-env NODE_ENV=desenvolvimento nodemon server"
 	},
 	"devDependencies": {
-		"cross-env": "^7.0.2",
 		"nodemon": "^2.0.4"
 	},
 	"dependencies": {
@@ -17,6 +16,7 @@
 		"colors": "^1.4.0",
 		"connect-flash": "^0.1.1",
 		"connect-mongo": "^3.2.0",
+		"cross-env": "^7.0.2",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"express-handlebars": "^5.1.0",
