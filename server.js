@@ -60,6 +60,8 @@ mongoose
 //Handlebars Helper
 const {formatarData, tipoDiferente,stringfy,ifCond} = require('./Helpers/hbs');
 
+
+app.set('views', path.join(__dirname, 'Views'));
 //Handlebars
 app.engine(
 	'.hbs',
@@ -69,7 +71,6 @@ app.engine(
 		extname: '.hbs',
 	})
 );
-app.set('views', path.join(__dirname, 'Views'));
 app.set('view engine', '.hbs');
 
 //Express session
