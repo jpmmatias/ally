@@ -33,7 +33,6 @@ app.use(express.json());
 app.use(
 	methodOverride(function (req, res) {
 		if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-			// look in urlencoded POST bodies and delete it
 			let method = req.body._method;
 			delete req.body._method;
 			return method;
@@ -60,8 +59,8 @@ mongoose
 //Handlebars Helper
 const {formatarData, tipoDiferente,stringfy,ifCond} = require('./Helpers/hbs');
 
-
 app.set('views', path.join(__dirname, 'Views'));
+
 //Handlebars
 app.set('view engine', '.hbs');
 app.engine(
