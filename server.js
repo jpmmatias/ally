@@ -63,6 +63,7 @@ const {formatarData, tipoDiferente,stringfy,ifCond} = require('./Helpers/hbs');
 
 app.set('views', path.join(__dirname, 'Views'));
 //Handlebars
+app.set('view engine', '.hbs');
 app.engine(
 	'.hbs',
 	expshbs({
@@ -71,7 +72,7 @@ app.engine(
 		extname: '.hbs',
 	})
 );
-app.set('view engine', '.hbs');
+
 
 //Express session
 app.use(
