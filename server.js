@@ -69,6 +69,8 @@ app.engine(
 		helpers: {formatarData, tipoDiferente,stringfy,ifCond},
 		defaultLayout: 'main',
 		extname: '.hbs',
+		partialsDir: path.join(__dirname, 'Views/Partials'),
+		layoutsDir: path.join(__dirname, 'Views/Layouts')	
 	})
 );
 
