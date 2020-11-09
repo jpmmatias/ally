@@ -6,7 +6,10 @@ const TesteSchema = new mongoose.Schema({
 		trim: true,
 		required: true,
 	},
-	descricao: {
+	mensgaemdeboasvindas: {
+		type: String,
+	},
+	cenario: {
 		type: String,
 	},
 	tarefas: {

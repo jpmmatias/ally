@@ -10,10 +10,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const methodOverride = require('method-override');
-//const helmet = require('helmet');
+const helmet = require('helmet');
 const colors = require('colors');
-
-//testeeeeeeeeeee
 
 //Config geral
 dotenv.config({path: '/Config/config.env'});
@@ -25,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'Uploads')));
 
 
 //Helmet middleware (Segurança do site)
-//app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false,}));
 
 //Bodyparser
 app.use(express.urlencoded({extended: false}));

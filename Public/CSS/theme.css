@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://use.typekit.net/fck0yop.css");
+@import url("https://use.typekit.net/fck0yop.css");
 * {
   margin: 0;
   padding: 0;
@@ -135,7 +136,7 @@ h2 {
   text-align: center;
   font-size: 3.2rem;
   margin-bottom: 1rem;
-  color: #02011d;
+  color: #02011D;
 }
 
 #loginSection main form div {
@@ -153,7 +154,7 @@ h2 {
 }
 
 #loginSection main form div label {
-  color: #1632e8;
+  color: #3B1AE3;
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
@@ -163,7 +164,7 @@ h2 {
 #loginSection main form div input[type='text'] {
   width: 100%;
   font-size: 1.6rem;
-  border: 1px solid #1632e8;
+  border: 1px solid #3B1AE3;
   border-radius: 6px;
   padding: 1rem 1.6rem;
 }
@@ -184,7 +185,7 @@ h2 {
   height: 5rem;
   font-size: 2rem;
   color: white;
-  background-color: #1632e8;
+  background-color: #3B1AE3;
   font-weight: 700;
   border-radius: 5.1rem;
   border: 0px;
@@ -201,7 +202,7 @@ h2 {
 #loginSection main div.ou::after {
   content: '';
   width: 40%;
-  border-bottom: solid 1px #1632e8;
+  border-bottom: solid 1px #3B1AE3;
   position: absolute;
   left: 5%;
   top: 50%;
@@ -211,7 +212,7 @@ h2 {
 #loginSection main div.ou::before {
   content: '';
   width: 40%;
-  border-bottom: solid 1px #1632e8;
+  border-bottom: solid 1px #3B1AE3;
   position: absolute;
   left: 55%;
   top: 50%;
@@ -243,6 +244,9 @@ h2 {
       -ms-flex-align: center;
           align-items: center;
   color: #02011d;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #02011D;
   text-decoration: none;
 }
 
@@ -285,7 +289,7 @@ h2 {
 }
 
 #loginSection main div.npossui a {
-  color: #1632e8;
+  color: #3B1AE3;
 }
 
 :root {
@@ -856,7 +860,7 @@ aside.side-menu nav.navAside ul li {
 aside.side-menu nav.navAside ul li a {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #02011d;
+  color: #02011D;
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -900,7 +904,7 @@ aside.side-menu nav.navAside form button {
   height: 3.5rem;
   border-radius: 51px;
   color: #fff;
-  background-color: #1632e8;
+  background-color: #3B1AE3;
   border: 0px;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -940,6 +944,306 @@ aside.side-menu nav.navAside form button {
   .home #call-to-action .cta-text h2 {
     text-align: center;
   }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  /* a cada 1rem será considera 10px */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "museo-sans", sans-serif;
+  color: var(--color-black);
+  font-size: 1.6rem;
+}
+
+button {
+  font-family: "museo-sans", sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+h2 {
+  margin: 0 30rem 3rem;
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+div.contentDashboard div.grid {
+  display: flex;
+  height: 80%;
+  width: 90%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.contentDashboard div.grid h1 {
+  margin-bottom: 5rem;
+  display: inline-block;
+}
+div.contentDashboard div.grid div#calendar {
+  font-family: "museo-sans", sans-serif !important;
+  width: 100%;
+  height: 35rem;
+}
+div.contentDashboard div.grid div#calendar button {
+  background-color: #3B1AE3 !important;
+  border: 0.2px #7780ff solid !important;
+  font-family: "museo-sans", sans-serif !important;
+}
+
+#addTeste {
+  display: flex;
+  height: 80%;
+  width: 90%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#addTeste h1 {
+  font-size: 4.5rem;
+  margin-bottom: 5.2rem;
+}
+#addTeste form {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+#addTeste form .sec2addTeste {
+  margin-left: 6rem;
+}
+#addTeste form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 3.2rem;
+}
+#addTeste form div label {
+  color: #3B1AE3;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+#addTeste form div input[type=text],
+#addTeste form div input[type=url] {
+  width: 100%;
+  font-family: "museo-sans", sans-serif;
+  height: 2.8rem;
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  border: 1px solid #8692A6;
+  border-radius: 6px;
+}
+#addTeste form div input[type=time] {
+  border: 1px solid #8692A6;
+  font-family: "museo-sans", sans-serif;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+#addTeste form div input[type=date] {
+  padding: 0.5rem;
+  border: 1px solid #8692A6;
+  font-family: "museo-sans", sans-serif;
+  border-radius: 6px;
+}
+#addTeste form div textarea {
+  font-family: "museo-sans", sans-serif;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #8692A6;
+  border-radius: 6px;
+  height: 10rem;
+}
+#addTeste form div input[type=submit] {
+  font-family: "museo-sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17.5rem;
+  height: 3.5rem;
+  font-size: 1.6rem;
+  color: white;
+  background-color: #3B1AE3;
+  font-weight: 700;
+  border-radius: 5.1rem;
+  border: 0px;
+}
+#addTeste form #addTarefaBtn {
+  cursor: pointer;
+  border-radius: 5.1rem;
+  color: #3B1AE3;
+  font-weight: 700;
+  border: 4px #3B1AE3 solid;
+  font-size: 1.6rem;
+  background-color: #fff;
+  width: 17.5rem;
+  height: 4rem;
+}
+
+#video-grid {
+  display: flex;
+}
+#video-grid video {
+  width: 400px;
+}
+
+div#addTesteFinalizadoContainer {
+  display: flex;
+  height: 80%;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+div#addTesteFinalizadoContainer div#addTesteFinalizado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+div#addTesteFinalizadoContainer div#addTesteFinalizado h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 4.8rem;
+  line-height: 140.62%;
+  color: #02011D;
+  margin-bottom: 4rem;
+}
+div#addTesteFinalizadoContainer div#addTesteFinalizado p {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 4rem;
+  padding: 0 10%;
+}
+div#addTesteFinalizadoContainer div#addTesteFinalizado div[role=button] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19.2rem;
+  height: 5rem;
+  border: 4px solid #3B1AE3;
+  border-radius: 5.1rem;
+  margin-right: 2.5rem;
+}
+div#addTesteFinalizadoContainer div#addTesteFinalizado div[role=button] a {
+  font-weight: 700;
+  font-size: 1.8rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #02011D;
+}
+
+.convidarTestersContainer {
+  display: flex;
+  height: 80%;
+  width: 90%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.convidarTestersContainer h1 {
+  font-size: 4.5rem;
+  margin-bottom: 5.2rem;
+}
+.convidarTestersContainer div#testersTable {
+  width: 118rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6.2rem;
+}
+.convidarTestersContainer div#testersTable div#testersTableHeader {
+  font-weight: 700;
+  height: 5.3rem;
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FBFBFD;
+  color: #3B1AE3;
+}
+.convidarTestersContainer div#testersTable div#testersTableHeader div.testersTableTile {
+  width: 20%;
+}
+.convidarTestersContainer div#testersTable ul {
+  margin-bottom: 5rem;
+}
+.convidarTestersContainer div#testersTable ul li#tr {
+  border-bottom: solid 1px #BDBDBD;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10rem;
+}
+.convidarTestersContainer div#testersTable ul li#tr div {
+  text-align: center;
+  width: 20%;
+  font-size: 1.8rem;
+}
+.convidarTestersContainer div#testersTable ul li#tr div button {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background-color: #fff;
+  height: 4.5rem;
+  width: 13.5rem;
+  border: 5px solid #3B1AE3;
+  border-radius: 50px;
+}
+.convidarTestersContainer div#testersTable div[role=button] {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  width: 17.5rem;
+  height: 4.66rem;
+  background-color: #3B1AE3;
+  border-radius: 5.1rem;
+  border: 0px;
+  margin-right: 2.5rem;
+}
+.convidarTestersContainer div#testersTable div[role=button] a {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 768px) {

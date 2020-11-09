@@ -10,30 +10,10 @@ const pararGravarBtn = document.getElementById("parar");
 let userVideo = document.createElement('video');
 const btnCompartilhar = document.querySelector('#compartilharTela');
 const btnPararDeCompartilhar = document.querySelector('#pararDeCompartilhar');
-const btnAnotacao = document.querySelector('.btnanotacao');
-const anotacao = document.querySelector('#anotacoes');
 let partnerVideo;
 let recorder;
 
 userVideo.muted = true;
-
-navigator.mediaDevices
-	.getUserMedia({
-		video: true,
-		audio: true,
-	})
-	.then((stream) => {
-		addVideoStream(userVideo, stream);
-		socket.emit('join room', pegarID());
-		socket.on('other user', (userID) => {
-			callUser(userID);
-			otherUser = userID;
-		});
-		socket.on('offer', handleRecieveCall);
-		socket.on('answer', handleAnswer);
-		socket.on('ice-candidate', handleNewICECandidateMsg);
-	})
-	.catch((err) => console.log(err));
 
 const pegarID = () => {
 	let url = window.location.href;
@@ -44,7 +24,6 @@ const pegarID = () => {
 
 const tryReconnect =  ()=> {
 	if (socket.socket.connected === false && socket.socket.connecting === false) {
-		// use a connect() or reconnect() here if you want
 		socket.socket.connect();
 	}
 };
@@ -159,18 +138,32 @@ const addVideoStream=(video, stream)=> {
 	});
 }
 
-const shareScreen=() =>{
+const shareScreen= async () =>{
 	btnPararDeCompartilhar.style.display = 'block';
 	btnCompartilhar.style.display = 'none';
-	navigator.mediaDevices.getDisplayMedia({cursor: true}).then((stream) => {
+	await navigator.mediaDevices.getDisplayMedia({cursor: true}).then((stream) => {
 		const screenTrack = stream.getTracks()[0];
 		if (senders.length > 0) {
 			senders
 				.find((sender) => sender.track.kind === 'video')
 				.replaceTrack(screenTrack);
-			addVideoStream(userVideo, stream);
+				 addVideoStream(userVideo, stream);
 		}
-	});
+		screenTrack.onended=()=>{
+			pararDeCompartilharF()
+		}
+	}) ;
+}
+
+const pararDeCompartilharF = async () =>{
+	btnPararDeCompartilhar.style.display = 'none';
+	btnCompartilhar.style.display = 'block';
+	await navigator.mediaDevices.getUserMedia({video: true,
+		audio: true}).then((stream) => {
+		addVideoStream(userVideo, stream);
+		senders.find((sender) => sender.track.kind === 'video').replaceTrack(stream.getVideoTracks()[0])
+		
+	}) 
 }
 
 const videoUpload = (videoUrl)=> {
@@ -192,25 +185,28 @@ const videoUpload = (videoUrl)=> {
 	}
 	   }
 
-
-const mandarAnotacao = ()=> {
-	let anotacaoValor = anotacao.value
-	let id = pegarID()
-	return fetch(`http://localhost:5000/testes/${id}/chamada/anotacao`,{
-		method: 'POST', 
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		  },
-		body: JSON.stringify({anotacao: anotacaoValor})
-	}).then((res)=>{
-		//console.log(res)
-	}).catch(err=>{
-		console.log(err)
+navigator.mediaDevices
+	.getUserMedia({
+		video: true,
+		audio: true,
 	})
-   }
+	.then((stream) => {
+		addVideoStream(userVideo, stream);
+		socket.emit('join room', pegarID());
+		socket.on('other user', (userID) => {
+			callUser(userID);
+			otherUser = userID;
+		});
+		socket.on('offer', handleRecieveCall);
+		socket.on('answer', handleAnswer);
+		socket.on('ice-candidate', handleNewICECandidateMsg);
+	})
+	.catch((err) => console.log(err));
 
-começarGravarBtn.addEventListener("click",()=>{
+começarGravarBtn.addEventListener("click", async ()=>{
+	 userStream = await navigator.mediaDevices.getDisplayMedia({
+		video: { mediaSource: "screen" }
+	  });
 	recorder = new MediaRecorder(userStream);
 	const chunks = [];
 	recorder.ondataavailable = e => chunks.push(e.data);
@@ -226,12 +222,9 @@ começarGravarBtn.addEventListener("click",()=>{
 } );
 
 pararGravarBtn.addEventListener("click", () => {
-	alert('aadasasd')
 	pararGravarBtn.setAttribute("disabled", true);
 	começarGravarBtn.removeAttribute("disabled");
-  
 	recorder.stop();
-	userStream.getVideoTracks()[0].stop();
   });
 
   socket.on('connect', () => {
@@ -246,15 +239,14 @@ socket.on('disconnect', () => {
 socket.on('userLeft', () => {
 	partnerVideo.remove();
 });
+
 socket.on('criarOutroUserVideo', () => {
 	partnerVideo = document.createElement('video');
 });
 
-btnAnotacao.addEventListener('click', mandarAnotacao);
-
 btnCompartilhar.addEventListener('click', shareScreen);
 
-btnPararDeCompartilhar.addEventListener('click', pararDeCompartilhar);
+btnPararDeCompartilhar.addEventListener('click', pararDeCompartilharF);
 
 
 

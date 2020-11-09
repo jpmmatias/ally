@@ -1,10 +1,16 @@
-<h1>Calendario</h1>
-{{#each testes as |teste|}}
-<p>{{teste.nome}}</p>
-{{/each}}
-<div id='calendar'></div>
-
-
+<link rel="stylesheet" href="/CSS/Fullcallendar/main.min.css">
+<div class="cotainerDashboard">
+    {{> _sidebar}}
+    <div class="contentDashboard">
+        <div class="grid">
+            <h1>Agenda</h1>
+            {{#each testes as |teste|}}
+            <p>{{teste.nome}}</p>
+            {{/each}}
+            <div id='calendar'></div>
+        </div>
+    </div>
+</div>
+<script src="/Javascript/calendario.js" defer></script>
 <script src='/Javascript/FullCallendar/main.min.js' defer></script>
 <script src='/Javascript/FullCallendar/pt-br.js' defer></script>
-<script src="/Javascript/calendario.js" defer></script>

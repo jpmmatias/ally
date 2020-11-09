@@ -1,30 +1,37 @@
-<h3>Convidar Testers</h3>
-{{teste.nome}}
-{{userCriador.nome}}
-{{#if users}}
-<table class="striped">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Convidar</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each users as |user|}}
-        <tr id="tr">
-            <td>{{user.nome}}</td>
-            <td>
-                <input type="hidden" name="_method" value="POST">
-                <button id='convidar' onclick="mandarConvite('{{user.nome}}')" class="btn blue">
-                    <span>Convidar</span>
-                </button>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-{{else}}
-<p>Vcoê não tem testes ainda</p>
-{{/if}}
+<div class="cotainerDashboard">
+    {{> _sidebar}}
+    <div class="contentDashboard">
+        <div class="convidarTestersContainer">
+            <h1>Convidar Testers</h1>
+            {{#if users}}
+            <div id="testersTable">
+                <div id='testersTableHeader'>
+                    <div class="testersTableTile">Nome</div>
+                    <div class="testersTableTile">Idade</div>
+                    <div class="testersTableTile">Profissão</div>
+                    <div class="testersTableTile">Tipo de Defiência</div>
+                    <div class="testersTableTile">Convidar</div>
+                </div>
+                <ul>
+                    {{#each users as |user|}}
+                    <li id="tr">
+                        <div>{{user.nome}}</div>
+                        <div>
+                            <input type="hidden" name="_method" value="POST">
+                            <button id='convidar' onclick="mandarConvite('{{user.nome}}')" class="btn blue">
+                                <span>Convidar</span>
+                            </button>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                <div role="button"><a href="/testes/add/finalizado">Próximo</a></div>
+            </div>
+            {{else}}
+            <p>Não tem testers disponiveis</p>
+            {{/if}}
 
+        </div>
+    </div>
+</div>
 <script src="/Javascript/convite.js"></script>

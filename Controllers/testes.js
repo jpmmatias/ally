@@ -15,7 +15,13 @@ exports.mostrarPaginaAddTeste = (req, res, next) => {
 	res.render('Testes/add');
 };
 
-// (Mon Jan 02 2012 00:00:00 GMT+0100 (CET))
+//descrição         Mostrar pagina para adicionar teste
+//route             GET /testes/add/finalizado
+//Acesso            Privado
+exports.mostrarPaginaAddTesteFinalizado = (req, res, next) => {
+	res.render('Testes/addFinalizado');
+};
+
 //descrição         Adicionar teste
 //route             POST /testes
 //Acesso            Privado
@@ -24,9 +30,8 @@ exports.addTeste = async (req, res, next) => {
 		const dataMarcadaSeFormatacao = new Date(`${req.body.diaMarcado} ${req.body.horarioMarcado} GMT-3`)
 		var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
 		var dataMarcada = (new Date(dataMarcadaSeFormatacao - tzoffset)).toISOString().slice(0, -1);
-		console.log(dataMarcada)
 		req.body.user = req.user.id;
-		let novoTeste = await Teste.create({nome:req.body.nome,descricao:req.body.descricao,tarefas:req.body.tarefas,url:req.body.url,user:req.body.user,dataMarcada:dataMarcada});
+		let novoTeste = await Teste.create({nome:req.body.nome,mensgaemdeboasvindas:req.body.mensgaemdeboasvindas,cenario:req.body.cenario,tarefas:req.body.tarefas,url:req.body.url,user:req.body.user,dataMarcada:dataMarcada});
 		res.redirect(`testes/add/${novoTeste._id}/convidar/`);
 	} catch (err) {
 		console.log(err);
