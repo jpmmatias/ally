@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ally</title>
+    <title>Ally - Testes de Acessibilidade e Usabilidade</title>
     <link type="text/css" rel="stylesheet" href="./CSS/Fullcallendar/main.min.css">
     <link rel="stylesheet" href="/CSS/theme.css">
 </head>
@@ -17,10 +17,6 @@
 
 
 
-
-
-
-
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
@@ -28,23 +24,11 @@
         </div>
     </div>
 
-    <script>
-        let show = true;
 
-        const menuSection = document.querySelector(".menu-section")
-        const menuToggle = menuSection.querySelector(".menu-toggle")
-
-        menuToggle.addEventListener("click", () => {
-
-            document.body.style.overflow = show ? "hidden" : "initial"
-
-            menuSection.classList.toggle("on", show)
-            show = !show;
-        })
-    </script>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
         new window.VLibras.Widget(' https://vlibras.gov.br/app'); </script>
+    <script src="/javascript/menu.js"></script>
 </body>
 
 </html>

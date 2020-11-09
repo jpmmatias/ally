@@ -1,3 +1,47 @@
+@media (max-width: 980px) {
+  h2 {
+    margin: 0 2rem 3rem !important;
+  }
+
+  #bannerHome,
+  .cta {
+    flex-direction: column-reverse;
+
+    img {
+      margin: 20px auto;
+    }
+  }
+
+  #bannerTester {
+    img {
+      display: none;
+    }
+  }
+  .tester,
+  .home {
+    .itens-motivos {
+      padding: 0 6rem;
+      text-align: center;
+    }
+  }
+
+  #footer .col {
+    margin: 0 3.5rem;
+    margin-left: 0;
+  }
+
+  .home #call-to-action {
+    .cta-text {
+      margin-left: 0;
+      text-align: center;
+
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -8,29 +52,29 @@
   h2 {
     margin: 0 1rem 0;
   }
-}
 
-@media (max-width: 540px) {
-  #menu {
+  #menu,
+  .account {
     display: none !important;
   }
 
-  .one,
-  .two,
-  .three {
-    background-color: #000;
-    height: 5px;
-    width: 100%;
-    margin: 6px auto;
-
-    transition-duration: 0.3s;
+  .menu-section {
+    display: block !important;
   }
 
   .menu-toggle {
-    width: 40px;
-    height: 30px;
-    margin-right: 20px;
-    margin-top: 8px;
+    display: block !important;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 8px 20px;
+    background: var(--color-white);
+    font-size: 2.5rem;
+    font-weight: 900;
+    border: 0;
+    border-radius: 2px;
+
+    cursor: pointer;
   }
 
   /* fullscreen */
@@ -54,51 +98,58 @@
       display: block;
     }
 
-    .menu-toggle {
-      position: absolute;
-      right: 25px;
-      top: 15px;
-    }
-
-    .menu-toggle .one {
-      transform: rotate(45deg) translate(7px, 7px);
-      background-color: white;
-    }
-
-    .menu-toggle .two {
-      opacity: 0;
-      background-color: white;
-    }
-
-    .menu-toggle .three {
-      transform: rotate(-45deg) translate(8px, -9px);
-      background-color: white;
-    }
-
-    #menu {
+    #menu,
+    .account {
       text-align: center;
       display: block !important;
       margin-left: 0;
+
+      .btn-login {
+        margin-right: 0;
+      }
     }
 
-    #menu li a {
+    #menu {
+      padding-top: 10rem;
+    }
+
+    #menu li a,
+    .account a {
       transition-duration: 0.5s;
       font-size: 3rem;
       line-height: 1.8;
       display: block;
-      color: white;
-      margin-bottom: 2rem;
+      color: var(--color-white);
+      padding: 2rem 0;
+      margin-left: 0;
+      border-radius: 0 !important;
+
+      &:hover {
+        background: var(--color-white) !important;
+        color: var(--cor-principal) !important;
+        border-bottom: none !important;
+      }
+
+      &:after {
+        border-bottom: 0;
+      }
     }
   }
 
-  #banner {
+  .highlight {
+    background: none !important;
+  }
+}
+
+@media (max-width: 540px) {
+  #bannerHome {
     img {
       max-width: 410px;
       margin: auto;
     }
 
     .banner-text {
-      margin-top: 1rem;
+      margin-top: 3rem;
     }
 
     h1 {
@@ -119,10 +170,5 @@
       margin-left: 0;
       margin-bottom: 5rem;
     }
-  }
-
-  #banner,
-  .cta {
-    flex-direction: column-reverse;
   }
 }
