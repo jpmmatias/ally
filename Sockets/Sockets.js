@@ -18,14 +18,6 @@ io.sockets.on('connection', function (socket) {
 		const otherUser = rooms[roomID].find((id) => id !== socket.id);
 		if (otherUser) {
 			socket.emit('other user', otherUser);
-			console.log('outro usuário entrou')
-			socket.to(otherUser).emit('user joined', socket.id);
-		}
-	});
-	socket.on('backUserVideo', (roomID) => {
-		const otherUser = rooms[roomID].find((id) => id !== socket.id);
-		if (otherUser) {
-			socket.emit('other user back', otherUser);
 			socket.to(otherUser).emit('user joined', socket.id);
 		}
 	});
@@ -48,7 +40,6 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('disconnect', () => {
 		if (chamada) {
-			console.log(rooms);
 			const otherUser = rooms[id].find((id) => id !== socket.id);
 			rooms[id] = [otherUser];
 			socket.to(otherUser).emit('userLeft');

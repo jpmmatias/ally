@@ -40,14 +40,16 @@ const callUser = (userID)=> {
 const createPeer = (userID)=> {
 	const peer = new RTCPeerConnection({
 		iceServers: [
-			{
-				urls: 'stun:stun.stunprotocol.org',
-			},
-			{
-				urls: 'turn:numb.viagenie.ca',
-				credential: 'muazkh',
-				username: 'webrtc@live.com',
-			},
+            {
+                urls: "stun:numb.viagenie.ca",
+                username: "sultan1640@gmail.com",
+                credential: "98376683"
+            },
+            {
+                urls: "turn:numb.viagenie.ca",
+                username: "sultan1640@gmail.com",
+                credential: "98376683"
+            }
 		],
 	});
 	peer.onicecandidate = handleICECandidateEvent;
@@ -117,8 +119,8 @@ const handleICECandidateEvent = (e)=> {
 
 const handleNewICECandidateMsg = (incoming)=> {
 	const candidate = new RTCIceCandidate(incoming);
-
 	peerRef.addIceCandidate(candidate).catch((e) => console.log(e));
+	
 }
 
 const handleTrackEvent=(e)=> {
@@ -227,7 +229,7 @@ pararGravarBtn.addEventListener("click", () => {
 	recorder.stop();
   });
 
-  socket.on('connect', () => {
+socket.on('connect', () => {
 	clearInterval(intervalID);
 	socket.emit('roomID', pegarID());
 });
