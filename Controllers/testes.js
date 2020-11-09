@@ -49,7 +49,7 @@ exports.mostrarEspecificoTeste = async (req, res, next) => {
 		if (!teste) {
 			return res.render('Erros/404');
 		} else {
-			res.render('../Views/testes/teste', {
+			res.render('Testes/teste', {
 				teste,
 			});
 		}
@@ -75,7 +75,7 @@ exports.mostrarPaginaPraEditar = async (req, res, next) => {
 		if (teste.user != req.user.id) {
 			res.redirect('/dashboard');
 		} else {
-			res.render('../Views/testes/edit', {
+			res.render('Testes/edit', {
 				teste,
 			});
 		}

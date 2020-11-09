@@ -13,13 +13,14 @@ const methodOverride = require('method-override');
 const helmet = require('helmet');
 const colors = require('colors');
 
+
 //Config geral
 dotenv.config({path: '/Config/config.env'});
 
 //Pastas de arquivos estaticos
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'Uploads')));
 
+app.use(express.static(path.join(__dirname, './Public')));
+app.use(express.static(path.join(__dirname, './Uploads')));
 
 
 //Helmet middleware (Segurança do site)
@@ -33,7 +34,6 @@ app.use(express.json());
 app.use(
 	methodOverride(function (req, res) {
 		if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-			// look in urlencoded POST bodies and delete it
 			let method = req.body._method;
 			delete req.body._method;
 			return method;
@@ -60,17 +60,21 @@ mongoose
 //Handlebars Helper
 const {formatarData, tipoDiferente,stringfy,ifCond} = require('./Helpers/hbs');
 
+app.set('views', path.join(__dirname, 'Views'));
+
 //Handlebars
+app.set('view engine', '.hbs');
 app.engine(
 	'.hbs',
 	expshbs({
 		helpers: {formatarData, tipoDiferente,stringfy,ifCond},
 		defaultLayout: 'main',
 		extname: '.hbs',
+		partialsDir: path.join(__dirname, 'Views/Partials'),
+		layoutsDir: path.join(__dirname, 'Views/Layouts')	
 	})
 );
-app.set('views', path.join(__dirname, 'Views'));
-app.set('view engine', '.hbs');
+
 
 //Express session
 app.use(
