@@ -13,18 +13,15 @@ const methodOverride = require('method-override');
 const helmet = require('helmet');
 const colors = require('colors');
 
+
 //Config geral
 dotenv.config({path: '/Config/config.env'});
 
 //Pastas de arquivos estaticos
-if ((process.env.NODE_ENV = 'desenvolvimento')) {
-	app.use(express.static(path.join(__dirname, 'public')));
-	app.use(express.static(path.join(__dirname, 'Uploads')));
-} else{
-	process.env.PWD = process.cwd()
-	app.use(express.static(process.env.PWD + '/public'));
-	app.use(express.static(process.env.PWD + '/Uploads'));
-}
+
+app.use(express.static(path.join(__dirname, './Public')));
+app.use(express.static(path.join(__dirname, './Uploads')));
+
 
 //Helmet middleware (Segurança do site)
 app.use(helmet({ contentSecurityPolicy: false,}));
