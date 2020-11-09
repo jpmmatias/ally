@@ -1,1 +1,196 @@
-<h1>Landing page tester</h1>
+{{!-- skip links --}}
+<ul class="skip-links">
+    <li><a href="#menu">Pular para menu</a></li>
+    <li><a href="#conteudo">Pular para conteúdo</a></li>
+    <li><a href="#footer">Pular para rodapé</a></li>
+</ul>
+{{!-- / skip links --}}
+
+
+{{!-- header --}}
+<header id="headerTester">
+    <div class="container">
+
+        {{!-- navbar --}}
+        <nav class="main-nav" aria-label="Navegação principal">
+            <div class="logo">
+                <a href="/" title="Página inicial"><img src="Imagens/logo-ally.svg" alt="Logo Ally"></a>
+            </div>
+
+            {{!-- menu --}}
+            <div class="menu-section">
+
+                <button class="menu-toggle" aria-expanded="false">Menu</button>
+
+                <ul id="menu">
+                    <li><a href="/about">Sobre nós</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a class="highlight" href="/">Quer testar seu site?</a></li>
+                </ul>
+
+                <div class="account">
+                    <a class="btn-login" href="/users/login">Entrar</a>
+                    <a class="btn-register" href="/users/register">Criar conta</a>
+                </div>
+
+            </div>
+            {{!-- / menu --}}
+
+        </nav>
+        {{!-- / navbar --}}
+
+
+        {{!-- banner --}}
+        <div id="bannerTester">
+            <div class="banner-text">
+                <h1>As empresas querem te ouvir </h1>
+                <p>Seja pago para testar a acessibilidade de sites <br>- a favor de uma web mais inclusiva.</p>
+                <a class="btn-cta" href="/users/register">Comece a testar</a>
+            </div>
+            <img src="Imagens/navegador.svg" alt="Ilustração" aria-hidden="true">
+        </div>
+        {{!-- / banner --}}
+
+    </div>
+
+</header>
+{{!-- / header --}}
+
+
+<main id="conteudo" class="tester">
+
+    {{!-- como funciona --}}
+    <section id="como-funciona">
+        <div class="container">
+            <h2>Como funciona</h2>
+            <p class="subtitle">Se você possui uma deficiência visual, ajude as empresas a <br>testarem seus sites
+                enquanto ganha uma renda extra.</p>
+            <div class="steps">
+                <div class="item">
+                    <span aria-label="Passo 1">1</span>
+                    <h3>Inscreva-se</h3>
+                    <p>Inscreva-se para se juntar à nossa comunidade global fazendo um teste prático.</p>
+                </div>
+                <div class="item">
+                    <span aria-label="Passo 2">2</span>
+                    <h3>Faça testes</h3>
+                    <p>Dê feedback sobre os produtos que você adora e usa hoje.</p>
+                </div>
+                <div class="item">
+                    <span aria-label="Passo 3">3</span>
+                    <h3>Receba o pagamento</h3>
+                    <p>Ganhe dinheiro para cada teste que você concluir.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    {{!-- / como funciona --}}
+
+
+    {{!-- depoimentos --}}
+    <section id="depoimentos">
+        <div class="container">
+            <h2>O que estão dizendo do Ally</h2>
+
+            <div class="steps">
+                <div class="depoimento">
+                    <img src="Imagens/carol.svg" alt="...">
+                    <h3>Carolina Medeiros</h3>
+                    <p>Completely beautiful website and amazing support! This is my second website from this author.</p>
+                </div>
+
+                <div class="depoimento">
+                    <img src="Imagens/leo.svg" alt="...">
+                    <h3>Leonardo França</h3>
+                    <p>Really easy to use and customize. easy to understand. Darinka helped me with my site! She answers
+                        very quickly, a good service! Thank you very much!</p>
+                </div>
+                <div class="depoimento">
+                    <img src="Imagens/olivia.svg" alt="...">
+                    <h3>Olívia Canazzo</h3>
+                    <p>Really pleasing to look at, doc (including installation instructions) are clear and
+                        that is coming from a relatively new WordPress user.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{!-- / depoimentos --}}
+
+    {{!-- motivos --}}
+    <section id="motivos">
+        <div class="container">
+            <h2>Participe do futuro da <br>acessibilidade na Web</h2>
+
+            <div class="itens-motivos">
+                <div class="item">
+                    <img src="Imagens/iconeMotivo1.svg" alt="..." aria-hidden="true">
+                    <h3>Seja pago para fazer rápidos testes</h3>
+                    <p>Ganhe dinheiro sem complicações fazendo simples testes.</p>
+                </div>
+                <div class="item">
+                    <img src="Imagens/iconeMotivo2.svg" alt="..." aria-hidden="true">
+                    <h3>Defina seu próprio horário</h3>
+                    <p>Faça os testes apenas quando for conveniente para você.</p>
+                </div>
+                <div class="item">
+                    <img src="Imagens/iconeMotivo3.svg" alt="..." aria-hidden="true">
+                    <h3>Use sua própria tecnologia na privacidade de sua casa</h3>
+                    <p>Você pode fazer todos os testes em sua casa remotamente, com seu computador.</p>
+                </div>
+                <div class="item">
+                    <img src="Imagens/iconeMotivo4.svg" alt="..." aria-hidden="true">
+                    <h3>Transforme a Web em um lugar melhor</h3>
+                    <p>Com o Ally você ajuda a Web se tornar um lugar mais inclusivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{!-- / motivos --}}
+
+
+    {{!-- call to action --}}
+    <section id="call-to-action">
+        <div class="cta container">
+            <h2>Vamos começar a testar hoje?</h2>
+            <a class="btn-cta" href="">Começar a testar</a>
+        </div>
+    </section>
+    {{!-- / call to action --}}
+
+</main>
+
+<div class="container">
+
+    {{!-- footer --}}
+    <footer id="footer">
+
+        <div class="logo">
+            <a href=""><img src="Imagens/logo-ally.svg" alt="..."></a>
+            <p>Plataforma que tem o propósito de criar conexão entre empresas e usuários com deficiência visual,
+                por
+                meio de
+                testes de acessibilidade em sites</p>
+        </div>
+
+        <nav class="footer-nav">
+            <div class="col">
+                <p>Páginas</p>
+                <ul>
+                    <li>Sobre nós</li>
+                    <li>Contato</li>
+                </ul>
+            </div>
+            <div class="col">
+                <p>Redes Sociais</p>
+                <ul>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>Linkedin</li>
+                </ul>
+            </div>
+        </nav>
+
+    </footer>
+    {{!-- / footer --}}
+</div>

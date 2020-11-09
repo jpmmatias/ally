@@ -1,0 +1,119 @@
+#headerTester {
+  background: url(../../../Imagens/bgTester.svg);
+  background-size: cover;
+  padding-bottom: 8rem;
+}
+
+#bannerTester {
+  display: flex;
+  margin-top: 4rem;
+
+  .banner-text {
+    margin-top: 6rem;
+    line-height: 1.4;
+  }
+
+  h1 {
+    padding-right: 1.2rem;
+    font-size: 4rem;
+  }
+  p {
+    margin-top: 1.5rem;
+    color: #1e266d;
+    font-size: 2.5rem;
+  }
+
+  img {
+    max-width: 550px;
+    margin: 3rem 0 0 8rem;
+  }
+}
+
+.tester {
+  line-height: 1.6;
+
+  h3 {
+    font-size: 2.2rem;
+  }
+  #como-funciona {
+    background: linear-gradient(
+      3deg,
+      rgba(249, 252, 255, 0.9) 0%,
+      rgba(251, 253, 255, 1) 50%,
+      rgba(255, 255, 255, 1) 100%
+    );
+
+    padding: 8rem;
+
+    .subtitle {
+      text-align: center;
+    }
+    .steps {
+      padding: 0 4rem;
+      font-size: 1.8rem;
+      grid-gap: 70px;
+    }
+  }
+
+  #depoimentos {
+    padding: 8rem;
+    text-align: center;
+
+    .depoimento {
+      border: 1px solid #dfd9ff;
+      padding: 3rem 3rem 7rem;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 1.1rem;
+
+      img {
+        margin-bottom: 20px;
+      }
+      p {
+        text-align: left;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  #motivos {
+    padding-bottom: 8rem;
+    h2 {
+      line-height: 1.4;
+    }
+    .itens-motivos {
+      grid-gap: 30px 70px;
+      img {
+        max-width: 250px;
+        margin-bottom: 1rem;
+      }
+      .item {
+        padding-right: 4rem;
+      }
+      p {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  #call-to-action {
+    background: linear-gradient(
+      3deg,
+      rgba(249, 252, 255, 0.9) 0%,
+      rgba(251, 253, 255, 1) 50%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    padding: 8rem 0;
+    text-align: center;
+
+
+    .btn-cta {
+    
+      margin-top: 0;  
+      
+      padding: 0.7em 2em;
+    
+    }
+  }
+}

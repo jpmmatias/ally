@@ -1,20 +1,56 @@
-.btn-login {
-  border: 3px solid var(--color-blue);
-  border-radius: 20px;
-  padding: 6px 15px;
+.account {
+  display: flex;
+  align-items: center;
+
+  .btn-login {
+    margin-right: 20px;
+    color: var(--color-blue);
+    font-weight: 700;
+   
+    &:after {
+      border-bottom: 3px solid var(--color-blue);
+      content: "";
+      display: block;
+      transition: width 200ms ease-in-out 0s;
+      width: 0;
+    }
+
+    &:hover:after {
+      transition: width 100ms ease-in-out 0s;
+      width: 90%;
+    }
+  }
+
+  .btn-register {
+    background: var(--color-blue);
+    color: var(--color-white);
+
+    padding: 1rem 1.55rem;
+    border-radius: 50px;
+    font-size: 15px;
+    cursor: pointer;
+
+    transition-duration: 0.5s;
+    transition-property: background-color;
+    transition-timing-function: ease;
+
+    &:hover {
+      background-color: var(--color-hover);
+    }
+  }
 }
 
 .btn-cta {
   display: inline-block;
   margin-top: 3rem;
   color: var(--color-white);
-  background: var(--color-blue);
+  padding: 1em 2em;
+  border-radius: 1.6em;
+  font-size: 16px;
   font-size: 1.8rem;
-  /* letter-spacing: 0.1rem; */
-  padding: 1.6rem 1.8rem;
-  font-weight: 700;
-  border-radius: 2.5rem;
 
+  background-color: var(--color-blue);
+  box-shadow: 0 5px 8px rgba(109, 121, 156, 0.2);
   cursor: pointer;
 
   transition-duration: 0.5s;
@@ -22,7 +58,7 @@
   transition-timing-function: ease;
 
   &:hover {
-    background-color: #2d13b2;
+    background-color: var(--color-hover);
   }
 }
 
