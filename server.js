@@ -17,10 +17,14 @@ const colors = require('colors');
 dotenv.config({path: '/Config/config.env'});
 
 //Pastas de arquivos estaticos
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'Uploads')));
-
-
+if ((process.env.NODE_ENV = 'desenvolvimento')) {
+	app.use(express.static(path.join(__dirname, 'public')));
+	app.use(express.static(path.join(__dirname, 'Uploads')));
+} else{
+	process.env.PWD = process.cwd()
+	app.use(express.static(process.env.PWD + '/public'));
+	app.use(express.static(process.env.PWD + '/Uploads'));
+}
 
 //Helmet middleware (Segurança do site)
 app.use(helmet({ contentSecurityPolicy: false,}));
