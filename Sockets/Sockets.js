@@ -1,7 +1,7 @@
 let io = require('socket.io')();
 let rooms = {};
 let lobbys = {};
-io.on('connection', function (socket) {
+io.sockets.on('connection', function (socket) {
 	console.log('Socket.io conectado'.green.bold);
 	//---------------------Video chamada-------------------------
 	let id;
