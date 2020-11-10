@@ -25,6 +25,7 @@
 		"express": "^4.17.1",
 		"express-handlebars": "^5.1.0",
 		"express-session": "^1.17.1",
+		"eyeson": "^1.6.0",
 		"helmet": "^4.2.0",
 		"method-override": "^3.0.0",
 		"moment": "^2.29.1",
