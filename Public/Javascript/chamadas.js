@@ -23,7 +23,7 @@ const pegarID = () => {
 };
 
 const tryReconnect =  ()=> {
-	if (socket.socket.connected === false && socket.socket.connecting === false) {
+	if (socket.connected === false && socket.connecting === false) {
 		socket.socket.connect();
 	}
 };
@@ -39,9 +39,14 @@ const callUser = (userID)=> {
 const createPeer = (userID)=> {
 	const peer = new RTCPeerConnection({
 		iceServers: [
-			{"url":"stun:global.stun.twilio.com:3478?transport=udp","urls":"stun:global.stun.twilio.com:3478?transport=udp"},{"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"9b42b93b2878c5ea6e76ea705aaf012cca4a4b98763f0cd844af5dffcb5156de","urls":"turn:global.turn.twilio.com:3478?transport=udp","credential":"tSRBRED/O/QfIhQigUenfqCd7E3VQMdBXBhqjFXuFsM="},
-			{"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"9b42b93b2878c5ea6e76ea705aaf012cca4a4b98763f0cd844af5dffcb5156de","urls":"turn:global.turn.twilio.com:3478?transport=tcp","credential":"tSRBRED/O/QfIhQigUenfqCd7E3VQMdBXBhqjFXuFsM="},
-			{"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"9b42b93b2878c5ea6e76ea705aaf012cca4a4b98763f0cd844af5dffcb5156de","urls":"turn:global.turn.twilio.com:443?transport=tcp","credential":"tSRBRED/O/QfIhQigUenfqCd7E3VQMdBXBhqjFXuFsM="}
+            {
+                urls: 'stun:' + '18.219.144.189' + ':' + '3478'
+            },
+            {
+                urls: 'turn:' + '18.219.144.189' + ':' + '3478',
+                username: 'jpmmatias@gmail.com',
+                credential: 'senha1234'
+            }
 		],
 	});
 	peer.onicecandidate = handleICECandidateEvent;
