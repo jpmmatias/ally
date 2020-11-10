@@ -36,20 +36,12 @@ const callUser = (userID)=> {
 		.getTracks()
 		.forEach((track) => senders.push(peerRef.addTrack(track, userStream)));
 }
-
 const createPeer = (userID)=> {
 	const peer = new RTCPeerConnection({
 		iceServers: [
-            {
-                urls: "stun:numb.viagenie.ca",
-                username: "sultan1640@gmail.com",
-                credential: "98376683"
-            },
-            {
-                urls: "turn:numb.viagenie.ca",
-                username: "sultan1640@gmail.com",
-                credential: "98376683"
-            }
+			{"url":"stun:global.stun.twilio.com:3478?transport=udp","urls":"stun:global.stun.twilio.com:3478?transport=udp"},{"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"9b42b93b2878c5ea6e76ea705aaf012cca4a4b98763f0cd844af5dffcb5156de","urls":"turn:global.turn.twilio.com:3478?transport=udp","credential":"tSRBRED/O/QfIhQigUenfqCd7E3VQMdBXBhqjFXuFsM="},
+			{"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"9b42b93b2878c5ea6e76ea705aaf012cca4a4b98763f0cd844af5dffcb5156de","urls":"turn:global.turn.twilio.com:3478?transport=tcp","credential":"tSRBRED/O/QfIhQigUenfqCd7E3VQMdBXBhqjFXuFsM="},
+			{"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"9b42b93b2878c5ea6e76ea705aaf012cca4a4b98763f0cd844af5dffcb5156de","urls":"turn:global.turn.twilio.com:443?transport=tcp","credential":"tSRBRED/O/QfIhQigUenfqCd7E3VQMdBXBhqjFXuFsM="}
 		],
 	});
 	peer.onicecandidate = handleICECandidateEvent;
@@ -119,8 +111,8 @@ const handleICECandidateEvent = (e)=> {
 
 const handleNewICECandidateMsg = (incoming)=> {
 	const candidate = new RTCIceCandidate(incoming);
+
 	peerRef.addIceCandidate(candidate).catch((e) => console.log(e));
-	
 }
 
 const handleTrackEvent=(e)=> {
@@ -230,7 +222,6 @@ pararGravarBtn.addEventListener("click", () => {
   });
 
 socket.on('connect', () => {
-	clearInterval(intervalID);
 	socket.emit('roomID', pegarID());
 });
 

@@ -1,5 +1,7 @@
-const io = require('../Sockets/Sockets');
-
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = require('twilio')(accountSid, authToken);
+// client.tokens.create().then(token => console.log("password: "+token.password,"username: "+token.username,"ice_servers: "+ token.iceServers));
 //Modelo Teste
 const Teste = require('../Models/Teste');
 

@@ -1,4 +1,4 @@
-const dotenv = require('dotenv');
+require('dotenv').config({path: './Config/config.env'});
 const morgan = require('morgan');
 const express = require('express');
 const expshbs = require('express-handlebars');
@@ -12,10 +12,6 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 const helmet = require('helmet');
 const colors = require('colors');
-
-
-//Config geral
-dotenv.config({path: '/Config/config.env'});
 
 //Pastas de arquivos estaticos
 
