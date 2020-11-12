@@ -27,8 +27,20 @@ let testerAcietou =(nomeTester,email,teste)=> {
     )
 }
 
+let contatoEnviado =(nome,email)=> {
+    return(
+    {
+        from: 'Ally <allyticc@gmail.com>',
+        to: email,
+        subject: 'Mesnagem enviada com sucesso!',
+        html: `<h1>Ally</h1>
+                <h2>Olá ${nome}, sua mensagem de contato foi enviada com sucesso! Em breve entraremos em contato novamente!`}
+    )
+}
+
 module.exports={
     testerAcietou,
-    transporter
+    transporter,
+    contatoEnviado
 
 }

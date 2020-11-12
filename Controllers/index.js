@@ -7,6 +7,9 @@ const Video = require('../Models/Video');
 //Model User
 const User = require('../Models/User');
 
+//Nodemailer
+const {transporter,contatoEnviado} = require('../Config/nodemailer');
+
 //descrição         Mostrar homepage/landingpage (não sei ainda)
 //route             GET /
 //Acesso            Publico
@@ -62,4 +65,22 @@ exports.mostrarVideos = async (req, res, next) => {
 //Acesso            Publico
 exports.mostrarPaginaDeContato = (req, res, next) => {
 	res.render('contato');
+};
+
+//descrição         Enviar mensagem de contato
+//route             PUT /
+//Acesso            Publico
+exports.enviarEmailContato = (req, res, next) => {
+
+	const {nome,email,msg} = req.body
+	console.log(nome,email,msg)
+	 transporter.sendMail(contatoEnviado(nome,email),(err,info)=>{
+	 	if (err) {
+	 		console.log(err)
+	 	}
+	 	if (info) {
+	 		console.log(info)
+	 	}
+	})
+	res.end()
 };
