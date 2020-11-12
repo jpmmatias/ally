@@ -1,9 +1,9 @@
 let io = require('socket.io')();
+let twillioAuthToken = process.env.LOCAL_AUTH_TOKEN;
+let twillioAccountSID = process.env.LOCAL_TWILLIO_SID;
+const twilio = require("twilio")(twillioAccountSID, twillioAuthToken);
 
-var twillioAuthToken = process.env.LOCAL_AUTH_TOKEN;
-var twillioAccountSID = process.env.LOCAL_TWILLIO_SID;
-var twilio = require("twilio")(twillioAccountSID, twillioAuthToken);
-// Simple logging function to add room name
+// Função de loggin simples para adicionar o nome da sala
 function logIt(msg, room) {
 	if (room) {
 	  console.log(room + ": " + msg);
@@ -11,60 +11,60 @@ function logIt(msg, room) {
 	  console.log(msg);
 	}
   }
-// When a socket connects, set up the specific listeners we will use.
+// Quando um soquete se conecta, configure os ouvintes específicos que usaremos.
 io.sockets.on("connection", function (socket) {
 	console.log('Scokets online')
-	// When a client tries to join a room, only allow them if they are first or
-	// second in the room. Otherwise it is full.
+	// Quando um cliente tenta entrar em uma sala, só permita que ele seja o primeiro ou
+	// segundo na sala. Caso contrário, está cheio.
 	socket.on("join", function (room) {
-	  logIt("A client joined the room", room);
-	  var clients = io.sockets.adapter.rooms[room];
-	  var numClients = typeof clients !== "undefined" ? clients.length : 0;
+	  logIt("Um cliente entrou na sala", room);
+	  let clients = io.sockets.adapter.rooms[room];
+	  let numClients = typeof clients !== "undefined" ? clients.length : 0;
 	  if (numClients === 0) {
 		socket.join(room);
 	  } else if (numClients === 1) {
 		socket.join(room);
-		// When the client is second to join the room, both clients are ready.
+		// Quando o cliente é o segundo a entrar na sala, ambos os clientes estão prontos.
 		logIt("Broadcasting ready message", room);
-		// First to join call initiates call
+		// O primeiro a entrar na chamada inicia a chamada
 		socket.broadcast.to(room).emit("willInitiateCall", room);
 		socket.emit("ready", room).to(room);
 		socket.broadcast.to(room).emit("ready", room);
 	  } else {
-		logIt("room already full", room);
+		logIt("sala já cheia", room);
 		socket.emit("full", room);
 	  }
 	});
   
-	// When receiving the token message, use the Twilio REST API to request an
-	// token to get ephemeral credentials to use the TURN server.
+	// Ao receber  token, use a API REST do Twilio para solicitar um
+	// token para obter credenciais efêmeras para usar o servidor TURN.
 	socket.on("token", function (room) {
-	  logIt("Received token request", room);
+	  logIt("Pedido de token recebido", room);
 	  twilio.tokens.create(function (err, response) {
 		if (err) {
 		  logIt(err, room);
 		} else {
-		  logIt("Token generated. Returning it to the browser client", room);
+		  logIt("Token gerado. Retornando ao cliente do navegador", room);
 		  socket.emit("token", response).to(room);
 		}
 	  });
 	});
   
-	// Relay candidate messages
+	// Retransmitir mensagens candidatas
 	socket.on("candidate", function (candidate, room) {
-	  logIt("Received candidate. Broadcasting...", room);
+	  logIt("Candidato recebido. Transmitindo...", room);
 	  socket.broadcast.to(room).emit("candidate", candidate);
 	});
   
-	// Relay offers
+	// Relay oferece
 	socket.on("offer", function (offer, room) {
-	  logIt("Received offer. Broadcasting...", room);
+	  logIt("Oferta Recebida. Transmitindo...", room);
 	  socket.broadcast.to(room).emit("offer", offer);
 	});
   
-	// Relay answers
+	// Relay respostas
 	socket.on("answer", function (answer, room) {
-	  logIt("Received answer. Broadcasting...", room);
+	  logIt("Resposta recebida. Transmitindo...", room);
 	  socket.broadcast.to(room).emit("answer", answer);
 	});
   });

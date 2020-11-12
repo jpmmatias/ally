@@ -24,15 +24,14 @@ const createCalendar = async (data) => {
     
   }
 
-const fetchData = ()=>{
-    return new Promise ((resolve,reject)=>{
-        fetch('https://allyticc.herokuapp.com/calendario/data', {
-            method: 'GET', 
-        })
-        .then(response => response.text()).then(data=> createCalendar(data)).catch(function(err) { console.error(err); });
-    })
- 
-}
+//  const fetchData = ()=>{
+//      return new Promise ((resolve,reject)=>{
+//          fetch('https://allyticc.herokuapp.com/calendario/data', {
+//              method: 'GET', 
+//          })
+//          .then(response => response.text()).then(data=> createCalendar(data)).catch(function(err) { console.error(err)});
+//      })
+//  }
 
 window.onload(
     fetchData()

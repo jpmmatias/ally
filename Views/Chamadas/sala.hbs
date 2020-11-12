@@ -1,40 +1,60 @@
 <script src="https://kit.fontawesome.com/9d7bb7e31a.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<div id="sala">
-    <p id="remote-video-text"></p>
-    <video id="remote-video" autoplay playsinline></video>
-    <div id="moveable">
-        <video id="local-video" autoplay muted playsinline></video>
-    </div>
 
-    <div class="multi-button">
-        <div class="buttonContainer">
-            <button class="hoverButton" onclick="{muteMicrophone()}">
-                <i id="mic-icon" class="fas fa-microphone fa-xs"></i>
-            </button>
-            <div class="HoverState" id="mic-text">Mute</div>
-        </div>
+<div class="cotainerDashboard">
+    {{> _sidebar}}
+    <div class="contentDashboard">
+        <div id="sala">
+            <div class="videoContainer">
+                <p id="remote-video-text"></p>
+                <div id="remoteContainer">
+                    <video id="remote-video" autoplay playsinline></video>
+                </div>
+                <div id="moveable">
+                    <video id="local-video" autoplay muted playsinline></video>
+                </div>
+                <div class="buttonsAll">
+                    <div class="buttonContainer">
+                        <button class="hoverButton" onclick="{muteMicrophone()}">
+                            <i id="mic-icon" class="fas fa-microphone fa-xs"></i>
+                        </button>
+                        <div class="HoverState" id="mic-text">Mutar</div>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="hoverButton" id="share-button" onclick="{swap()}">
+                            <i id="swap-icon" class="fas fa-desktop fa-xs"></i>
+                        </button>
+                        <div class="HoverState" id="swap-text">Compartilhar Tela (quando clicado sua tela começará a ser
+                            gravada)</div>
+                    </div>
+                    <div class="buttonContainer" role="button">
+                        <button class="hoverButton" onclick="{window.location.href = '/dashboard'}">
+                            <i class="fas fa-phone-slash fa-xs"></i>
+                        </button>
+                        <div class="HoverState">Terminar Chamada</div>
+                    </div>
+                </div>
+            </div>
+            <div id="anotacoes">
+                <div id="todasAnotacoes">
+                    <div class="todasAnotacoesHead">
+                        <figure class="anotationIcon">
+                            <img src="/Imagens/noteicon.svg" alt="Icone de anotação">
+                        </figure>
+                        <h3>Anotações</h3>
+                    </div>
+                    <div id="wrapper">
+                        <ul role="listbox">
 
-        <div class="buttonContainer">
-            <button class="hoverButton" id="share-button" onclick="{swap()}">
-                <i id="swap-icon" class="fas fa-desktop fa-xs"></i>
-            </button>
-            <div class="HoverState" id="swap-text">Share Screen</div>
-        </div>
-
-        <div class="buttonContainer">
-            <button class="hoverButton" id="pip-button" onclick="{togglePictureInPicture()}">
-                <i class="fas fa-external-link-alt fa-xs"></i>
-            </button>
-            <div class="HoverState" id="pip-text">Toggle Picture in Picture</div>
-        </div>
-
-        <div class="buttonContainer" role="button">
-            <button class="hoverButton" onclick="{window.location.href = '/dashboard'}">
-                <i class="fas fa-phone-slash fa-xs"></i>
-            </button>
-            <div class="HoverState">End Call</div>
+                        </ul>
+                    </div>
+                </div>
+                <form>
+                    <input type="text" autocomplete="off" name="anotacao" placeholder="Escreva anotação..">
+                    <input type="submit" class="btnanotacao" value="Salvar Anotação">
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -44,4 +64,4 @@
 <script src="https://cdn.rawgit.com/muaz-khan/DetectRTC/master/DetectRTC.js" defer></script>
 <script src="/socket.io/socket.io.js" defer></script>
 <script src="/Javascript/chamadas.js" defer></script>
-{{!-- <script src="/Javascript/mandarAnotacao.js" defer></script> --}}
+<script src="/Javascript/mandarAnotacao.js" defer></script>

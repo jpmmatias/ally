@@ -781,278 +781,207 @@ div.contentDashboard div.grid div#calendar button {
 }
 
 #sala {
-  /*Moveable local video id*/
-  /*Text inside local video*/
-  /*caption text*/
-  /*Buttons*/
-  /*.fa-phone-slash {*/
-  /*  color: #470000;*/
-  /*}*/
-  /*End buttons*/
-  /*Text chat*/
-  /*received messages*/
-  /*sent messages*/
-  /*End text chat*/
-  /* Begin mobile layout */
-  /*Hide video controls on mobile*/
-  /*todo: still buggy on iOS, play/pause button pops up on load for iOS,
-     goes away after you press pause then play again*/
-  /* End mobile layout */
+  display: flex;
+  width: 80%;
+  height: 95vh;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-#sala video {
-  background: #16171a;
+#sala .videoContainer {
+  background: #FDFEFF;
+  height: 75%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 0fr 0.6fr 3fr 0.1fr;
+  grid-template-rows: 0.4fr 2.6fr 2rem;
+  gap: 0px 0px;
 }
-#sala #header {
-  position: absolute;
-  color: white;
-  font-family: "Fira Sans", sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  white-space: nowrap;
-  top: 20px;
-  left: 20px;
-  float: left;
+#sala .videoContainer #moveable {
+  width: 60%;
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  justify-self: center;
+  align-self: center;
 }
-#sala #header p,
-#sala img {
-  float: left;
-  padding: 7px;
-}
-#sala #header,
-#sala a {
-  color: white;
-  text-decoration: none;
-}
-#sala #moveable {
-  z-index: 100;
-  position: absolute;
-  width: 15%;
-  cursor: move;
-}
-#sala #moveable p {
-  z-index: 101;
-  position: absolute;
-  color: white;
-  font-family: "Heebo", sans-serif;
-  white-space: nowrap;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.12);
-  padding: 10px;
-  border-radius: 5px;
-}
-#sala #local-video {
+#sala .videoContainer #moveable #local-video {
   width: 100%;
+  margin-top: 1rem;
   height: auto;
   border-radius: 10px;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-  background: #16171a;
+  background: #FDFEFF;
 }
-#sala #remote-video-text {
-  box-sizing: border-box;
-  margin: 0;
-  width: 65vw;
-  position: absolute;
-  top: calc(80%);
-  left: 20vw;
-  z-index: 1;
-  color: white;
-  font-family: "Heebo", sans-serif;
+#sala .videoContainer #remote-video-text {
+  /* width: 15rem; */
+  color: black;
   font-size: 1.2rem;
   font-weight: bold;
-  text-align: left;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 0 0 10px 10px;
-  padding: 10px;
-}
-#sala #remote-video {
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 65%;
-  height: auto;
-  max-height: 100%;
-  max-width: 100%;
-  border-radius: 10px;
-  background-size: 400px auto;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-#sala #remote-video.fullscreen {
-  width: 100%;
-}
-#sala .multi-button button {
-  border: none;
-  font-size: 1.5rem;
-  transition: all 0.3s ease-in-out;
-  color: gray;
-  background: transparent;
-  cursor: pointer;
-  padding: 7px;
-  border-radius: 5px;
-}
-#sala button:focus {
-  outline: none;
-}
-#sala button:hover {
-  color: white;
-}
-#sala .multi-button {
-  position: absolute;
-  left: calc(7.5vw - 40px);
-  top: 50%;
-  -ms-transform: translate(0%, -50%);
-  transform: translate(0%, -50%);
-  z-index: 999;
-  border-radius: 10px;
-  background: #16171a;
-  box-shadow: 9px 9px 16px #0a0b0c, -9px -9px 16px #222328;
-  padding: 15px;
+  text-align: center;
+  grid-column: 3/4;
+  grid-row: 2;
   display: flex;
-  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+}
+#sala .videoContainer #remoteContainer {
+  width: 80%;
+  height: 90%;
+  grid-row: 1/4;
+  margin-top: 1.5%;
+  margin-bottom: 2.5%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 3/4;
+  border-radius: 10px;
+}
+#sala .videoContainer #remoteContainer #remote-video {
+  width: 100%;
+  height: 100%;
+}
+#sala .buttonsAll {
+  grid-row: 2;
+  grid-column: 2;
+  border-radius: 15px;
+  background: #fefefe;
+  box-shadow: 9px 9px 16px #fff, -9px -9px 16px #eeee;
+  height: 5rem;
+  display: flex;
+  justify-self: center;
+  align-self: end;
   justify-content: space-around;
-  /* grid-gap: 0.2rem; */
-  width: 40px;
+  align-items: center;
+  width: 80%;
+}
+#sala .buttonsAll .buttonContainer {
+  position: relative;
+  margin: 0 auto;
+  padding: 0.25rem;
+}
+#sala .buttonsAll button {
+  background-color: #FFFFFF;
+  color: #23242a;
+  box-shadow: none;
+  border: none;
+  border-radius: 15px;
+  font-size: 2rem;
+}
+#sala .buttonsAll button:hover {
+  color: #3B1AE3;
+}
+#sala .buttonsAll button .selectedBtn {
+  background-color: #F25270;
+  color: #ffffff;
 }
 #sala .HoverState {
   color: white;
-  font-family: "Heebo", sans-serif;
   font-size: 0.8rem;
   position: absolute;
   left: 60px;
   white-space: nowrap;
   top: 0px;
+  z-index: 50000;
   font-weight: bold;
   background: #16171a;
   padding: 10px;
   border-radius: 10px;
 }
-#sala .buttonContainer {
-  position: relative;
-  margin: 0 auto;
-}
-#sala #entire-chat {
-  position: absolute;
-  height: 100%;
-  right: 0;
-  width: 17.5vw;
-  padding: 0;
-}
-#sala .compose {
-  width: calc(17.5vw - 40px);
-  height: 60px;
-  font-family: "Heebo", sans-serif;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 100;
-  border-radius: 20px;
-  box-shadow: 6px 6px 12px #030506, -6px -6px 12px #292a30;
-  margin: 20px;
-  box-sizing: border-box;
-  padding: 16px;
-  background: #1c1d22;
-  overflow-x: hidden;
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-#sala .compose input {
-  /*font-family: inherit;*/
-  font-size: 0.8rem;
-  border: none;
-  width: 100%;
-  height: calc(100% - 5px);
-  resize: none;
-  outline: none;
-  background-color: inherit;
-  color: white;
-}
-#sala .compose input::placeholder {
-  color: white;
-  font-size: 0.8rem;
-}
-#sala #chat-zone {
-  padding-top: 20px;
-  box-sizing: border-box;
-  position: absolute;
-  height: 100%;
-  right: 0;
-  width: 17.5vw;
-  overflow: scroll;
-  font-family: "Heebo", sans-serif;
-  font-size: 0.8rem;
-}
-#sala #chat-zone::-webkit-scrollbar {
-  width: 0 !important;
-}
-#sala #chat-zone .chat-messages .message-item {
-  position: relative;
+
+#anotacoes {
+  width: 30%;
+  height: 75%;
+  background-color: #F2F2F2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 0 16px 4px;
-  margin-bottom: 10px;
 }
-#sala .chat-messages {
-  overflow-x: hidden;
-  padding-bottom: 80px;
-  overflow: -moz-scrollbars-none;
+#anotacoes #todasAnotacoes {
+  height: 80%;
 }
-#sala #chat-zone .chat-messages .message-item.customer {
-  padding-left: 40px;
-}
-#sala #chat-zone .message-item.moderator .message-bloc {
-  background-color: #1d1e21;
-  color: #fff;
-  position: relative;
+#anotacoes #todasAnotacoes .todasAnotacoesHead {
   display: flex;
+  height: 12%;
   align-items: center;
-  justify-content: center;
-  padding: 12px;
-  max-width: 100%;
-  border-radius: 20px 20px 20px 5px;
-  box-shadow: 6px 6px 12px #030506, -6px -6px 12px #23242a;
-}
-#sala #chat-zone .message-item.customer .message-bloc {
-  background-color: #2f3034;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: #3B1AE3;
   color: #fff;
-  border-radius: 20px 20px 5px 20px;
-  box-shadow: 6px 6px 12px #030506, -6px -6px 12px #22232a;
+  justify-content: space-evenly;
 }
-#sala #chat-zone .chat-messages .message-item.customer .message-bloc {
-  margin-left: auto;
+#anotacoes #todasAnotacoes .todasAnotacoesHead h3 {
+  text-align: center;
+  margin: 0;
 }
-#sala #chat-zone .chat-messages .message-item .message-bloc {
-  position: relative;
+#anotacoes #todasAnotacoes #wrapper {
+  overflow: auto;
+  height: 85%;
+}
+#anotacoes #todasAnotacoes #wrapper ul {
+  list-style: none;
+  padding: 1rem 2.5rem !important;
+}
+#anotacoes #todasAnotacoes #wrapper ul li {
+  margin-bottom: 1rem;
+  width: 85%;
   display: flex;
+  flex-direction: column;
+}
+#anotacoes #todasAnotacoes #wrapper ul li div:first-child {
+  font-size: 1rem;
+  padding: 0 0.7rem 0.6rem 0.2rem;
+  font-weight: 700;
+}
+#anotacoes #todasAnotacoes #wrapper ul li div:last-child {
+  background-color: #fff;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+#anotacoes form {
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
+}
+#anotacoes form input[type=text] {
+  width: 90%;
+  height: 3rem;
+  padding: 1rem;
+  border: none;
+  box-shadow: 0px 2px 4px 2px rgba(77, 91, 183, 0.2);
+  border-radius: 10px;
+}
+#anotacoes form input[type=submit] {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  text-align: center;
   justify-content: center;
-  padding: 12px;
-  max-width: 100%;
+  width: 85%;
+  height: 4rem;
+  background-color: #3B1AE3;
+  border-radius: 5.1rem;
+  border: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+  box-shadow: none;
+  cursor: pointer;
 }
-#sala .message {
-  word-break: break-all;
-}
-#sala .message a {
-  text-decoration: underline;
-}
-#sala .cssanimation {
+
+.cssanimation {
   animation-duration: 1s;
   animation-fill-mode: both;
 }
-#sala .fadeInBottom {
+
+.fadeInBottom {
   animation-name: fadeInBottom;
 }
+
 @keyframes fadeInBottom {
   from {
     opacity: 0;
@@ -1062,35 +991,19 @@ div.contentDashboard div.grid div#calendar button {
     opacity: 1;
   }
 }
+/*End text chat*/
+/* Begin mobile layout */
 @media (max-width: 640px) {
-  #sala {
-    /* @media (min-width: 320px) and (max-width: 480px) { */
-  }
-  #sala html,
-#sala body {
-    width: 100%;
-    height: 100%;
-    font-size: 1em;
-  }
-  #sala #header {
-    z-index: 5;
-  }
-  #sala #header img {
-    width: auto;
-    height: 2rem;
-  }
-  #sala #header p {
-    margin: 0;
-    line-height: 2rem;
-  }
-  #sala #remote-video {
+  /* @media (min-width: 320px) and (max-width: 480px) { */
+  #remote-video {
     /* width: 75vw;
     height: calc((16/9) * 75vw); */
     width: 100%;
     height: 100%;
     /* border: 3px solid red; */
   }
-  #sala #moveable {
+
+  #moveable {
     position: fixed;
     top: 5rem;
     left: 5rem;
@@ -1100,13 +1013,15 @@ div.contentDashboard div.grid div#calendar button {
     height: initial;
     max-width: 25%;
   }
-  #sala #moveable #local-video {
+
+  #moveable #local-video {
     width: auto;
     height: auto;
     max-width: 100%;
     max-height: 100%;
   }
-  #sala #moveable p {
+
+  #moveable p {
     text-align: center;
     z-index: 101;
     position: absolute;
@@ -1124,7 +1039,8 @@ div.contentDashboard div.grid div#calendar button {
     border-radius: 5px;
     margin: 0;
   }
-  #sala #remote-video-text {
+
+  #remote-video-text {
     position: fixed;
     top: 60% !important;
     bottom: initial;
@@ -1135,7 +1051,8 @@ div.contentDashboard div.grid div#calendar button {
     margin-left: 10%;
     text-align: center;
   }
-  #sala .multi-button {
+
+  .multi-button {
     position: fixed;
     left: 0;
     top: initial;
@@ -1153,7 +1070,8 @@ div.contentDashboard div.grid div#calendar button {
     flex-direction: row;
     /* overflow: hidden; */
   }
-  #sala .buttonContainer {
+
+  .buttonContainer {
     position: relative;
     height: 100%;
     font-size: 3rem;
@@ -1165,7 +1083,8 @@ div.contentDashboard div.grid div#calendar button {
     margin: 0;
     /* line-height: 1.5rem; */
   }
-  #sala .multi-button button {
+
+  .multi-button button {
     position: relative;
     width: 100%;
     border: none;
@@ -1177,14 +1096,17 @@ div.contentDashboard div.grid div#calendar button {
     padding: 7px;
     border-radius: 5px;
   }
-  #sala .HoverState {
+
+  .HoverState {
     display: none !important;
   }
-  #sala .buttonContainer:nth-child(3),
-#sala .buttonContainer:nth-child(5) {
+
+  .buttonContainer:nth-child(3),
+.buttonContainer:nth-child(5) {
     display: none;
   }
-  #sala #entire-chat {
+
+  #entire-chat {
     position: absolute;
     top: 3rem;
     right: 0;
@@ -1196,56 +1118,27 @@ div.contentDashboard div.grid div#calendar button {
     text-align: center;
     /* background: #16171a; */
   }
-  #sala #chat-zone {
-    position: relative;
-    padding-top: 20px;
-    width: 100%;
-    height: calc(100% - 2rem);
-    margin-left: 0;
-    /* box-shadow: 4px 4px 12px #030506, -4px -4px 12px #292a30; */
-    /* border: 5px solid blue */
-    border-radius: 10px;
-    /* background: #16171a; */
-  }
-  #sala #chat-zone .message-item.moderator .message-bloc,
-#sala #chat-zone .message-item.customer .message-bloc {
-    box-shadow: none;
-  }
-  #sala .compose {
-    position: absolute;
-    font-size: 0.8rem;
-    left: 10%;
-    right: initial;
-    /* bottom: calc(3rem + 2rem); */
-    bottom: 0;
-    width: 80%;
-    height: 2rem;
-    margin: 0.5rem 0;
-    padding: 0;
-    box-shadow: none;
-  }
-  #sala .compose input {
-    width: 90%;
-    height: 2rem;
-    line-height: 2rem;
-  }
-  #sala .compose input::placeholder {
-    color: white;
-  }
-}
-#sala video ::-webkit-media-controls-panel {
-  display: none !important;
-  -webkit-appearance: none;
-}
-#sala video ::--webkit-media-controls-play-button {
-  display: none !important;
-  -webkit-appearance: none;
-}
-#sala video ::-webkit-media-controls-start-playback-button {
-  display: none !important;
-  -webkit-appearance: none;
-}
 
+  /*Hide video controls on mobile*/
+  /*todo: still buggy on iOS, play/pause button pops up on load for iOS,
+     goes away after you press pause then play again*/
+  video ::-webkit-media-controls-panel {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+
+  video ::--webkit-media-controls-play-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+
+  video ::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+
+  /* End mobile layout */
+}
 div#addTesteFinalizadoContainer {
   display: flex;
   height: 80%;
