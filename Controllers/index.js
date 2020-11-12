@@ -56,3 +56,10 @@ exports.mostrarVideos = async (req, res, next) => {
 		res.render('../Views/errors/500');
 	}
 };
+
+//descrição         Mostrar paginá de contato
+//route             GET /
+//Acesso            Publico
+exports.mostrarPaginaDeContato = (req, res, next) => {
+	res.render('contato');
+};

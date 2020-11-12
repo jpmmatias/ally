@@ -1,0 +1,69 @@
+{{!-- skip links --}}
+<ul class="skip-links">
+    <li><a href="#menu">Pular para menu</a></li>
+    <li><a href="#conteudo">Pular para conteúdo</a></li>
+    <li><a href="#footer">Pular para rodapé</a></li>
+</ul>
+{{!-- / skip links --}}
+
+{{!-- header --}}
+<header id="headerHome">
+    <div class="container">
+
+        {{!-- navbar --}}
+        <nav class="main-nav" aria-label="Navegação principal">
+            <div class="logo">
+                <a href="/" title="Página inicial"><img src="Imagens/logo-ally.svg" alt="Logo Ally"></a>
+            </div>
+
+            {{!-- menu --}}
+            <div class="menu-section">
+
+                <button class="menu-toggle" aria-expanded="false">Menu</button>
+
+                <ul id="menu">
+                    <li><a href="/about">Sobre nós</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a class="highlight" href="/tester">Seja pago para testar</a></li>
+                </ul>
+
+                <div class="account">
+                    <a class="btn-login" href="/users/login">Entrar</a>
+                    <a class="btn-register" href="/users/register">Criar conta</a>
+                </div>
+
+            </div>
+            {{!-- / menu --}}
+
+        </nav>
+        {{!-- / navbar --}}
+
+
+</header>
+{{!-- / header --}}
+<main id="conteudo" class="contato">
+    <section>
+        <h1>Entre em Contato</h1>
+        <form action="/contato" method="POST">
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" placeholder="Como você quer ser chamado?" name="nome" id="nomeContato">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Insira seu email" id="emailContato">
+            </div>
+            <div>
+                <label for="mensagem">Mensagem</label>
+                <textarea name="mensagem" id="mensagemContato" placeholder="Escreva sua mensagem que quer nos enviar"
+                    cols="30" rows="10"></textarea>
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+    <figure>
+        <img src="/Imagens/Contato.svg" alt="Ilustração de contato">
+    </figure>
+
+</main>
+{{> _footer}}
