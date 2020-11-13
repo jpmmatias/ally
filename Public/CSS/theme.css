@@ -114,7 +114,7 @@ h2 {
   text-align: center;
   font-size: 3.2rem;
   margin-bottom: 1rem;
-  color: #02011D;
+  color: #0A0016;
 }
 #loginSection main form div {
   display: flex;
@@ -189,7 +189,7 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  color: #02011D;
+  color: #0A0016;
   text-decoration: none;
 }
 #loginSection main .google-btn .google-icon-wrapper {
@@ -635,7 +635,7 @@ aside.side-menu nav.navAside ul li {
 aside.side-menu nav.navAside ul li a {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #02011D;
+  color: #0A0016;
   width: 100%;
   display: grid;
   justify-content: center;
@@ -875,7 +875,7 @@ div.contentDashboard div.grid div#calendar button {
   color: #3B1AE3;
 }
 #sala .buttonsAll button .selectedBtn {
-  background-color: #F25270;
+  background-color: #FF5F7D;
   color: #ffffff;
 }
 #sala .HoverState {
@@ -1162,7 +1162,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado h1 {
   font-weight: bold;
   font-size: 4.8rem;
   line-height: 140.62%;
-  color: #02011D;
+  color: #0A0016;
   margin-bottom: 4rem;
 }
 div#addTesteFinalizadoContainer div#addTesteFinalizado p {
@@ -1291,7 +1291,7 @@ main.contato section {
   margin-bottom: 5.2rem;
 }
 main.contato section h1 {
-  color: #02011D;
+  color: #0A0016;
   font-size: 4.8rem;
   font-weight: 700;
   margin-bottom: 4.2rem;

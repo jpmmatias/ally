@@ -73,7 +73,6 @@ exports.mostrarPaginaDeContato = (req, res, next) => {
 exports.enviarEmailContato = (req, res, next) => {
 
 	const {nome,email,msg} = req.body
-	console.log(nome,email,msg)
 	 transporter.sendMail(contatoEnviado(nome,email),(err,info)=>{
 	 	if (err) {
 	 		console.log(err)
