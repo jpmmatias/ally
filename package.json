@@ -8,10 +8,6 @@
 		"start": "cross-env NODE_ENV=produccao node server",
 		"dev": "cross-env NODE_ENV=desenvolvimento nodemon server"
 	},
-	"engines": {
-		"node": "14.15.0",
-		"yarn": "1.21.1"
-	},
 	"devDependencies": {
 		"nodemon": "^2.0.4"
 	},
