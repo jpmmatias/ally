@@ -1,17 +1,59 @@
-<link type="text/css" rel="stylesheet" href="./CSS/Fullcallendar/main.min.css">
+<!DOCTYPE html>
+<html lang="pt">
 
-<div class="cotainerDashboard">
-    {{> _sidebar}}
-    <div class="contentDashboard">
-        <div class="grid">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="./CSS/Fullcallendar/main.min.css">
+    <link rel="stylesheet" href="/CSS/theme.css">
+    <title>Agenda - Ally</title>
+</head>
+
+
+<body>
+
+    {{> _skip_links}}
+    <div id="dashboard">
+
+        <!-- header -->
+        <header class="headerDashboard">
+            <button class="menutoggle" aria-expanded="false">Menu</button>
             <h1>Agenda</h1>
-            {{#each testes as |teste|}}
-            <p>{{teste.nome}}</p>
-            {{/each}}
-            <div id='calendar'></div>
-        </div>
+            <div class="utilities">
+                <span class="user">Olá {{nome}}!</span>
+                <a tabindex="0" class="logout" href="/users/logout">Sair</a>
+            </div>
+        </header>
+        <!-- /header -->
+        {{> _sidebar}}
+
+        <main id="conteudo">
+            <div class="grid">
+                {{#each testes as |teste|}}
+                <p>{{teste.nome}}</p>
+                {{/each}}
+                <div id='calendar'></div>
+            </div>
+        </main>
+
+
+
+
+        <!-- footer -->
+        <footer id="rodape" class="footerDashboard">
+            <p><span class="footer__copyright">&copy;</span> Ally 2020</p>
+            <a href="/contato">Entre em contato</a>
+        </footer>
+        <!-- / footer -->
+
     </div>
-</div>
-<script src="./Javascript/calendario.js" defer></script>
-<script src='./Javascript/FullCallendar/main.min.js' defer></script>
-<script src='./Javascript/FullCallendar/pt-br.js' defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/Javascript/mobileDashboard.js"></script>
+    <script src="./Javascript/calendario.js" defer></script>
+    <script src='./Javascript/FullCallendar/main.min.js' defer></script>
+    <script src='./Javascript/FullCallendar/pt-br.js' defer></script>

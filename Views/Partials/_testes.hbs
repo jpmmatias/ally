@@ -1,34 +1,76 @@
-<p>Aqui estão os seus testes</p>
-<a href="/testes/add" class="btn blue">Criar teste</a>
+<!-- pagina testes c/ teste -->
 {{#if testes}}
-<table class="striped">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Data</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
+
+<main id="conteudo" class="comTestes">
+
+    <section class="cards-testes">
+
         {{#each testes}}
-        <tr>
-            <td><a href="/testes/{{_id}}">{{nome}}</a></td>
-            <td>{{formatarData data 'MMMM Do YYYY, h:mm:ss a'}}</td>
-            <td>
-                <a href="/testes/editar/{{_id}}" class="btn btn-float">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <form action="/testes/{{_id}}" method="POST" id="delete-form">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn red">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </form>
-            </td>
-        </tr>
+        <div class="teste">
+           
+                <div>
+                    <h2>{{nome}}</h2>
+                    <p>Teste sobre a página inicial do site Lorem {{{teste.descricao}}}</p>
+                    <a href="/testes/{{_id}}" class="btn-outline">Ver mais detalhes do teste</a>
+                </div>
+            
+        </div>
         {{/each}}
-    </tbody>
-</table>
+
+
+    </section>
+     <a class="btn-cta" href="/testes/add">Crie um novo teste</a>
+</main>
+
+
+
+
+
+
+<!-- pagina testes - sem testes -->
 {{else}}
-<p>Vcoê não tem testes ainda</p>
+
+<main id="conteudo" class="semTestes">
+    <!-- painel principal -->
+    <section class="main-panel">
+        <div class="panel-info">
+            <img src="/Imagens/empty-box.svg" alt="Ícone de caixa vazia" aria-hidden="true">
+            <h2>Você não possui nenhum teste</h2>
+            <a class="btn-cta" href="/testes/add">Criar novo teste</a>
+        </div>
+    </section>
+    <!-- / painel principal -->
+
+    <!-- cards -->
+    <section class="cards">
+        <div class="card">
+            <div class="card__header">
+                <h3 class="card__header-title">Testes em tempo real com os usuários</h3>
+            </div>
+            <div class="card__body">
+                <ul class="bullets">
+                    <li class="bullet">
+                        <span class="fas fa-circle"></span>
+                        <span>Conduza o teste por vídeo, você consegue ver a tela do
+                            usuário e fazer anotações;</span></li>
+                    <li class="">
+                        <span class="fas fa-circle"></span>
+                        <span>Crie tarefas para seus participantes.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card secundary">
+            <div class="card__body">
+                <p>Está com problemas em criar seu primeiro teste? Não se preocupe, vamos te ajudar!</p>
+                <a class="btn-orientacoes" href="/">Ver orientações</a>
+            </div>
+        </div>
+    </section>
+    <!-- / cards -->
+</main>
+
+
 {{/if}}
+<!-- / pagina testes - sem testes -->

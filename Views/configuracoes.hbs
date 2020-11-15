@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/theme.css">
-    <title>Convidar Testers - Ally</title>
+    <title> Configurações - Ally</title>
 </head>
 
 
@@ -18,43 +18,38 @@
         <!-- header -->
         <header class="headerDashboard">
             <button class="menutoggle" aria-expanded="false">Menu</button>
-            <h1>Convidar Testers</h1>
+            <h1>Configurações</h1>
             <div class="utilities">
                 <span class="user">Olá {{nome}}!</span>
                 <a tabindex="0" class="logout" href="/users/logout">Sair</a>
             </div>
         </header>
         <!-- /header -->
+
         {{> _sidebar}}
 
-        <main id="conteudo">
-            <!-- breadcrumbs -->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Testes </a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Convidar Tester</li>
-                </ol>
-            </nav>
-            <!-- / breadcrumbs -->
-            <!-- tela de aguarde -->
+        <!-- configuracoes -->
+        <main id="conteudo" class="configuracoes">
             <section class="main-panel">
                 <div class="panel-info">
-                    <h2>Pronto! Agora é só esperar...</h2><br>
-                    <p>Quando seus convidados aceitarem seu convite,<br> você
-                        receberá uma notificação no seu e-mail e por aqui. </p>
-                    <a class="btn-orientacoes" href="/">Voltar para todos os testes</a>
+                    <div class="btn-delete">
+                        <a href="">
+                            <img src="/Imagens/iconeDelete.svg" aria-hidden="true" alt="Icone Segurança">
+                            Deletar minha conta
+                        </a>
+                    </div>
+
                 </div>
             </section>
-            <!-- / tela de aguarde -->
         </main>
-    </div>
-    <!-- footer -->
-    <footer id="rodape" class="footerDashboard">
-        <p><span class="footer__copyright">&copy;</span> Ally 2020</p>
-        <a href="/contato">Entre em contato</a>
-    </footer>
-    <!-- / footer -->
+        <!-- / configuracoes -->
+
+        <!-- footer -->
+        <footer id="rodape" class="footerDashboard">
+            <p><span class="footer__copyright">&copy;</span> Ally 2020</p>
+            <a href="/contato">Entre em contato</a>
+        </footer>
+        <!-- / footer -->
 
     </div>
 

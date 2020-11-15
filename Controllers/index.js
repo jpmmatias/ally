@@ -44,6 +44,12 @@ exports.mostrarDahboard = async (req, res, next) => {
 	}
 };
 
+//descrição         Mostrar paginá de configuracoes
+//route             GET /
+//Acesso            Privado
+exports.mostrarConfiguracoes = (req, res, next) => {
+	res.render('configuracoes');
+};
 
 //descrição         Mostrar videos
 //route             GET /videos

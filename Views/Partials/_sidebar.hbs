@@ -1,4 +1,4 @@
-<aside class="side-menu">
+{{!-- <aside class="side-menu">
     <div class="logo">
         <img src="/Imagens/Logo.svg" alt="Logo do Ally">
     </div>
@@ -24,4 +24,40 @@
             <button type="submit">+ Novo Teste</button>
         </form>
     </nav>
+</aside> --}}
+
+<!-- aside -->
+<aside class="sidenav" >
+    <button class="close">Fechar</button>
+    <div class="logo">
+        <a  href="/"><img src="/Imagens/logo-ally.svg" alt="Logo do Ally"></a>
+    </div>
+
+    <nav id="menu" class="main-nav" aria-label="Navegação principal">
+        <ul class="navList">
+            <li class="item">
+                <a href="/dashboard"> <img src="/Imagens/IconeTestes.svg" alt="Ícone para ver testes"
+                        aria-hidden="true">Testes</a>
+            </li>
+            <li class="item">
+                <a href="/calendario"> <img src="/Imagens/IconeCalendario.svg" alt="Ícone para ver Calendário"
+                        aria-hidden="true">Agenda</a>
+            </li>
+            <li class="item">
+                <a href="/configuracoes"> <img src="/Imagens/IconeConfiguracao.svg" alt="Ícone para ver Configurações"
+                        aria-hidden="true">Configurações</a>
+            </li>
+            <li class="item">
+                <a href="/orientacoes"> <img src="/Imagens/IconeOrientacao.svg" alt="Ícone para ver Orientações"
+                        aria-hidden="true">Orientações</a>
+            </li>
+        </ul>
+
+        {{!-- <form action="testes/add" method="get">
+            <button type="submit">+ Novo Teste</button>
+        </form> --}}
+
+         <a class="btn-cta" href="/testes/add">+ Novo Teste</a>
+    </nav>
 </aside>
+<!-- / aside -->

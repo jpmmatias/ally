@@ -35,11 +35,11 @@ img {
   max-width: 100%;
 }
 
-h2 {
-  margin: 0 30rem 3rem;
-  font-size: 3.2rem;
-  text-align: center;
-}
+// h2 {
+//   margin: 0 30rem 3rem;
+//   font-size: 3.2rem;
+//   text-align: center;
+// }
 
 .container {
   margin: auto;
@@ -85,3 +85,21 @@ h2 {
   padding: 0 6rem 0 12rem;
 }
 
+
+.skip-links a {
+  position: absolute;
+  top: -3rem;
+  background: var(--color-white);
+  padding: 0.5rem;
+  
+  color: #000;
+
+  &:focus {
+    top: 1.1rem;
+    z-index: 999;
+    
+    left: 5rem;
+    position: relative;
+    margin: 12rem 0;
+  }
+}

@@ -1,45 +1,96 @@
-<div class="cotainerDashboard">
-    {{> _sidebar}}
-    <div class="contentDashboard">
-        <div id="addTeste">
-            <h1>Novo Teste</h1>
-            <form action="/testes" method="POST">
-                <div class="sec1addTeste">
-                    <div class="input-field">
-                        <label for="title">Nome do Teste</label>
-                        <input placeholder="Qual o nome do Teste" type="text" id="title" name="nome">
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/theme.css">
+    <title>Criar Teste - Ally</title>
+</head>
+
+
+<body>
+
+    {{> _skip_links}}
+    <div id="dashboard">
+
+        <!-- header -->
+        <header class="headerDashboard">
+            <button class="menutoggle" aria-expanded="false">Menu</button>
+            <h1>Novo teste</h1>
+            <div class="utilities">
+                <span class="user">Olá {{teste.nome}}!</span>
+                <a tabindex="0" class="logout" href="/users/logout">Sair</a>
+            </div>
+        </header>
+        <!-- /header -->
+        {{> _sidebar}}
+
+        <main id="conteudo">
+            <!-- breadcrumbs -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Testes </a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Criar teste</li>
+                </ol>
+            </nav>
+            <!-- / breadcrumbs -->
+            <div id="addTeste">
+
+                <form action="/testes" method="POST">
+                    <div class="sec1addTeste">
+                        <div class="input-field">
+                            <label for="title">Nome do Teste</label>
+                            <input placeholder="Qual o nome do Teste" type="text" id="title" name="nome">
+                        </div>
+                        <div class="input-field">
+                            <label for="mensgaemdeboasvindas">Mensagem de Boas Vindas (opcional)</label>
+                            <textarea
+                                placeholder="Esta é a primeira coisa que os participantes vão ver antes do ínicio da sessão"
+                                id="body" name="mensgaemdeboasvindas"></textarea>
+                        </div>
+                        <div class="input-field">
+                            <label for="cenario">Cenário (opcional)</label>
+                            <textarea id="body" name="cenario"></textarea>
+                        </div>
+                        <div class="tarefas">
+                        </div>
+                        <button id="addTarefaBtn" type="button">+ Adicionar Tarefa</button>
                     </div>
-                    <div class="input-field">
-                        <label for="mensgaemdeboasvindas">Mensagem de Boas Vindas (opcional)</label>
-                        <textarea
-                            placeholder="Esta é a primeira coisa que os participantes vão ver antes do ínicio da sessão"
-                            id="body" name="mensgaemdeboasvindas"></textarea>
+                    <div class="sec2addTeste">
+                        <div class="input-field">
+                            <label for="title">Site URL</label>
+                            <input placeholder="Site URL" type="url" id="url" name="url">
+                        </div>
+                        <div class="input-field">
+                            <label for="diaMarcado">Dia</label>
+                            <input type="date" id="diaMarcado" name="diaMarcado">
+                        </div>
+                        <div class="input-field">
+                            <label for="horarioMarcado">Horario</label>
+                            <input type="time" id="horarioMarcado" name="horarioMarcado">
+                        </div>
+                        <input type="submit" value="Próximo">
                     </div>
-                    <div class="input-field">
-                        <label for="cenario">Cenário (opcional)</label>
-                        <textarea id="body" name="cenario"></textarea>
-                    </div>
-                    <div class="tarefas">
-                    </div>
-                    <button id="addTarefaBtn" type="button">+ Adicionar Tarefa</button>
-                </div>
-                <div class="sec2addTeste">
-                    <div class="input-field">
-                        <label for="title">Site URL</label>
-                        <input placeholder="Site URL" type="url" id="url" name="url">
-                    </div>
-                    <div class="input-field">
-                        <label for="diaMarcado">Dia</label>
-                        <input type="date" id="diaMarcado" name="diaMarcado">
-                    </div>
-                    <div class="input-field">
-                        <label for="horarioMarcado">Horario</label>
-                        <input type="time" id="horarioMarcado" name="horarioMarcado">
-                    </div>
-                    <input type="submit" value="Próximo">
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- footer -->
+        <footer id="rodape" class="footerDashboard">
+            <p><span class="footer__copyright">&copy;</span> Ally 2020</p>
+            <a href="/contato">Entre em contato</a>
+        </footer>
+        <!-- / footer -->
+
     </div>
-</div>
-<script src="/Javascript/script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/Javascript/mobileDashboard.js"></script>
+
+    <script src="/Javascript/script.js"></script>

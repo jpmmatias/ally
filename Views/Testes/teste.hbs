@@ -1,35 +1,200 @@
-<div class="cotainerDashboard">
-    {{> _sidebar}}
-    <div class="contentDashboard">
-        <div class="row">
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/theme.css">
+    <title> {{teste.nome}} - Ally</title>
+</head>
+
+
+<body>
+
+    {{> _skip_links}}
+    <div id="dashboard">
+
+        <!-- header -->
+        <header class="headerDashboard">
+            <button class="menutoggle" aria-expanded="false">Menu</button>
+            <h1>Testes</h1>
+            <div class="utilities">
+                <span class="user">Olá {{user}}!</span>
+                <a tabindex="0" class="logout" href="/users/logout">Sair</a>
+            </div>
+        </header>
+        <!-- /header -->
+        {{> _sidebar}}
+        {{!-- 
             <h3>{{teste.nome}}</h3>
-            <div class="col s12 m8">
-                <div class="card story">
-                    <div class="card-content">
-                        <span class="card-title">{{formatarData teste.data 'MMMM Do YYYY, h:mm:ss a'}}</span>
-                        {{{teste.descricao}}}
+                        <div class="col s12 m8">
+                            <div class="card story">
+                                <div class="card-content">
+                                    <span class="card-title">{{formatarData teste.data 'MMMM Do YYYY, h:mm:ss a'}}</span>
+                                    {{{teste.descricao}}}
+                                    {{#if teste.tarefas }}
+                                    <h5>Tarefas</h5>
+                                    <ul>
+                                        {{#each teste.tarefas}}
+                                        <li>{{this}}</li>
+                                        {{/each}}
+                                    </ul>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn orange"> <a href="/testes/{{teste._id}}/chamada">Ir para Chamada</a>
+                            </button>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="card center-align">
+                                <div class="card-content">
+                                    <span class="card-title">{{teste.user.nome}}</span>
+                                    <p>Criador do teste</p>
+                                </div>
+                            </div>
+                        </div>  --}}
+
+        <main id="conteudo">
+
+            <!-- breadcrumbs -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Testes </a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">{{teste.nome}}</li>
+                </ol>
+            </nav>
+            <!-- / breadcrumbs -->
+
+
+            <!-- pagina teste individual -->
+            <section class="testeIndividual">
+
+                <div class="infoTeste">
+
+                    <div class="info-main">
+                        <div class="nome">
+                            <h2> {{teste.nome}}</h2>
+                            <h3 class="url">URL - {{teste.url}}</h3>
+                        </div>
+
+                        {{!-- editar e excluir --}}
+                        <div class="actions">
+                            <div class="editar">
+                                <a href="/testes/editar/{{teste._id}}" title="Editar">
+                                    <span class="fas fa-pencil-alt"></span>
+                                    <p class="sr-only">Editar</p>
+                                </a>
+
+                            </div>
+
+                            <div class="editar red">
+                                <label for="excluir" class="sr-only">Excluir</label>
+                                <form action="/testes/{{teste._id}}" method="POST" id="delete-form">
+                                    <input id="excluir" type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" title="Excluir">
+                                        <span class="fas fa-trash-alt fa-lg"></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        {{!-- / editar e excluir --}}
+                    </div>
+
+                    <div class="descricao">
+                        <h3>Descrição</h3>
+                        <p>Teste de um site de e-commerce. Validar se o processo de compra está acessível.</p>
+                    </div>
+
+                    <div class="tarefas">
                         {{#if teste.tarefas }}
-                        <h5>Tarefas</h5>
+                        <h3>Tarefas</h3>
                         <ul>
                             {{#each teste.tarefas}}
-                            <li>{{this}}</li>
+                            <li>- {{this}}</li>
                             {{/each}}
                         </ul>
                         {{/if}}
+
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <button class="btn orange"> <a href="/testes/{{teste._id}}/chamada">Ir para Chamada</a> </button>
-            </div>
-            <div class="col s12 m4">
-                <div class="card center-align">
-                    <div class="card-content">
-                        <span class="card-title">{{teste.user.nome}}</span>
-                        <p>Criador do teste</p>
-                    </div>
+
+                {{!-- <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Data</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     
+                        <tr>
+                            <td><a href="/testes/{{_id}}">{{nome}}</a></td>
+                            <td>{{formatarData data 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                            <td>
+                                <a href="/testes/editar/{{teste._id}}" class="btn btn-float">
+                                
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form action="/testes/{{_id}}" method="POST" id="delete-form">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn red">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                </table> --}}
+
+
+
+
+
+
+
+                <div class="info-adicionais">
+                    <a href="/testes/{{teste._id}}/chamada">
+                        <div class="videochamada">
+
+                            <span class="fas fa-video fa-3x"></span>
+
+                            <h2>Ir para <br>Videochamada</h2>
+
+
+                        </div>
+                    </a>
+
+                    <a href="">
+                        <div class="gravacoes">
+                            <h2> Gravações e Anotações</h2>
+                            <p>Veja aqui todas as gravações e <br>anotações realizadas</p>
+                        </div>
+                    </a>
                 </div>
-            </div>
-        </div>
+
+            </section>
+            <!-- / pagina teste individual -->
+
+        </main>
+
+
+        <!-- footer -->
+        <footer id="rodape" class="footerDashboard">
+            <p><span class="footer__copyright">&copy;</span> Ally 2020</p>
+            <a href="/contato">Entre em contato</a>
+        </footer>
+        <!-- / footer -->
+
     </div>
-</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/Javascript/mobileDashboard.js"></script>

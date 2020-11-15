@@ -44,6 +44,7 @@ exports.addTeste = async (req, res, next) => {
 //Acesso            Privado
 exports.mostrarEspecificoTeste = async (req, res, next) => {
 	try {
+		const user = req.user.nome;
 		const id = req.params.id;
 		let teste = await Teste.findById(req.params.id).populate('user').lean();
 		if (!teste) {
@@ -51,6 +52,7 @@ exports.mostrarEspecificoTeste = async (req, res, next) => {
 		} else {
 			res.render('Testes/teste', {
 				teste,
+				user
 			});
 		}
 	} catch (err) {
