@@ -3,7 +3,6 @@
   //   margin: 0 2rem 3rem !important;
   // }
 
- 
   #bannerHome,
   .cta {
     flex-direction: column-reverse;
@@ -50,7 +49,6 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
   }
-
 }
 
 @media (max-width: 768px) {
@@ -60,8 +58,12 @@
   p {
     font-size: 2rem !important;
   }
-  h2 {
-    margin: 0 1rem 0;
+
+  .home,
+  .tester {
+    h2 {
+      margin: 0 1rem 0;
+    }
   }
 
   .headerHome,

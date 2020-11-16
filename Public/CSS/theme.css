@@ -109,11 +109,14 @@ img {
 }
 
 .skip-links a:focus {
-  top: 1.1rem;
+  display: block;
+  top: 0.2rem;
   z-index: 999;
-  left: 5rem;
+  padding: 1.3rem 0;
+  text-align: center;
+  background: var(--color-blue);
+  color: white;
   position: relative;
-  margin: 12rem 0;
 }
 
 #logoLogin {
@@ -772,7 +775,19 @@ img {
   margin-bottom: 10px;
 }
 
-.btn-cta {
+#dashboard {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 60px 1fr 50px;
+      grid-template-rows: 60px 1fr 50px;
+      grid-template-areas: "header" "main" "footer";
+  height: 100vh;
+}
+
+#dashboard .btn-cta {
   display: inline-block;
   margin-top: 1rem;
   color: var(--color-white);
@@ -791,11 +806,11 @@ img {
           transition-timing-function: ease;
 }
 
-.btn-cta:hover {
+#dashboard .btn-cta:hover {
   background-color: var(--color-hover);
 }
 
-.btn-orientacoes {
+#dashboard .btn-orientacoes {
   display: inline-block;
   margin-top: 2rem;
   color: var(--color-blue);
@@ -805,18 +820,6 @@ img {
   padding: 1rem 2rem;
   font-weight: 700;
   border-radius: 3em;
-}
-
-#dashboard {
-  position: relative;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 100%;
-      grid-template-columns: 100%;
-  -ms-grid-rows: 60px 1fr 50px;
-      grid-template-rows: 60px 1fr 50px;
-      grid-template-areas: "header" "main" "footer";
-  height: 100vh;
 }
 
 .headerDashboard {
@@ -1582,6 +1585,56 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
   padding: 10px;
   width: 50px;
   height: auto;
+}
+
+.dashboardTester {
+  padding: 40px;
+  line-height: 1.6;
+}
+
+.dashboardTester .info {
+  background: #fffef7;
+  color: var(--color-black);
+  padding: 3rem 30rem 4rem 5rem;
+}
+
+.dashboardTester .info h2 {
+  font-weight: 700;
+  font-size: 27px;
+}
+
+.dashboardTester .info p {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.dashboardTester .testes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(510px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
+  grid-gap: 20px;
+  margin-top: 3rem;
+}
+
+.dashboardTester .testes h3 {
+  font-size: 26px;
+}
+
+.dashboardTester .testes p {
+  font-size: 18px;
+}
+
+.dashboardTester .testes .convites {
+  border: 1px solid var(--color-blue);
+  padding: 5rem 4rem 6rem;
+  text-align: center;
+}
+
+.dashboardTester .testes .testes-realizados {
+  background: #fbfbfd;
+  padding: 5rem 4rem 6rem;
+  text-align: center;
 }
 
 div.contentDashboard div.grid {
@@ -2654,7 +2707,8 @@ main.contato figure img {
   p {
     font-size: 2rem !important;
   }
-  h2 {
+  .home h2,
+  .tester h2 {
     margin: 0 1rem 0;
   }
   .headerHome #menu,

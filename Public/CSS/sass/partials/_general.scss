@@ -100,11 +100,15 @@ h2 {
   color: #000;
 
   &:focus {
-    top: 1.1rem;
+    display: block;
+    top: 0.2rem;
     z-index: 999;
-    
-    left: 5rem;
+    padding: 1.3rem 0;
+    text-align: center;
+    background: var(--color-blue);
+    color: white;
+    // left: 5rem;
     position: relative;
-    margin: 12rem 0;
+    // margin: 12rem 0;
   }
 }
