@@ -15,6 +15,7 @@ body {
   font-family: "museo-sans", sans-serif;
   color: var(--color-black);
   font-size: 1.6rem;
+  transition: 0.3s;
 }
 
 button {
@@ -35,11 +36,15 @@ img {
   max-width: 100%;
 }
 
-// h2 {
-//   margin: 0 30rem 3rem;
-//   font-size: 3.2rem;
-//   text-align: center;
-// }
+
+.home, .tester {
+h2 {
+  margin: 0 30rem 3rem;
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+}
 
 .container {
   margin: auto;
