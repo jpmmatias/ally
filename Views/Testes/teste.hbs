@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
     <link rel="stylesheet" href="/CSS/theme.css">
     <title> {{teste.nome}} - Ally</title>
 </head>
@@ -58,8 +58,10 @@
                             </div>
                         </div>  --}}
 
+    
         <main id="conteudo">
 
+      
             <!-- breadcrumbs -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -69,6 +71,7 @@
                 </ol>
             </nav>
             <!-- / breadcrumbs -->
+
 
 
             <!-- pagina teste individual -->
@@ -82,7 +85,7 @@
                             <h3 class="url">URL - {{teste.url}}</h3>
                         </div>
 
-                        {{!-- editar e excluir --}}
+
                         <div class="actions">
                             <div class="editar">
                                 <a href="/testes/editar/{{teste._id}}" title="Editar">
@@ -102,7 +105,7 @@
                                 </form>
                             </div>
                         </div>
-                        {{!-- / editar e excluir --}}
+
                     </div>
 
                     <div class="descricao">
@@ -123,49 +126,12 @@
                     </div>
                 </div>
 
-                {{!-- <table class="striped">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Data</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                     
-                        <tr>
-                            <td><a href="/testes/{{_id}}">{{nome}}</a></td>
-                            <td>{{formatarData data 'MMMM Do YYYY, h:mm:ss a'}}</td>
-                            <td>
-                                <a href="/testes/editar/{{teste._id}}" class="btn btn-float">
-                                
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <form action="/testes/{{_id}}" method="POST" id="delete-form">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn red">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                       
-                    </tbody>
-                </table> --}}
-
-
-
-
 
                 <div class="info-adicionais">
                     <a href="/testes/{{teste._id}}/chamada">
                         <div class="videochamada">
-
                             <span class="fas fa-video fa-3x"></span>
-
                             <h2>Ir para <br>Videochamada</h2>
-
-
                         </div>
                     </a>
 
@@ -181,7 +147,6 @@
             <!-- / pagina teste individual -->
 
         </main>
-
 
         <!-- footer -->
         <footer id="rodape" class="footerDashboard">

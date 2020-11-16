@@ -788,7 +788,7 @@ img {
 }
 
 #dashboard .btn-cta {
-  display: inline-block;
+  display: table;
   margin-top: 1rem;
   color: var(--color-white);
   padding: 0.8em 1.5em;
@@ -1626,15 +1626,136 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
 }
 
 .dashboardTester .testes .convites {
-  border: 1px solid var(--color-blue);
+  background: #fbfbfd;
   padding: 5rem 4rem 6rem;
   text-align: center;
 }
 
 .dashboardTester .testes .testes-realizados {
-  background: #fbfbfd;
+  background: #ff5f7d05;
   padding: 5rem 4rem 6rem;
   text-align: center;
+}
+
+.gravacoesAnotacoes {
+  padding: 30px 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(320px, 245px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(320px, 245px));
+  grid-gap: 20px;
+}
+
+.gravacoesAnotacoes .gravacao {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  min-height: 235px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 4px 10px rgba(157, 155, 155, 0.25);
+          box-shadow: 0px 4px 10px rgba(157, 155, 155, 0.25);
+  position: relative;
+  min-height: 230px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.gravacoesAnotacoes .gravacao:hover {
+  -webkit-box-shadow: 0 10px 25px rgba(0, 10, 120, 0.1);
+          box-shadow: 0 10px 25px rgba(0, 10, 120, 0.1);
+  -webkit-transition: -webkit-box-shadow 0.3s ease;
+  transition: -webkit-box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+}
+
+.gravacoesAnotacoes .gravacao img {
+  width: 100%;
+}
+
+.gravacoesAnotacoes .gravacao .text {
+  text-align: center;
+  padding: 25px;
+}
+
+.gravacoesAnotacoes .gravacao h2 {
+  font-size: 22px;
+  color: var(--color-blue);
+}
+
+.gravacoesAnotacoes .gravacao p {
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 300;
+  color: var(--color-black);
+}
+
+.videoAnotacoes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 2rem 0 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.videoAnotacoes .video {
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  margin-bottom: 6rem;
+  padding-top: 42%;
+  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+.videoAnotacoes .video .responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.videoAnotacoes .anotacoes {
+  width: 80%;
+}
+
+.videoAnotacoes .anotacoes h2 {
+  font-size: 3rem;
+}
+
+.videoAnotacoes .anotacoes ul {
+  margin-top: 3rem;
+}
+
+.videoAnotacoes .anotacoes ul li {
+  background: var(--color-white);
+  -webkit-box-shadow: 0px 4px 8px rgba(180, 180, 180, 0.25);
+          box-shadow: 0px 4px 8px rgba(180, 180, 180, 0.25);
+  padding: 1rem 3rem 1.4rem;
+  margin-bottom: 3rem;
+}
+
+.videoAnotacoes .anotacoes ul li .tempo {
+  color: var(--color-blue);
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
 }
 
 div.contentDashboard div.grid {
@@ -1875,8 +1996,8 @@ div.contentDashboard div.grid div#calendar button {
 
 #sala .videoContainer {
   background: #FDFEFF;
-  height: 80%;
-  width: 90%;
+  height: 85%;
+  width: 95%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 0fr 0.6fr 3fr 0.1fr;
@@ -1930,8 +2051,8 @@ div.contentDashboard div.grid div#calendar button {
 }
 
 #sala .videoContainer #remoteContainer {
-  width: 80%;
-  height: 90%;
+  width: 85%;
+  height: 95%;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   grid-row: 1/4;
@@ -2014,8 +2135,8 @@ div.contentDashboard div.grid div#calendar button {
 }
 
 #anotacoes {
-  width: 30%;
-  height: 80%;
+  width: 28%;
+  height: 85%;
   background-color: #F2F2F2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2043,14 +2164,20 @@ div.contentDashboard div.grid div#calendar button {
   padding-right: 2rem;
   background-color: #3B1AE3;
   color: #fff;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-#anotacoes #todasAnotacoes .todasAnotacoesHead h3 {
+#anotacoes #todasAnotacoes .todasAnotacoesHead img {
+  max-width: 20px;
+  margin-right: 20px;
+}
+
+#anotacoes #todasAnotacoes .todasAnotacoesHead h2 {
   text-align: center;
   margin: 0;
+  font-size: 20px;
 }
 
 #anotacoes #todasAnotacoes #wrapper {
@@ -2065,7 +2192,7 @@ div.contentDashboard div.grid div#calendar button {
 
 #anotacoes #todasAnotacoes #wrapper ul li {
   margin-bottom: 1rem;
-  width: 85%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

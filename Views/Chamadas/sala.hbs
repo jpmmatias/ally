@@ -56,21 +56,21 @@
                     <div class="buttonsAll">
                         <div class="buttonContainer">
                             <button class="hoverButton" onclick="{muteMicrophone()}">
-                                <i id="mic-icon" class="fas fa-microphone fa-xs"></i>
+                                <span id="mic-icon" class="fas fa-microphone fa-xs"></span>
                             </button>
                             <div class="HoverState" id="mic-text">Mutar</div>
                         </div>
                         <div class="buttonContainer">
                             <button class="hoverButton" id="share-button" onclick="{swap()}">
-                                <i id="swap-icon" class="fas fa-desktop fa-xs"></i>
+                                <span id="swap-icon" class="fas fa-desktop fa-xs"></span>
                             </button>
                             <div class="HoverState" id="swap-text">Compartilhar Tela (quando clicado sua tela
                                 começará a ser
                                 gravada)</div>
                         </div>
-                        <div class="buttonContainer" role="button">
+                        <div class="buttonContainer">
                             <button class="hoverButton" onclick="{window.location.href = '/dashboard'}">
-                                <i class="fas fa-phone-slash fa-xs"></i>
+                                <span class="fas fa-phone-slash fa-xs"></span>
                             </button>
                             <div class="HoverState">Terminar Chamada</div>
                         </div>
@@ -80,9 +80,9 @@
                     <div id="todasAnotacoes">
                         <div class="todasAnotacoesHead">
                             <figure class="anotationIcon">
-                                <img src="/Imagens/noteicon.svg" alt="Icone de anotação">
+                                <img src="/Imagens/noteicon.svg" alt="Icone de anotação" aria-hidden="true">
                             </figure>
-                            <h3>Anotações</h3>
+                            <h2>Anotações</h2>
                         </div>
                         <div id="wrapper">
                             <ul role="listbox">
