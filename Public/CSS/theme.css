@@ -127,19 +127,23 @@ header#logoLogin {
   margin: 1.2rem 0 0 7rem;
 }
 
+header#logoLogin img {
+  max-width: 110px;
+}
+
 #loginSection {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   gap: 0px 0px;
-      grid-template-areas: '. . .';
+      grid-template-areas: ". . .";
   overflow-x: hidden;
 }
 
 #loginSection .container {
   overflow-x: hidden;
-  width: 51.8rem;
+  width: 58rem;
   -ms-grid-column: 2;
   grid-column: 2;
   display: -webkit-box;
@@ -175,7 +179,7 @@ header#logoLogin {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 3.2rem;
+  margin-bottom: 2.6rem;
 }
 
 #loginSection .container form .campo label {
@@ -184,10 +188,10 @@ header#logoLogin {
   font-size: 1.8rem;
 }
 
-#loginSection .container form .campo input[type='email'],
-#loginSection .container form .campo input[type='number'],
-#loginSection .container form .campo input[type='password'],
-#loginSection .container form .campo input[type='text'] {
+#loginSection .container form .campo input[type="email"],
+#loginSection .container form .campo input[type="number"],
+#loginSection .container form .campo input[type="password"],
+#loginSection .container form .campo input[type="text"] {
   width: 100%;
   font-size: 1.6rem;
   border: 1px solid #3B1AE3;
@@ -195,7 +199,7 @@ header#logoLogin {
   padding: 1.5rem 1.6rem;
 }
 
-#loginSection .container form .campo input[type='submit'] {
+#loginSection .container form .campo input[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -207,10 +211,10 @@ header#logoLogin {
           justify-content: center;
   -ms-flex-item-align: center;
       align-self: center;
-  width: 28rem;
-  height: 6rem;
+  width: 22rem;
+  height: 5rem;
   letter-spacing: 1px;
-  font-size: 2rem;
+  font-size: 18px;
   color: white;
   background-color: #3B1AE3;
   font-weight: 700;
@@ -223,7 +227,7 @@ header#logoLogin {
   cursor: pointer;
 }
 
-#loginSection .container form .campo input[type='submit']:hover {
+#loginSection .container form .campo input[type="submit"]:hover {
   -webkit-box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
           box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
   background-color: var(--color-hover);
@@ -238,7 +242,7 @@ header#logoLogin {
 }
 
 #loginSection .container div.ou::after {
-  content: '';
+  content: "";
   width: 40%;
   border-bottom: solid 1px #3B1AE3;
   position: absolute;
@@ -248,7 +252,7 @@ header#logoLogin {
 }
 
 #loginSection .container div.ou::before {
-  content: '';
+  content: "";
   width: 40%;
   border-bottom: solid 1px #3B1AE3;
   position: absolute;
@@ -338,15 +342,18 @@ header#logoLogin {
   position: relative;
 }
 
-#loginSection .mostrar-senha #btn-senha {
+#loginSection .mostrar-senha #btn-senha,
+#loginSection .mostrar-senha #btn-senha2 {
   position: absolute;
   right: 10px;
-  bottom: 10px;
+  bottom: 7px;
   background: var(--color-blue);
   color: var(--color-white);
   padding: 8px;
+  font-size: 13px;
   border-radius: 5px;
   border: 0;
+  cursor: pointer;
 }
 
 #loginSection .mostrar-senha .btn-active {
@@ -354,6 +361,29 @@ header#logoLogin {
   border: 1px solid var(--color-blue) !important;
   color: var(--color-blue) !important;
   font-weight: 700;
+}
+
+#loginSection .legend {
+  margin-top: 1.5rem;
+  text-align: right;
+  font-size: 16px;
+  color: var(--color-blue);
+}
+
+#loginSection fieldset {
+  border: 0;
+  margin: 2rem 0 5rem;
+}
+
+#loginSection fieldset legend {
+  font-size: 20px;
+  text-align: center;
+  margin: 3rem 0;
+  padding: 0 10px;
+}
+
+#loginSection fieldset:nth-child(2) {
+  border-top: 3px solid var(--color-pink);
 }
 
 .footerLogin {
@@ -654,6 +684,10 @@ header#logoLogin {
 
 .home #motivos p {
   font-size: 1.8rem;
+}
+
+.home #motivos .subtitle {
+  font-size: 2.2rem;
 }
 
 .home #call-to-action {
@@ -1673,12 +1707,17 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
 .dashboardTester {
   padding: 4rem;
   line-height: 1.6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 15px;
 }
 
 .dashboardTester .info {
   background: #fffef7;
   color: var(--color-black);
-  padding: 3rem 30rem 4rem 5rem;
+  padding: 3rem 4rem 4rem 5rem;
+  width: 50%;
 }
 
 .dashboardTester .info h2 {
@@ -1691,50 +1730,42 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
   font-size: 20px;
 }
 
-.dashboardTester .testes {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  grid-gap: 15px;
-  margin-top: 3rem;
-}
-
-.dashboardTester .testes h3 {
-  font-size: 26px;
-}
-
-.dashboardTester .testes p {
-  font-size: 18px;
-}
-
-.dashboardTester .testes .convites {
+.dashboardTester .convites {
   background: #fbfbfd;
   padding: 5rem 2rem 6rem;
   text-align: center;
-  width: 60%;
+  width: 50%;
 }
 
-.dashboardTester .testes .convites table {
+.dashboardTester .convites h3 {
+  font-size: 26px;
+}
+
+.dashboardTester .convites p {
+  font-size: 18px;
+}
+
+.dashboardTester .convites table {
   width: 100%;
 }
 
-.dashboardTester .testes .convites table thead th {
+.dashboardTester .convites table thead th {
   color: var(--color-blue);
   text-align: initial;
   font-size: 18px;
 }
 
-.dashboardTester .testes .convites table tbody tr {
+.dashboardTester .convites table tbody tr {
   background: var(--color-white);
   -webkit-box-shadow: 0px 4px 9px rgba(163, 163, 163, 0.1);
           box-shadow: 0px 4px 9px rgba(163, 163, 163, 0.1);
 }
 
-.dashboardTester .testes .convites table tbody td {
+.dashboardTester .convites table tbody td {
   padding: 16px 5px;
 }
 
-.dashboardTester .testes .convites table tbody .btn-action {
+.dashboardTester .convites table tbody .btn-action {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1743,7 +1774,7 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
           justify-content: flex-end;
 }
 
-.dashboardTester .testes .convites table tbody button {
+.dashboardTester .convites table tbody button {
   background: none;
   padding: 8px 15px;
   border-radius: 50px;
@@ -1752,37 +1783,30 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
   cursor: pointer;
 }
 
-.dashboardTester .testes .convites .red {
+.dashboardTester .convites .red {
   border: 3px solid var(--color-red);
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-.dashboardTester .testes .convites .red:hover {
+.dashboardTester .convites .red:hover {
   background: var(--color-red);
   color: var(--color-white);
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-.dashboardTester .testes .convites .blue {
+.dashboardTester .convites .blue {
   border: 3px solid var(--color-blue);
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-.dashboardTester .testes .convites .blue:hover {
+.dashboardTester .convites .blue:hover {
   background: var(--color-blue);
   color: var(--color-white);
   -webkit-transition: 0.2s;
   transition: 0.2s;
-}
-
-.dashboardTester .testes .testes-realizados {
-  background: #ff5f7d05;
-  padding: 5rem 4rem 6rem;
-  text-align: center;
-  width: 40%;
 }
 
 .gravacoesAnotacoes {
