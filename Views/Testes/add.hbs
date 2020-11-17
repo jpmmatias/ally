@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
     <link rel="stylesheet" href="/CSS/theme.css">
     <title>Criar Teste - Ally</title>
 </head>
@@ -41,28 +41,34 @@
             <div id="addTeste">
 
                 <form action="/testes" method="POST">
+
                     <div class="sec1addTeste">
                         <div class="input-field">
                             <label for="title">Nome do Teste</label>
                             <input placeholder="Qual o nome do Teste" type="text" id="title" name="nome">
                         </div>
+
                         <div class="input-field">
                             <label for="mensgaemdeboasvindas">Mensagem de Boas Vindas (opcional)</label>
                             <textarea
                                 placeholder="Esta é a primeira coisa que os participantes vão ver antes do ínicio da sessão"
-                                id="body" name="mensgaemdeboasvindas"></textarea>
+                                id="mensgaemdeboasvindas" name="mensgaemdeboasvindas"></textarea>
                         </div>
+
                         <div class="input-field">
                             <label for="cenario">Cenário (opcional)</label>
-                            <textarea id="body" name="cenario"></textarea>
+                            <textarea id="cenario" name="cenario"></textarea>
                         </div>
+
                         <div class="tarefas">
                         </div>
                         <button id="addTarefaBtn" type="button">+ Adicionar Tarefa</button>
                     </div>
+
+
                     <div class="sec2addTeste">
                         <div class="input-field">
-                            <label for="title">Site URL</label>
+                            <label for="url     ">Site URL</label>
                             <input placeholder="Site URL" type="url" id="url" name="url">
                         </div>
                         <div class="input-field">
@@ -70,7 +76,7 @@
                             <input type="date" id="diaMarcado" name="diaMarcado">
                         </div>
                         <div class="input-field">
-                            <label for="horarioMarcado">Horario</label>
+                            <label for="horarioMarcado">Horário</label>
                             <input type="time" id="horarioMarcado" name="horarioMarcado">
                         </div>
                         <input type="submit" value="Próximo">

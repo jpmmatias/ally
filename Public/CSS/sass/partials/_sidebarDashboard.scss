@@ -50,6 +50,8 @@ $width-sidenav: 210px;
   }
 }
 
+
+
 // header dashboard
 .headerDashboard {
   grid-area: header;
@@ -212,15 +214,24 @@ $width-sidenav: 210px;
   padding: 1rem 1rem;
   margin-top: 1.4rem;
   list-style: none;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 0.25rem;
   margin: 10px 25px 0;
+
 
   .breadcrumb-item + .breadcrumb-item::before {
     display: inline-block;
     padding: 0 0.8rem;
     color: #6c757d;
     content: "/";
+  }
+
+  a {
+    color: var(--color-black);
+  }
+
+  .active {
+    color: var(--color-blue);
   }
 }
 
@@ -344,7 +355,8 @@ main.comTestes {
 
   a.btn-cta {
     display: table;
-    margin: 5rem auto 2rem auto;
+    margin: 5rem auto 2rem auto !important;
+    font-size: 16px !important;
   }
   .cards-testes {
     display: grid;
@@ -616,6 +628,9 @@ main.comTestes {
 
   a {
     color: var(--color-black);
+    &:hover {
+      color: var(--color-blue);
+    }
   }
 }
 
@@ -672,13 +687,16 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
 }
 
 .dashboardTester {
-  padding: 40px;
+  padding: 4rem;
   line-height: 1.6;
+  display: flex;
+  grid-gap: 15px;
 
   .info {
     background: #fffef7;
     color: var(--color-black);
-    padding: 3rem 30rem 4rem 5rem;
+    padding: 3rem 4rem 4rem 5rem;
+    width: 50%;
 
     h2 {
       font-weight: 700;
@@ -691,13 +709,7 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
     }
   }
 
-  .testes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
-    grid-gap: 20px;
-
-    margin-top: 3rem;
-
+  .convites {
     h3 {
       font-size: 26px;
     }
@@ -705,19 +717,84 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
     p {
       font-size: 18px;
     }
+    background: #fbfbfd;
+    padding: 5rem 2rem 6rem;
+    text-align: center;
+    width: 50%;
 
-    .convites {
-      background: #fbfbfd;
-      padding: 5rem 4rem 6rem;
-      text-align: center;
+    table {
+      width: 100%;
+
+      thead {
+        th {
+          color: var(--color-blue);
+          text-align: initial;
+          font-size: 18px;
+        }
+      }
+
+      tbody {
+        tr {
+          background: var(--color-white);
+          box-shadow: 0px 4px 9px rgba(163, 163, 163, 0.1);
+        }
+
+        td {
+          padding: 16px 5px;
+        }
+
+        .btn-action {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        button {
+          background: none;
+          padding: 8px 15px;
+          border-radius: 50px;
+          margin-right: 10px;
+          font-size: 15px;
+          cursor: pointer;
+        }
+      }
     }
-    .testes-realizados {
-      background: #ff5f7d05;
-      padding: 5rem 4rem 6rem;
-      text-align: center;
+
+    .red {
+      border: 3px solid var(--color-red);
+      transition: 0.2s;
+
+      &:hover {
+        background: var(--color-red);
+        color: var(--color-white);
+        transition: 0.2s;
+      }
+    }
+
+    .blue {
+      border: 3px solid var(--color-blue);
+      transition: 0.2s;
+      &:hover {
+        background: var(--color-blue);
+        color: var(--color-white);
+        transition: 0.2s;
+      }
     }
   }
 }
+
+// .testes {
+//   display: flex;
+//   grid-gap: 15px;
+
+//   margin-top: 3rem;
+
+//   .testes-realizados {
+//     background: #ff5f7d05;
+//     padding: 5rem 4rem 6rem;
+//     text-align: center;
+//     width: 40%;
+//   }
+// }
 
 // pagina rever gravacoes e anotacoes
 .gravacoesAnotacoes {
@@ -765,6 +842,7 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
   }
 }
 
+// pagina com o video e as anotações feitas
 .videoAnotacoes {
   display: flex;
   justify-content: center;
