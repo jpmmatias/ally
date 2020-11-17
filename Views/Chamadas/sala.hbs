@@ -77,7 +77,28 @@
                     </div>
                 </div>
                 <div id="anotacoes">
-                    <div id="todasAnotacoes">
+                    {{#if tester}}
+                    <div id="testerArea">
+                            <div class="todasAnotacoesHead">
+                            <figure class="anotationIcon">
+                                <img src="/Imagens/noteicon.svg" alt="Icone de anotação" aria-hidden="true">
+                            </figure>
+                            <h2>Informações</h2>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>{{teste.mensgaemdeboasvindas}}</li>
+                                <li>Site URL: {{teste.url}}</li>
+                                <li>Cenário {{teste.cenario}}</li>
+                                {{#each teste.tarefas as |tarefa|}}
+                                <li>Tarefa: {{tarefa}}</li>
+                                    
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                {{else}}
+                 <div id="todasAnotacoes">
                         <div class="todasAnotacoesHead">
                             <figure class="anotationIcon">
                                 <img src="/Imagens/noteicon.svg" alt="Icone de anotação" aria-hidden="true">
@@ -96,6 +117,8 @@
                     </form>
                 </div>
             </div>
+                
+                {{/if}}
 
         </main>
 

@@ -185,6 +185,7 @@ header#logoLogin {
 }
 
 #loginSection .container form .campo input[type='email'],
+#loginSection .container form .campo input[type='number'],
 #loginSection .container form .campo input[type='password'],
 #loginSection .container form .campo input[type='text'] {
   width: 100%;
@@ -2144,7 +2145,7 @@ div.contentDashboard div.grid div#calendar button {
 }
 
 #sala .videoContainer {
-  background: #FDFEFF;
+  background: #fdfeff;
   height: 85%;
   width: 95%;
   display: -ms-grid;
@@ -2177,7 +2178,7 @@ div.contentDashboard div.grid div#calendar button {
   border-radius: 10px;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-  background: #FDFEFF;
+  background: #fdfeff;
 }
 
 #sala .videoContainer #remote-video-text {
@@ -2251,14 +2252,13 @@ div.contentDashboard div.grid div#calendar button {
 }
 
 #sala .buttonsAll button {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #23242a;
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
   border-radius: 15px;
-  font-size: 2.5rem;
-  cursor: pointer;
+  font-size: 2rem;
 }
 
 #sala .buttonsAll button:hover {
@@ -2272,7 +2272,7 @@ div.contentDashboard div.grid div#calendar button {
 
 #sala .HoverState {
   color: white;
-  font-size: 1.4rem;
+  font-size: 0.8rem;
   position: absolute;
   left: 60px;
   white-space: nowrap;
@@ -2287,7 +2287,7 @@ div.contentDashboard div.grid div#calendar button {
 #anotacoes {
   width: 28%;
   height: 85%;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2296,6 +2296,46 @@ div.contentDashboard div.grid div#calendar button {
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 20px;
+}
+
+#anotacoes #testerArea {
+  height: 80%;
+}
+
+#anotacoes #testerArea .todasAnotacoesHead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 12%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: #3b1ae3;
+  color: #fff;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#anotacoes #testerArea .todasAnotacoesHead img {
+  max-width: 20px;
+  margin-right: 20px;
+}
+
+#anotacoes #testerArea .todasAnotacoesHead h2 {
+  text-align: center;
+  margin: 0;
+  font-size: 20px;
+}
+
+#anotacoes #testerArea ul {
+  padding: 1rem;
+}
+
+#anotacoes #testerArea ul li {
+  margin-bottom: 1rem;
 }
 
 #anotacoes #todasAnotacoes {
@@ -2312,7 +2352,7 @@ div.contentDashboard div.grid div#calendar button {
           align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: var(--color-hover);
+  background-color: #3b1ae3;
   color: #fff;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -2320,8 +2360,8 @@ div.contentDashboard div.grid div#calendar button {
 }
 
 #anotacoes #todasAnotacoes .todasAnotacoesHead img {
-  max-width: 18px;
-  margin-right: 12px;
+  max-width: 20px;
+  margin-right: 20px;
 }
 
 #anotacoes #todasAnotacoes .todasAnotacoesHead h2 {
@@ -2406,7 +2446,7 @@ div.contentDashboard div.grid div#calendar button {
           justify-content: center;
   width: 85%;
   height: 4rem;
-  background-color: #3B1AE3;
+  background-color: #3b1ae3;
   border-radius: 5.1rem;
   border: none;
   font-weight: 700;

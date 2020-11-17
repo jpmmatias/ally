@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -106,6 +107,90 @@
             </div>
         </section>
 
+=======
+<header>
+    <a href="/">
+        <img src="\Imagens\Logo.svg" alt="Logo do Ally" id="logoLogin">
+    </a>
+</header>
+<section id="loginSection">
+    <main>
+        <h1>Crie uma Conta</h1>
+        {{#if tester}}
+        <form action="/users/register/tester" method="POST">
+            <div>
+                <label for="nome">Nome</label>
+                <input placeholder="Como você quer ser chamado?" id="nome" type="text" name='nome'
+                    value={{tipoDiferente nome 'undefined'}}>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input placeholder="Insira seu e-mail" id="email" type="email" name='email'
+                    value={{tipoDiferente email 'undefined'}}>
+            </div>
+            <div>
+                <label for="idade">Idade</label>
+                <input min="16" placeholder="Insira sua idade" id="idade" type="number" name='idade'
+                    value={{tipoDiferente idade 'undefined'}}>
+            </div>
+            <div>
+                <label for="profissao">Profissão</label>
+                <input placeholder="Insira sua Profissão" id="profissao" type="text" name='profissao'
+                    value={{tipoDiferente profissao 'undefined'}}>
+            </div>
+            <div>
+                <label for="deficiencia">Tipo de deficiência</label>
+                <input id="deficiencia" type="text" name="deficiencia" placeholder="Qual tipo de deficiência você possui? ">
+            </div>
+            <div>
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" name="senha" placeholder="Digite sua senha">
+            </div>
+            <div>
+                <label for="senha2">Confirmar senha</label>
+                <input id="senha2" type="password" name="senha2" placeholder="Digite sua senha">
+            </div>
+            <div>
+                <input value="Criar Conta" type="submit">
+            </div>
+        </form>
+        {{else}}
+        <form action="/users/register" method="POST">
+            <div>
+                <label for="nome">Nome</label>
+                <input placeholder="Como você quer ser chamado?" id="nome" type="text" name='nome'
+                    value={{tipoDiferente nome 'undefined'}}>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input placeholder="Insira seu e-mail" id="email" type="email" name='email'
+                    value={{tipoDiferente email 'undefined'}}>
+            </div>
+            <div>
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" name="senha" placeholder="Digite sua senha">
+            </div>
+            <div>
+                <label for="senha2">Confirmar senha</label>
+                <input id="senha2" type="password" name="senha2" placeholder="Digite sua senha">
+            </div>
+            <div>
+                <input value="Criar Conta" type="submit">
+            </div>
+        </form>
+        <div class="ou">Ou</div>
+        <div class="google-btn" role="button">
+            <a aria-label="Link para entrar usando o google" href="/users/login/google">
+                <div "google-icon-wrapper">
+                    <img class="google-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                        alt="Icone do Goole">
+                </div>
+                <span class="btn-text">Continuar com Google</span>
+            </a>
+        </div>
+        {{/if}}
+>>>>>>> master
     </main>
 
         {{!-- <script>

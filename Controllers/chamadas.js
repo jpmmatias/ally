@@ -8,8 +8,14 @@ const Anotacao = require('../Models/Anotacao');
 //route             GET /
 //Acesso            Privado
 exports.mostrarSala = async (req, res, next) => {
+	let tester;
 	try {
 		let id = req.params.id;
+		if (req.user.tipo === 'tester') {
+			tester = true;
+		} else {
+			tester = false;
+		}
 		let teste = await Teste.findById(req.params.id).populate('user').lean();
 		if (!teste) {
 			return res.render('Erros/404');
@@ -17,6 +23,7 @@ exports.mostrarSala = async (req, res, next) => {
 			res.render('Chamadas/sala', {
 				teste,
 				id,
+				tester
 			});
 		}
 	} catch (err) {
@@ -30,7 +37,7 @@ exports.mostrarSala = async (req, res, next) => {
 //Acesso            Privado
 exports.addAnotacao = async (req, res, next) => {
 	try {
-		await Anotacao.create({anotacao: req.body.anotacao, teste: req.params.id});
+		await Anotacao.create({ anotacao: req.body.anotacao, teste: req.params.id });
 		res.end();
 	} catch (err) {
 		console.log(err);

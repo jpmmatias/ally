@@ -12,6 +12,7 @@
 
 
 <body>
+<<<<<<< HEAD
     {{!-- skip links --}}
     <ul class="skip-links">
 
@@ -45,6 +46,34 @@
                         </div>
                     </div>
                     <div class="campo">
+=======
+{{!-- skip links --}}
+<ul class="skip-links">
+  
+    <li><a href="#conteudo">Pular para conteúdo</a></li>
+  
+</ul>
+{{!-- / skip links --}}
+    <main id="conteudo">
+        <header>
+            <a href="/">
+                <img src="/Imagens/logo-ally.svg" alt="Logo do Ally" id="logoLogin">
+            </a>
+        </header>
+        <section id="loginSection">
+            <div class="container">
+                <h1>Entrar</h1>
+                <form action="/users/login" method="POST">
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name='email' placeholder="Insira seu e-mail">
+                    </div>
+                    <div>
+                        <label for="password">Senha</label>
+                        <input id="password" type="password" name="password" placeholder="Digite sua senha">
+                    </div>
+                    <div>
+>>>>>>> master
                         <input value="Login" type="submit">
                     </div>
                 </form>
@@ -64,6 +93,7 @@
                 </div>
             </div>
         </section>
+<<<<<<< HEAD
 
     </main>
 
@@ -88,3 +118,7 @@
 
         }
     </script>
+=======
+
+    </main>
+>>>>>>> master

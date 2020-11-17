@@ -1,5 +1,5 @@
 const express = require('express');
-const {ensureAuthenticated} = require('../Config/auth');
+const { ensureAuthenticated } = require('../Config/auth');
 const {
 	mostrarPaginaAddTeste,
 	addTeste,
@@ -7,7 +7,9 @@ const {
 	mostrarPaginaPraEditar,
 	editarTeste,
 	deletarTeste,
-	mostrarPaginaAddTesteFinalizado
+	mostrarPaginaAddTesteFinalizado,
+	mostrarGravacoes,
+	mostrarVideoeAnotacoes
 } = require('../Controllers/testes');
 
 const chamadaRouter = require('./chamadas');
@@ -19,7 +21,6 @@ const router = express.Router();
 router.use('/:id/chamada', chamadaRouter);
 
 router.use('/add/:id/convidar', conviteRouter);
-
 
 router.get('/add', ensureAuthenticated, mostrarPaginaAddTeste);
 
@@ -34,5 +35,9 @@ router.get('/editar/:id', ensureAuthenticated, mostrarPaginaPraEditar);
 router.put('/editar/:id', ensureAuthenticated, editarTeste);
 
 router.delete('/:id', ensureAuthenticated, deletarTeste);
+
+router.get('/:id/gravacoesanotcacoes', ensureAuthenticated, mostrarGravacoes);
+
+router.get('/:id/gravacoesanotcacoes/:videoId', ensureAuthenticated, mostrarVideoeAnotacoes);
 
 module.exports = router;

@@ -16,35 +16,17 @@
     {{> _skip_links}}
     <div id="dashboard">
 
+
         <!-- header -->
         <header class="headerDashboard">
             <button class="menutoggle" aria-expanded="false">Menu</button>
             <h1>Convidar Testers</h1>
-            
-            {{#if users}}
-            <div id="testersTable">
-                <div id='testersTableHeader'>
-                    <div class="testersTableTile">Nome</div>
-                    <div class="testersTableTile">Idade</div>
-                    <div class="testersTableTile">Profissão</div>
-                    <div class="testersTableTile">Tipo de Defiência</div>
-                    <div class="testersTableTile">Convidar</div>
-                </div>
-                <ul>
-                    {{#each users as |user|}}
-                    <li id="tr">
-                        <div>{{user.nome}}</div>
-                        <div>
-                            <input type="hidden" name="_method" value="POST">
-                            <button id='{{user.nome}}' class="btn blue btnConvidar ">
-                                <span>Convidar</span>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Convidar Tester</li>
-                </ol>
-            </nav>
-            <!-- / breadcrumbs -->
+            <div class="utilities">
+                <span class="user">Olá {{user.nome}}!</span>
+                <a tabindex="0" class="logout" href="/users/logout">Sair</a>
+            </div>
+        </header>
+            {{> _sidebar}}
             <div class="convidarTestersContainer">
                 {{#if users}}
                 <div id="testersTable">
@@ -60,8 +42,15 @@
                         <li id="tr">
                             <div>{{user.nome}}</div>
                             <div>
+                                {{#if user.idade}}
+                                    {{user.idade}} anos
+                                {{/if}}
+                            </div>
+                            <div>{{user.profissao}}</div>
+                            <div>{{user.deficiencia}}</div>
+                            <div>
                                 <input type="hidden" name="_method" value="POST">
-                                <button id='convidar' onclick="mandarConvite('{{user.nome}}')" class="btn blue">
+                                <button id="{{user.nome}}" class="btn blue btnConvidar">
                                     <span>Convidar</span>
                                 </button>
                             </div>
