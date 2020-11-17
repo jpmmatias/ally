@@ -72,6 +72,7 @@
 
     </table>
 
+<<<<<<< HEAD
 
 
 
@@ -126,6 +127,48 @@
     </section>
 
 </main>
+=======
+<div class="convites">
+    <h3>Convites</h3>
+
+    <table class="striped">
+        <caption class="sr-only">Convites Recebidos</caption>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>&nbsp;</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each convites as |convite|}}
+            <tr>
+                <td>{{convite.userNome}}Exemplo</td>
+                <td class="btn-action">
+                    <button
+                        {{!-- onclick="aceitarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')" --}}
+                        class="blue">
+                        Aceitar
+                    </button>
+                    <button
+                        {{!-- onclick="recusarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')" --}}
+                        id="recusarBtn" class="red">
+                        Recusar
+                    </button>
+                </td>
+            </tr>
+            {{/each}}
+
+    </table>
+
+
+
+
+
+</div>
+
+>>>>>>> master
 
 
 

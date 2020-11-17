@@ -312,7 +312,7 @@ function swap() {
 		navigator.mediaDevices
 			.getDisplayMedia({
 				video: true,
-				audio: false
+				audio: true
 			})
 			.then(function(stream) {
 				mode = 'screen';

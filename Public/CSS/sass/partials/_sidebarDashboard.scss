@@ -50,6 +50,8 @@ $width-sidenav: 210px;
   }
 }
 
+
+
 // header dashboard
 .headerDashboard {
   grid-area: header;
@@ -215,6 +217,7 @@ $width-sidenav: 210px;
   font-size: 16px;
   border-radius: 0.25rem;
   margin: 10px 25px 0;
+
 
   .breadcrumb-item + .breadcrumb-item::before {
     display: inline-block;

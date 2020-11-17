@@ -2414,6 +2414,9 @@ div.contentDashboard div.grid div#calendar button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  opacity: 0;
+  -webkit-transition: opacity .1s ease-in;
+  transition: opacity .1s ease-in;
 }
 
 #anotacoes #todasAnotacoes #wrapper ul li div:first-child {
@@ -2428,6 +2431,10 @@ div.contentDashboard div.grid div#calendar button {
   padding: 1rem;
   border-radius: 10px;
   word-wrap: break-word;
+}
+
+#anotacoes #todasAnotacoes #wrapper ul li.animacaoAnotacao {
+  opacity: 1;
 }
 
 #anotacoes form {
