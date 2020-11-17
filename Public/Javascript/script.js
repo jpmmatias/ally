@@ -13,3 +13,5 @@ function addTesteInput() {
 	areaTarefas.appendChild(div);
 }
 btnTarefa.addEventListener('click', addTesteInput);
+
+

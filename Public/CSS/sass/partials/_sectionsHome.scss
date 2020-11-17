@@ -78,13 +78,13 @@
   #orientacoes {
     padding: 7rem 0;
     text-align: center;
-    // background: linear-gradient(
-    //   3deg,
-    //   rgba(255, 254, 246, 0.8) 0%,
-    //   rgba(255, 255, 251, 0.8) 60%,
-    //   rgba(255, 255, 255, 1) 100%
-    // );
-    background: var(--color-yellow);
+    background: linear-gradient(
+      3deg,
+      rgba(255, 254, 246, 0.8) 0%,
+      rgba(255, 255, 251, 0.8) 60%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    // background: var(--color-yellow);
     p {
       font-size: 2rem;
       line-height: 1.5;

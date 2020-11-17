@@ -1,16 +1,66 @@
-<div class="cotainerDashboard">
-    {{> _sidebar}}
-    <div class="contentDashboard">
-        <div id="addTesteFinalizadoContainer">
-            <div id="addTesteFinalizado">
-                <h1>Pronto, agora é só esperar...</h1>
-                <p>
-                    Quando seus convidados aceitarem seu convite você receberá uma notificação no seu e-mail e por aqui.
-                </p>
-                <div role="button">
-                    <a href="/">Voltar para os testes</a>
-                </div>
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
+    <link rel="stylesheet" href="/CSS/theme.css">
+    <title>Convidar Testers - Ally</title>
+</head>
+
+
+<body>
+
+    {{> _skip_links}}
+    <div id="dashboard">
+
+        <!-- header -->
+        <header class="headerDashboard">
+            <button class="menutoggle" aria-expanded="false">Menu</button>
+            <h1>Convidar Testers</h1>
+            <div class="utilities">
+                <span class="user">Olá {{nome}}!</span>
+                <a tabindex="0" class="logout" href="/users/logout">Sair</a>
             </div>
-        </div>
+        </header>
+        <!-- /header -->
+        {{> _sidebar}}
+
+        <main id="conteudo">
+            <!-- breadcrumbs -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Testes </a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Convidar Tester</li>
+                </ol>
+            </nav>
+            <!-- / breadcrumbs -->
+            <!-- tela de aguarde -->
+            <section class="main-panel">
+                <div class="panel-info">
+                    <h2>Pronto! Agora é só esperar...</h2><br>
+                    <p>Quando seus convidados aceitarem seu convite,<br> você
+                        receberá uma notificação no seu e-mail e por aqui. </p>
+                    <a class="btn-orientacoes" href="/">Voltar para todos os testes</a>
+                </div>
+            </section>
+            <!-- / tela de aguarde -->
+        </main>
     </div>
-</div>
+    <!-- footer -->
+    <footer id="rodape" class="footerDashboard">
+        <p><span class="footer__copyright">&copy;</span> Ally 2020</p>
+        <a href="/contato">Entre em contato</a>
+    </footer>
+    <!-- / footer -->
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/Javascript/mobileDashboard.js"></script>

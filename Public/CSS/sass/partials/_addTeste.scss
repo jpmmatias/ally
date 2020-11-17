@@ -1,96 +1,130 @@
-@import 'cores';
-#addTeste{
+@import "cores";
+#addTeste,
+#editTeste {
+  display: flex;
+  height: 80%;
+  width: 90%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  h1 {
+    font-size: 4.5rem;
+    margin-bottom: 5.2rem;
+  }
+  form {
     display: flex;
-    height: 80%;   
-    width:90%;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-
-    h1{
-        font-size: 4.5rem;
-        margin-bottom: 5.2rem;
+    justify-content: space-between;
+    width: 90%;
+    .sec2addTeste {
+      margin-left: 6rem;
     }
-    form {
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      
+
+      label {
+        color: $azul;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        margin: 15px 0;
+      }
+
+      input[type="text"],
+      input[type="url"] {
+        width: 100%;
+        font-family: "museo-sans", sans-serif;
+        height: 2.8rem;
+        padding: 0.5rem;
+        font-size: 1.6rem;
+        border: 1px solid #8692a6;
+        border-radius: 6px;
+      }
+      input[type="time"] {
+        border: 1px solid #8692a6;
+        font-family: "museo-sans", sans-serif;
+        border-radius: 6px;
+        padding: 0.5rem;
+      }
+      input[type="date"] {
+        padding: 0.5rem;
+        border: 1px solid #8692a6;
+        font-family: "museo-sans", sans-serif;
+        border-radius: 6px;
+      }
+      textarea {
+        font-family: "museo-sans", sans-serif;
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #8692a6;
+        border-radius: 6px;
+        height: 10rem;
+      }
+      input[type="submit"] {
+        font-family: "museo-sans", sans-serif;
         display: flex;
-        justify-content: space-between;
-        width: 90%;
-        .sec2addTeste{
-            margin-left: 6rem;
-        }
-        div {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-
-            label {
-                color: $azul;
-                font-weight: 700;
-                margin-bottom: 1.5rem;
-                font-size: 1.8rem;
-            }
-
-            input[type='text'],
-            input[type='url']
-              {
-                width: 100%;
-                font-family: "museo-sans", sans-serif;
-                height: 2.8rem;
-                padding: .5rem;
-                font-size: 1.6rem;
-                border: 1px solid #8692A6;
-                border-radius: 6px;
-              
-            }
-            input[type="time"]{
-                border: 1px solid #8692A6;
-                font-family: "museo-sans", sans-serif;
-                border-radius: 6px;
-                padding: .5rem;
-            }
-            input[type="date"]{
-                padding: .5rem;
-                border: 1px solid #8692A6;
-                font-family: "museo-sans", sans-serif;
-                border-radius: 6px;
-            }
-            textarea{
-                font-family: "museo-sans", sans-serif;
-                width: 100%;
-                padding: 1rem;
-                border: 1px solid #8692A6;
-                border-radius: 6px;
-                height: 10rem;
-            }
-            input[type='submit'] {
-                font-family: "museo-sans", sans-serif;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 17.5rem;
-                height: 3.5rem;
-                font-size: 1.6rem;
-                color: white;
-                background-color: $azul;
-                font-weight: 700;
-                border-radius: 5.1rem;
-                border: 0px;
-            }
-            margin-bottom: 3.2rem;
-        }
-        #addTarefaBtn{
-            cursor: pointer;
-            border-radius: 5.1rem;
-            color: $azul;
-            font-weight: 700;
-            border: 4px $azul solid;
-            font-size: 1.6rem;
-            background-color: #fff;
-            width: 17.5rem;
-            height: 4rem;
-
-        }
+        align-items: center;
+        justify-content: center;
+        width: 17.5rem;
+        height: 3.5rem;
+        font-size: 1.6rem;
+        color: white;
+        background-color: $azul;
+        font-weight: 700;
+        border-radius: 5.1rem;
+        border: 0px;
+      }
+      margin-bottom: 15px;
     }
+    #addTarefaBtn {
+      cursor: pointer;
+      border-radius: 5.1rem;
+      color: $azul;
+      font-weight: 700;
+      border: 4px $azul solid;
+      font-size: 1.6rem;
+      background-color: #fff;
+      width: 17.5rem;
+      height: 4rem;
+    }
+  }
+}
+
+#editTeste {
+  width: 55%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  #addTarefaBtn {
+      margin-top: 20px;
+  }
+
+  .action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 17rem;
+    margin-left: auto;
+    margin-top: 20px;
+    input {
+      width: 13rem;
+      padding: 8px 25px;
+    }
+
+    .btn-cancelar {
+      background: #f1f1f1;
+      padding: 10px 15px;
+      border-radius: 20px;
+      color: var(--color-black);
+      margin-left: 10px;
+    }
+  }
 }

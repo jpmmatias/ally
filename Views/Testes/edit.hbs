@@ -1,30 +1,94 @@
-<h3>Editar Teste</h3>
-<div class="row">
-    <form action="/testes/editar/{{teste._id}}" method="POST" class="col s12">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="title" name="nome" value="{{teste.nome}}">
-                <label for="title">Nome</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <h5>Descrição:</h5>
-                <textarea id="body" name="descricao">{{teste.descricao}}</textarea>
-            </div>
-        </div>
-        {{#if teste.tarefas}}
-        {{#each teste.tarefas}}
-        <h5>Tarefas:</h5>
-        <textarea id="body" name="tarefas">{{this}}</textarea>
-        {{/each}}
+<!DOCTYPE html>
+<html lang="pt">
 
-        {{/if}}
-        <div class="row">
-            <button id="addTarefaBtn" class="btn purple" type="button">Add Tarefa</button>
-            <input type="submit" value="Salvar" class="btn">
-            <a href="/dashboard" class="btn orange">Cancelar</a>
-        </div>
-    </form>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
+    <link rel="stylesheet" href="/CSS/theme.css">
+    <title>Editar Teste - Ally</title>
+</head>
+
+
+<body>
+
+    {{> _skip_links}}
+    <div id="dashboard">
+
+        <!-- header -->
+        <header class="headerDashboard">
+            <button class="menutoggle" aria-expanded="false">Menu</button>
+            <h1>Editar teste</h1>
+            <div class="utilities">
+                <span class="user">Olá {{user}}!</span>
+                <a tabindex="0" class="logout" href="/users/logout">Sair</a>
+            </div>
+        </header>
+        <!-- /header -->
+        {{> _sidebar}}
+
+        <main id="conteudo">
+            <!-- breadcrumbs -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Testes </a>
+                    </li>
+                     <li class="breadcrumb-item"><a href="/testes/{{teste._id}}">{{teste.nome}}</a</li>
+                    <li class="breadcrumb-item active" aria-current="page">Editar Teste</li>
+                </ol>
+            </nav>
+            <!-- / breadcrumbs -->
+            <div id="editTeste">
+
+
+                <form action="/testes/editar/{{teste._id}}" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="sec1addTeste">
+                        <div class="input-field">
+                            <label for="title">Nome</label>
+                            <input type="text" id="title" name="nome" value="{{teste.nome}}">
+
+                        </div>
+
+                        <div class="input-field">
+                            <label for="title">Descrição</label>
+                            <textarea id="body" name="descricao">{{teste.descricao}}</textarea>
+                        </div>
+
+                        {{#if teste.tarefas}}
+                        {{#each teste.tarefas}}
+                        <label for="title">Tarefa</label>
+                        <textarea id="body" name="tarefas">{{this}}</textarea>
+                        {{/each}}
+
+                        {{/if}}
+
+                        <button id="addTarefaBtn" class="btn purple" type="button">Adicionar Tarefa</button>
+
+
+                        <div class="action">
+                            <input type="submit" value="Salvar" class="btn">
+                            <a href="/dashboard" class="btn-cancelar">Cancelar</a>
+                        </div>
+                        {{!-- <div class="sec1addTeste">
+                        <div class="input-field"> --}}
+                </form>
+
+            </div>
+        </main>
+
+        <!-- footer -->
+        <footer id="rodape" class="footerDashboard">
+            <p><span class="footer__copyright">&copy;</span> Ally 2020</p>
+            <a href="/contato">Entre em contato</a>
+        </footer>
+        <!-- / footer -->
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/Javascript/mobileDashboard.js"></script>

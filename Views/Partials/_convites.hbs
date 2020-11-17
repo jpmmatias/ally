@@ -1,57 +1,152 @@
-<h4>Convites</h4>
+<!-- aside -->
+<aside class="sidenav">
+    <button class="close">Fechar</button>
+    <div class="logo">
+        <a href="/"><img src="/Imagens/logo-ally.svg" alt="Logo do Ally"></a>
+    </div>
+
+    <nav id="menu" class="main-nav" aria-label="Navegação principal">
+        <ul class="navList">
+            <li class="item">
+                <a href="/dashboard"> <img src="/Imagens/IconeTestes.svg" alt="Ícone para ver testes"
+                        aria-hidden="true">Dashboard</a>
+            </li>
+            <li class="item">
+                <a href="/calendario"> <img src="/Imagens/IconeCalendario.svg" alt="Ícone para ver Calendário"
+                        aria-hidden="true">Agenda</a>
+            </li>
+            <li class="item">
+                <a href="/configuracoes"> <img src="/Imagens/IconeConfiguracao.svg" alt="Ícone para ver Configurações"
+                        aria-hidden="true">Configurações</a>
+            </li>
+
+        </ul>
+    </nav>
+</aside>
+<!-- / aside -->
+
+<!-- header -->
+<header class="headerDashboard">
+    <button class="menutoggle" aria-expanded="false">Menu</button>
+    <h1>Dashboard</h1>
+    <div class="utilities">
+        {{!-- <span class="user">{{nome}}</span> --}}
+        <a tabindex="0" class="logout" href="/users/logout">Sair</a>
+    </div>
+</header>
+<!-- /header -->
+
+
 {{#if convites}}
-<table class="striped">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each convites as |convite|}}
-        <tr>
-            <td>{{convite.userNome}}</td>
-            <td>
-                <button
-                    onclick="aceitarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')"
-                    class="btn blue">
-                    Aceitar
-                </button>
-                <button
-                    onclick="recusarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')"
-                    id="recusarBtn" class="btn red">
-                    Recusar
-                </button>
-                </form>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+
+<main id="conteudo" class="dashboardTester semConvites">
+    <section class="info">
+        <h2>Olá {{nome}}!</h2>
+        <p>Aqui é o espaço onde as empresas irão te convidar para realizar os testes. Assim que o convite for enviado,
+            aparecerá a solicitação logo abaixo.</p>
+    </section>
+
+    <section class="testes">
+        <div class="convites">
+            <h3>Convites</h3>
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each convites as |convite|}}
+                    <tr>
+                        <td>{{convite.userNome}}</td>
+                        <td>
+                            <button
+                                onclick="aceitarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')"
+                                class="btn blue">
+                                Aceitar
+                            </button>
+                            <button
+                                onclick="recusarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')"
+                                id="recusarBtn" class="btn red">
+                                Recusar
+                            </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="testes-realizados">
+            <h3>Testes realizados</h3>
+            <p>Não há testes realizados.</p>
+        </div>
+    </section>
+</main>
+
 {{else}}
-<p>Vcoê não tem convites ainda</p>
+
+<main id="conteudo" class="dashboardTester semConvites">
+    <section class="info">
+        <h2>Olá {{nome}}!</h2>
+        <p>Aqui é o espaço onde as empresas irão te convidar para realizar os testes. Assim que o convite for enviado,
+            aparecerá a solicitação logo abaixo.</p>
+    </section>
+
+    <section class="testes">
+        <div class="convites">
+            <h3>Convites</h3>
+            <p>Você ainda não possui nenhum convite.</p>
+        </div>
+
+        <div class="testes-realizados">
+            <h3>Testes realizados</h3>
+            <p>Não há testes realizados.</p>
+        </div>
+    </section>
+</main>
 {{/if}}
 {{#if testesAceitos}}
-<table class="striped">
-    <thead>
-        <tr>
-            <th>Nome do teste</th>
-            <th>Nome do criador</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each testesAceitos as |teste|}}
-        <tr>
-            <td>
-                {{teste.testeNome}}
-            </td>
-            <td>
-                {{teste.userNome}}
-            </td>
-            <td><a href="/testes/{{teste.testeId}}/chamada">Chamada</a></td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+<main id="conteudo" class="dashboardTester semConvites">
+    <section class="info">
+        <h2>Olá {{nome}}!</h2>
+        <p>Aqui é o espaço onde as empresas irão te convidar para realizar os testes. Assim que o convite for enviado,
+            aparecerá a solicitação logo abaixo.</p>
+    </section>
+
+    <section class="testes">
+        <div class="convites">
+            <h3>Convites</h3>
+            <p>Você ainda não possui nenhum convite.</p>
+        </div>
+
+        <div class="testes-realizados">
+            <h3>Testes realizados</h3>
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Nome do teste</th>
+                        <th>Nome do criador</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each testesAceitos as |teste|}}
+                    <tr>
+                        <td>
+                            {{teste.testeNome}}
+                        </td>
+                        <td>
+                            {{teste.userNome}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
 {{/if}}
 <script src="/Javascript/convite.js"></script>

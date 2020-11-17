@@ -1,7 +1,7 @@
 @media (max-width: 980px) {
-  h2 {
-    margin: 0 2rem 3rem !important;
-  }
+  // h2 {
+  //   margin: 0 2rem 3rem !important;
+  // }
 
   #bannerHome,
   .cta {
@@ -25,7 +25,7 @@
     }
   }
 
-  #footer .col {
+  .footer .col {
     margin: 0 3.5rem;
     margin-left: 0;
   }
@@ -40,6 +40,15 @@
       }
     }
   }
+
+  // dashboard
+
+  main.comTestes {
+    .cards-testes {
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -49,13 +58,20 @@
   p {
     font-size: 2rem !important;
   }
-  h2 {
-    margin: 0 1rem 0;
+
+  .home,
+  .tester {
+    h2 {
+      margin: 0 1rem 0;
+    }
   }
 
-  #menu,
-  .account {
-    display: none !important;
+  .headerHome,
+  .headerTester {
+    #menu,
+    .account {
+      display: none !important;
+    }
   }
 
   .menu-section {

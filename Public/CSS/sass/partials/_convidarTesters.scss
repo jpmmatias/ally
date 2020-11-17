@@ -9,16 +9,17 @@
 	margin-left: auto;
 	margin-right: auto;
 
-	h1 {
-		font-size: 4.5rem;
-		margin-bottom: 5.2rem;
-	}
-	div#testersTable {
-		width: 118rem;
-		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
-		margin-bottom: 6.2rem;
+    h1{
+        font-size: 4.5rem;
+        margin-bottom: 5.2rem;
+    }
+    div#testersTable{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 6.2rem;
+
 
 		div#testersTableHeader {
 			font-weight: 700;

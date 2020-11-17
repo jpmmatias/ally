@@ -1,11 +1,19 @@
-{{!-- skip links --}}
-<ul class="skip-links">
-    <li><a href="#menu">Pular para menu</a></li>
-    <li><a href="#conteudo">Pular para conteúdo</a></li>
-    <li><a href="#footer">Pular para rodapé</a></li>
-</ul>
-{{!-- / skip links --}}
+<!DOCTYPE html>
+<html lang="pt">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
+    <link rel="stylesheet" href="/CSS/theme.css">
+    <title>Ally - Testes de Acessibilidade e Usabilidade</title>
+</head>
+
+
+<body>
+
+ {{> _skip_links}}
 
 {{!-- header --}}
 <header id="headerTester">
@@ -23,14 +31,13 @@
                 <button class="menu-toggle" aria-expanded="false">Menu</button>
 
                 <ul id="menu">
-                    <li><a href="/about">Sobre nós</a></li>
                     <li><a href="/contato">Contato</a></li>
                     <li><a class="highlight" href="/">Quer testar seu site?</a></li>
                 </ul>
 
                 <div class="account">
                     <a class="btn-login" href="/users/login">Entrar</a>
-                    <a class="btn-register" href="/users/register">Criar conta</a>
+                    <a class="btn-register" href="/users/register/tester">Criar conta</a>
                 </div>
 
             </div>
@@ -160,37 +167,5 @@
 
 </main>
 
-<div class="container">
-
-    {{!-- footer --}}
-    <footer id="footer">
-
-        <div class="logo">
-            <a href=""><img src="Imagens/logo-ally.svg" alt="..."></a>
-            <p>Plataforma que tem o propósito de criar conexão entre empresas e usuários com deficiência visual,
-                por
-                meio de
-                testes de acessibilidade em sites</p>
-        </div>
-
-        <nav class="footer-nav">
-            <div class="col">
-                <p>Páginas</p>
-                <ul>
-                    <li>Sobre nós</li>
-                    <li>Contato</li>
-                </ul>
-            </div>
-            <div class="col">
-                <p>Redes Sociais</p>
-                <ul>
-                    <li>Twitter</li>
-                    <li>Instagram</li>
-                    <li>Linkedin</li>
-                </ul>
-            </div>
-        </nav>
-
-    </footer>
-    {{!-- / footer --}}
-</div>
+{{> _footer}}
+<script src="/Javascript/menu.js"></script>

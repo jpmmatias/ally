@@ -1,12 +1,19 @@
-{{!-- skip links --}}
-<ul class="skip-links">
-    <li><a href="#menu">Pular para menu</a></li>
-    <li><a href="#conteudo">Pular para conteúdo</a></li>
-    <li><a href="#footer">Pular para rodapé</a></li>
-</ul>
-{{!-- / skip links --}}
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/theme.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
+    <title>Ally - Testes de Acessibilidade e Usabilidade</title>
+</head>
 
 
+<body>
+
+ {{> _skip_links}}
 {{!-- header --}}
 <header id="headerHome">
     <div class="container">
@@ -23,7 +30,6 @@
                 <button class="menu-toggle" aria-expanded="false">Menu</button>
 
                 <ul id="menu">
-                    <li><a href="/about">Sobre nós</a></li>
                     <li><a href="/contato">Contato</a></li>
                     <li><a class="highlight" href="/tester">Seja pago para testar</a></li>
                 </ul>
@@ -43,7 +49,7 @@
         {{!-- banner --}}
         <div id="bannerHome">
             <div class="banner-text">
-                <h1>Teste a <span>acessibilidade</span> e <span>usabilidade</span>
+                <h1>Teste a <span>acessibilidade</span> e usabilidade
                     do seu site com pessoas com deficiência visual</h1>
                 <p>Teste remotos com feedbacks em tempo real.</p>
                 <a class="btn-cta" href="/users/register">Quero testar meu site</a>
@@ -170,3 +176,4 @@
 </main>
 
 {{> _footer}}
+<script src="/Javascript/menu.js"></script>

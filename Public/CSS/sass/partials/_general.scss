@@ -15,6 +15,7 @@ body {
   font-family: "museo-sans", sans-serif;
   color: var(--color-black);
   font-size: 1.6rem;
+  transition: 0.3s;
 }
 
 button {
@@ -35,10 +36,14 @@ img {
   max-width: 100%;
 }
 
+
+.home, .tester {
 h2 {
   margin: 0 30rem 3rem;
   font-size: 3.2rem;
   text-align: center;
+}
+
 }
 
 .container {
@@ -85,3 +90,25 @@ h2 {
   padding: 0 6rem 0 12rem;
 }
 
+
+.skip-links a {
+  position: absolute;
+  top: -3rem;
+  background: var(--color-white);
+  padding: 0.5rem;
+  
+  color: #000;
+
+  &:focus {
+    display: block;
+    top: 0.2rem;
+    z-index: 999;
+    padding: 1.3rem 0;
+    text-align: center;
+    background: var(--color-blue);
+    color: white;
+    // left: 5rem;
+    position: relative;
+    // margin: 12rem 0;
+  }
+}
