@@ -1223,7 +1223,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role=button] a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #FBFBFD;
+  background-color: #fbfbfd;
   color: #3B1AE3;
 }
 .convidarTestersContainer div#testersTable div#testersTableHeader div.testersTableTile {
@@ -1233,7 +1233,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role=button] a {
   margin-bottom: 5rem;
 }
 .convidarTestersContainer div#testersTable ul li#tr {
-  border-bottom: solid 1px #BDBDBD;
+  border-bottom: solid 1px #bdbdbd;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1252,6 +1252,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role=button] a {
   width: 13.5rem;
   border: 5px solid #3B1AE3;
   border-radius: 50px;
+  cursor: pointer;
 }
 .convidarTestersContainer div#testersTable div[role=button] {
   display: flex;

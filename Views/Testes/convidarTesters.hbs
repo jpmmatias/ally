@@ -18,7 +18,7 @@
                         <div>{{user.nome}}</div>
                         <div>
                             <input type="hidden" name="_method" value="POST">
-                            <button id='convidar' onclick="mandarConvite('{{user.nome}}')" class="btn blue">
+                            <button id='{{user.nome}}' class="btn blue btnConvidar ">
                                 <span>Convidar</span>
                             </button>
                         </div>
