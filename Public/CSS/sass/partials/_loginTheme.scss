@@ -10,7 +10,7 @@
 	gap: 0px 0px;
 	grid-template-areas: '. . .';
 	overflow-x: hidden;
-	
+
 	main {
 		overflow-x: hidden;
 		width: 51.8rem;
@@ -38,8 +38,9 @@
 				}
 
 				input[type='email'],
+				input[type='number'],
 				input[type='password'],
-				input[type='text']  {
+				input[type='text'] {
 					width: 100%;
 					font-size: 1.6rem;
 					border: 1px solid $azul;

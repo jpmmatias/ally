@@ -19,6 +19,20 @@
                     value={{tipoDiferente email 'undefined'}}>
             </div>
             <div>
+                <label for="idade">Idade</label>
+                <input min="16" placeholder="Insira sua idade" id="idade" type="number" name='idade'
+                    value={{tipoDiferente idade 'undefined'}}>
+            </div>
+            <div>
+                <label for="profissao">Profissão</label>
+                <input placeholder="Insira sua Profissão" id="profissao" type="text" name='profissao'
+                    value={{tipoDiferente profissao 'undefined'}}>
+            </div>
+            <div>
+                <label for="deficiencia">Tipo de deficiência</label>
+                <input id="deficiencia" type="text" name="deficiencia" placeholder="Qual tipo de deficiência você possui? ">
+            </div>
+            <div>
                 <label for="senha">Senha</label>
                 <input id="senha" type="password" name="senha" placeholder="Digite sua senha">
             </div>
@@ -54,7 +68,6 @@
                 <input value="Criar Conta" type="submit">
             </div>
         </form>
-        {{/if}}
         <div class="ou">Ou</div>
         <div class="google-btn" role="button">
             <a aria-label="Link para entrar usando o google" href="/users/login/google">
@@ -66,8 +79,6 @@
                 <span class="btn-text">Continuar com Google</span>
             </a>
         </div>
-        {{!-- <div class="npossui">
-            Ja possui conta?<a href="/users/login">Entre aqui</a>
-        </div> --}}
+        {{/if}}
     </main>
 </section>

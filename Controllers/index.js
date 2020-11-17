@@ -51,7 +51,6 @@ exports.mostrarConfiguracoes = (req, res, next) => {
 	res.render('configuracoes');
 };
 
-
 //descrição         Mostrar videos
 //route             GET /videos
 //Acesso            Privado

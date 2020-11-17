@@ -16,7 +16,7 @@ const { Error } = require('mongoose');
 //Acesso            Pulico
 exports.mostrarPaginaLogin = (req, res, next) => {
 	res.render('login', {
-		layout: 'loginLayout',
+		layout: 'loginLayout'
 	});
 };
 
@@ -27,7 +27,7 @@ exports.lidarLogin = (req, res, next) => {
 	passport.authenticate('local', {
 		successRedirect: '/dashboard',
 		failureRedirect: '/users/login',
-		failureFlash: true,
+		failureFlash: true
 	})(req, res, next);
 };
 
@@ -45,7 +45,7 @@ exports.logout = (req, res, next) => {
 //Acesso            Pulico
 exports.mostrarPaginaRegister = (req, res, next) => {
 	res.render('register', {
-		layout: 'loginLayout',
+		layout: 'loginLayout'
 	});
 };
 
@@ -53,27 +53,27 @@ exports.mostrarPaginaRegister = (req, res, next) => {
 //route             POST /users/register
 //Acesso            Pulico
 exports.criarUsuario = (req, res, next) => {
-	const {nome, email, senha, senha2} = req.body;
+	const { nome, email, senha, senha2 } = req.body;
 	let erros = [];
 
 	//Checando os requisitados
 	if (!nome || !email || !senha || !senha2) {
 		erros.push({
-			msg: 'Por favor preencha todos os campos',
+			msg: 'Por favor preencha todos os campos'
 		});
 	}
 
 	//Checando se as senhas são iguais
 	if (senha !== senha2) {
 		erros.push({
-			msg: 'Senhas não estão iguais',
+			msg: 'Senhas não estão iguais'
 		});
 	}
 
 	//Checando tamanho da senha
 	if (senha.length < 6) {
 		erros.push({
-			msg: 'Senha deve ter no minimo 6 caracteres',
+			msg: 'Senha deve ter no minimo 6 caracteres'
 		});
 	}
 
@@ -85,27 +85,27 @@ exports.criarUsuario = (req, res, next) => {
 			nome,
 			email,
 			senha,
-			senha2,
+			senha2
 		});
 	} else {
 		//Passou na validação
-		User.findOne({email: email}).then((user) => {
+		User.findOne({ email: email }).then((user) => {
 			if (user) {
 				//Usuário ja existe
-				erros.push({msg: 'Email ja foi registrado'});
+				erros.push({ msg: 'Email ja foi registrado' });
 				res.render('register', {
 					layout: 'loginLayout',
 					erros,
 					nome,
 					email,
 					senha,
-					senha2,
+					senha2
 				});
 			} else {
 				const novoUser = new User({
 					nome,
 					email,
-					senha,
+					senha
 				});
 
 				//Hash senha
@@ -138,40 +138,39 @@ exports.criarUsuario = (req, res, next) => {
 exports.mostrarPaginaRegisterTester = (req, res, next) => {
 	res.render('register', {
 		layout: 'loginLayout',
-		tester:'tester'
+		tester: 'tester'
 	});
 };
-
 
 //descrição         Cria nova conta para tester
 //route             POST /users/register/tester
 //Acesso            Pulico
 exports.criarUsuarioTester = (req, res, next) => {
-	const {nome, email, senha, senha2} = req.body;
+	const { nome, email, senha, senha2 } = req.body;
 	let erros = [];
 
 	//Checando os requisitados
 	if (!nome || !email || !senha || !senha2) {
 		erros.push({
-			msg: 'Por favor preencha todos os campos',
+			msg: 'Por favor preencha todos os campos'
 		});
 	}
 
 	//Checando se as senhas são iguais
 	if (senha !== senha2) {
-		console.log('erro senha n igual')
+		console.log('erro senha n igual');
 
 		erros.push({
-			msg: 'Senhas não estão iguais',
+			msg: 'Senhas não estão iguais'
 		});
 	}
 
 	//Checando tamanho da senha
 	if (senha.length < 6) {
-		console.log('erro senha')
+		console.log('erro senha');
 
 		erros.push({
-			msg: 'Senha deve ter no minimo 6 caracteres',
+			msg: 'Senha deve ter no minimo 6 caracteres'
 		});
 	}
 
@@ -183,29 +182,29 @@ exports.criarUsuarioTester = (req, res, next) => {
 			nome,
 			email,
 			senha,
-			senha2,
+			senha2
 		});
 	} else {
 		//Passou na validação
-		User.findOne({email: email}).then((user) => {
+		User.findOne({ email: email }).then((user) => {
 			if (user) {
 				//Usuário ja existe
-				erros.push({msg: 'Email ja foi registrado'});
-				console.log('erro')
+				erros.push({ msg: 'Email ja foi registrado' });
+				console.log('erro');
 				res.render('register', {
 					layout: 'loginLayout',
 					erros,
 					nome,
 					email,
 					senha,
-					senha2,
+					senha2
 				});
 			} else {
 				const novoUser = new User({
 					nome,
 					email,
 					senha,
-					tipo:'tester'
+					tipo: 'tester'
 				});
 				//Hash senha
 				bcrypt.genSalt(10, (err, salt) =>
@@ -236,20 +235,18 @@ exports.criarUsuarioTester = (req, res, next) => {
 //Acesso            privado
 exports.deletarConta = async (req, res, next) => {
 	try {
-		await User.deleteOne({_id: req.user._id})
-		await Video.deleteMany({user:req.user._id})
-		let testes =await Teste.find({user:req.user._id})
-		testes.forEach(async teste => {
-			await Anotacao.deleteMany({teste:teste._id})
-			await Teste.deleteOne({_id: teste._id})
+		await User.deleteOne({ _id: req.user._id });
+		await Video.deleteMany({ user: req.user._id });
+		let testes = await Teste.find({ user: req.user._id });
+		testes.forEach(async (teste) => {
+			await Anotacao.deleteMany({ teste: teste._id });
+			await Teste.deleteOne({ _id: teste._id });
 		});
 		req.logout();
 		res.redirect('/');
 	} catch (err) {
-		console.log(err)
+		console.log(err);
 	}
-	
-	
 };
 
 //descrição         	Atualizar user
@@ -257,49 +254,45 @@ exports.deletarConta = async (req, res, next) => {
 //Acesso            	privado
 exports.atualizarConta = async (req, res, next) => {
 	try {
-		
-		await User.findOneAndUpdate({_id: req.user._id},req.body,{
-			new:true
-		})
+		await User.findOneAndUpdate({ _id: req.user._id }, req.body, {
+			new: true
+		});
 		res.json('deu certo');
 	} catch (err) {
-		console.log(err)
+		console.log(err);
 		res.json('deu errado');
 	}
-	
-	
 };
-
 
 //descrição         Cria nova conta para tester
 //route             POST /users/register/tester
 //Acesso            Pulico
 exports.criarUsuarioTester = (req, res, next) => {
-	const {nome, email, senha, senha2} = req.body;
+	const { nome, email, senha, senha2, idade, profissao, deficiencia } = req.body;
 	let erros = [];
 
 	//Checando os requisitados
 	if (!nome || !email || !senha || !senha2) {
 		erros.push({
-			msg: 'Por favor preencha todos os campos',
+			msg: 'Por favor preencha todos os campos'
 		});
 	}
 
 	//Checando se as senhas são iguais
 	if (senha !== senha2) {
-		console.log('erro senha n igual')
+		console.log('erro senha n igual');
 
 		erros.push({
-			msg: 'Senhas não estão iguais',
+			msg: 'Senhas não estão iguais'
 		});
 	}
 
 	//Checando tamanho da senha
 	if (senha.length < 6) {
-		console.log('erro senha')
+		console.log('erro senha');
 
 		erros.push({
-			msg: 'Senha deve ter no minimo 6 caracteres',
+			msg: 'Senha deve ter no minimo 6 caracteres'
 		});
 	}
 
@@ -312,14 +305,17 @@ exports.criarUsuarioTester = (req, res, next) => {
 			email,
 			senha,
 			senha2,
+			idade,
+			profissao,
+			deficiencia
 		});
 	} else {
 		//Passou na validação
-		User.findOne({email: email}).then((user) => {
+		User.findOne({ email: email }).then((user) => {
 			if (user) {
 				//Usuário ja existe
-				erros.push({msg: 'Email ja foi registrado'});
-				console.log('erro')
+				erros.push({ msg: 'Email ja foi registrado' });
+				console.log('erro');
 				res.render('register', {
 					layout: 'loginLayout',
 					erros,
@@ -327,13 +323,19 @@ exports.criarUsuarioTester = (req, res, next) => {
 					email,
 					senha,
 					senha2,
+					idade,
+					profissao,
+					deficiencia
 				});
 			} else {
 				const novoUser = new User({
 					nome,
 					email,
 					senha,
-					tipo:'tester'
+					tipo: 'tester',
+					idade,
+					profissao,
+					deficiencia
 				});
 				//Hash senha
 				bcrypt.genSalt(10, (err, salt) =>
