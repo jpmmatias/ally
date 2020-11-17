@@ -825,8 +825,7 @@ img {
 }
 
 .headerDashboard {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
+
   grid-area: header;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1043,8 +1042,6 @@ img {
 }
 
 main.semTestes {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
   grid-area: main;
   background-color: var(--color-white);
 }
@@ -1534,8 +1531,6 @@ main.comTestes .cards-testes .teste .btn-outline {
 }
 
 .footerDashboard {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
   grid-area: footer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2666,6 +2661,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role='button'] a {
       -ms-flex-align: center;
           align-items: center;
   background-color: #FBFBFD;
+
   color: #3B1AE3;
 }
 
@@ -2705,6 +2701,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role='button'] a {
   width: 13.5rem;
   border: 5px solid #3B1AE3;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .convidarTestersContainer div#testersTable div[role='button'] {
