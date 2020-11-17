@@ -1,4 +1,8 @@
 @import 'cores';
+
+// body {
+// 	background: url(../Imagens/bg-circles.svg) no-repeat center center / cover;
+// }
 #logoLogin {
 	margin-top: 3.019vh;
 	margin-left: 7.5vw;
@@ -11,7 +15,7 @@
 	grid-template-areas: '. . .';
 	overflow-x: hidden;
 	
-	main {
+	.container {
 		overflow-x: hidden;
 		width: 51.8rem;
 		grid-column: 2;
@@ -59,6 +63,7 @@
 					font-weight: 700;
 					border-radius: 5.1rem;
 					border: 0px;
+					cursor: pointer;
 				}
 
 				margin-bottom: 3.2rem;

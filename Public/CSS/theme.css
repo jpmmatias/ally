@@ -134,7 +134,7 @@ img {
   overflow-x: hidden;
 }
 
-#loginSection main {
+#loginSection .container {
   overflow-x: hidden;
   width: 51.8rem;
   -ms-grid-column: 2;
@@ -154,14 +154,14 @@ img {
   justify-self: center;
 }
 
-#loginSection main h1 {
+#loginSection .container h1 {
   text-align: center;
   font-size: 3.2rem;
   margin-bottom: 1rem;
   color: #0A0016;
 }
 
-#loginSection main form div {
+#loginSection .container form div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,15 +175,15 @@ img {
   margin-bottom: 3.2rem;
 }
 
-#loginSection main form div label {
+#loginSection .container form div label {
   color: #3B1AE3;
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
 
-#loginSection main form div input[type='email'],
-#loginSection main form div input[type='password'],
-#loginSection main form div input[type='text'] {
+#loginSection .container form div input[type='email'],
+#loginSection .container form div input[type='password'],
+#loginSection .container form div input[type='text'] {
   width: 100%;
   font-size: 1.6rem;
   border: 1px solid #3B1AE3;
@@ -191,7 +191,7 @@ img {
   padding: 1rem 1.6rem;
 }
 
-#loginSection main form div input[type='submit'] {
+#loginSection .container form div input[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -211,9 +211,10 @@ img {
   font-weight: 700;
   border-radius: 5.1rem;
   border: 0px;
+  cursor: pointer;
 }
 
-#loginSection main div.ou {
+#loginSection .container div.ou {
   text-align: center;
   font-size: 1.6rem;
   margin-bottom: 2rem;
@@ -221,7 +222,7 @@ img {
   font-weight: 700;
 }
 
-#loginSection main div.ou::after {
+#loginSection .container div.ou::after {
   content: '';
   width: 40%;
   border-bottom: solid 1px #3B1AE3;
@@ -231,7 +232,7 @@ img {
   z-index: -1;
 }
 
-#loginSection main div.ou::before {
+#loginSection .container div.ou::before {
   content: '';
   width: 40%;
   border-bottom: solid 1px #3B1AE3;
@@ -241,7 +242,7 @@ img {
   z-index: -1;
 }
 
-#loginSection main .google-btn {
+#loginSection .container .google-btn {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -253,7 +254,7 @@ img {
   margin-bottom: 3.5rem;
 }
 
-#loginSection main .google-btn a {
+#loginSection .container .google-btn a {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -269,7 +270,7 @@ img {
   text-decoration: none;
 }
 
-#loginSection main .google-btn .google-icon-wrapper {
+#loginSection .container .google-btn .google-icon-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -284,14 +285,14 @@ img {
   border-radius: 2px;
 }
 
-#loginSection main .google-btn .google-icon {
+#loginSection .container .google-btn .google-icon {
   margin-top: 2px;
   margin-left: 11px;
   width: 1.7rem;
   height: 1.7rem;
 }
 
-#loginSection main .google-btn .btn-text {
+#loginSection .container .google-btn .btn-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -302,12 +303,12 @@ img {
   letter-spacing: 0.2px;
 }
 
-#loginSection main div.npossui {
+#loginSection .container div.npossui {
   text-align: center;
   font-size: 1.8rem;
 }
 
-#loginSection main div.npossui a {
+#loginSection .container div.npossui a {
   color: #3B1AE3;
 }
 
@@ -318,6 +319,7 @@ img {
   --color-black: #0A0016;
   --color-white: #FFF;
   --color-hover: #2D13B2;
+  --color-red: #B20822;
 }
 
 .account {
@@ -1020,7 +1022,7 @@ img {
   padding: 1rem 1rem;
   margin-top: 1.4rem;
   list-style: none;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 0.25rem;
   margin: 10px 25px 0;
 }
@@ -1030,6 +1032,14 @@ img {
   padding: 0 0.8rem;
   color: #6c757d;
   content: "/";
+}
+
+.breadcrumb a {
+  color: var(--color-black);
+}
+
+.breadcrumb .active {
+  color: var(--color-blue);
 }
 
 main.semTestes {
@@ -1185,7 +1195,8 @@ main.comTestes {
 
 main.comTestes a.btn-cta {
   display: table;
-  margin: 5rem auto 2rem auto;
+  margin: 5rem auto 2rem auto !important;
+  font-size: 16px !important;
 }
 
 main.comTestes .cards-testes {
@@ -1588,7 +1599,7 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
 }
 
 .dashboardTester {
-  padding: 40px;
+  padding: 4rem;
   line-height: 1.6;
 }
 
@@ -1609,11 +1620,10 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
 }
 
 .dashboardTester .testes {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(510px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
-  grid-gap: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 15px;
   margin-top: 3rem;
 }
 
@@ -1627,14 +1637,80 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
 
 .dashboardTester .testes .convites {
   background: #fbfbfd;
-  padding: 5rem 4rem 6rem;
+  padding: 5rem 2rem 6rem;
   text-align: center;
+  width: 60%;
+}
+
+.dashboardTester .testes .convites table {
+  width: 100%;
+}
+
+.dashboardTester .testes .convites table thead th {
+  color: var(--color-blue);
+  text-align: initial;
+  font-size: 18px;
+}
+
+.dashboardTester .testes .convites table tbody tr {
+  background: var(--color-white);
+  -webkit-box-shadow: 0px 4px 9px rgba(163, 163, 163, 0.1);
+          box-shadow: 0px 4px 9px rgba(163, 163, 163, 0.1);
+}
+
+.dashboardTester .testes .convites table tbody td {
+  padding: 16px 5px;
+}
+
+.dashboardTester .testes .convites table tbody .btn-action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.dashboardTester .testes .convites table tbody button {
+  background: none;
+  padding: 8px 15px;
+  border-radius: 50px;
+  margin-right: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.dashboardTester .testes .convites .red {
+  border: 3px solid var(--color-red);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.dashboardTester .testes .convites .red:hover {
+  background: var(--color-red);
+  color: var(--color-white);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.dashboardTester .testes .convites .blue {
+  border: 3px solid var(--color-blue);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.dashboardTester .testes .convites .blue:hover {
+  background: var(--color-blue);
+  color: var(--color-white);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .dashboardTester .testes .testes-realizados {
   background: #ff5f7d05;
   padding: 5rem 4rem 6rem;
   text-align: center;
+  width: 40%;
 }
 
 .gravacoesAnotacoes {
@@ -1959,7 +2035,9 @@ div.contentDashboard div.grid div#calendar button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 17rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   margin-left: auto;
   margin-top: 20px;
 }
@@ -2108,7 +2186,8 @@ div.contentDashboard div.grid div#calendar button {
           box-shadow: none;
   border: none;
   border-radius: 15px;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  cursor: pointer;
 }
 
 #sala .buttonsAll button:hover {
@@ -2122,7 +2201,7 @@ div.contentDashboard div.grid div#calendar button {
 
 #sala .HoverState {
   color: white;
-  font-size: 0.8rem;
+  font-size: 1.4rem;
   position: absolute;
   left: 60px;
   white-space: nowrap;
@@ -2162,7 +2241,7 @@ div.contentDashboard div.grid div#calendar button {
           align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: #3B1AE3;
+  background-color: var(--color-hover);
   color: #fff;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -2170,8 +2249,8 @@ div.contentDashboard div.grid div#calendar button {
 }
 
 #anotacoes #todasAnotacoes .todasAnotacoesHead img {
-  max-width: 20px;
-  margin-right: 20px;
+  max-width: 18px;
+  margin-right: 12px;
 }
 
 #anotacoes #todasAnotacoes .todasAnotacoesHead h2 {
@@ -2826,6 +2905,19 @@ main.contato figure img {
             justify-content: center;
     -ms-grid-columns: (minmax(220px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .dashboardTester .info {
+    padding: 3rem 2rem 3rem 3rem;
+  }
+  .dashboardTester .testes {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .dashboardTester .testes .convites,
+  .dashboardTester .testes .testes-realizados {
+    width: 100%;
   }
 }
 
