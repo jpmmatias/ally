@@ -628,6 +628,9 @@ main.comTestes {
 
   a {
     color: var(--color-black);
+    &:hover {
+      color: var(--color-blue);
+      } 
   }
 }
 

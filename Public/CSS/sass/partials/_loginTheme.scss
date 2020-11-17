@@ -3,10 +3,11 @@
 // body {
 // 	background: url(../Imagens/bg-circles.svg) no-repeat center center / cover;
 // }
-#logoLogin {
-	margin-top: 3.019vh;
-	margin-left: 7.5vw;
+
+header#logoLogin {
+margin: 1.2rem 0 0 7rem;
 }
+
 
 #loginSection {
 	display: grid;
@@ -31,7 +32,7 @@
 			color: $roxo;
 		}
 		form {
-			div {
+			.campo {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -48,7 +49,7 @@
 					font-size: 1.6rem;
 					border: 1px solid $azul;
 					border-radius: 6px;
-					padding: 1rem 1.6rem;
+					padding: 1.5rem 1.6rem;
 				}
 				input[type='submit'] {
 					display: flex;
@@ -56,14 +57,22 @@
 					justify-content: center;
 					align-self: center;
 					width: 28rem;
-					height: 5rem;
+					height: 6rem;
+					letter-spacing: 1px;
 					font-size: 2rem;
 					color: white;
 					background-color: $azul;
 					font-weight: 700;
 					border-radius: 5.1rem;
 					border: 0px;
+					box-shadow: 0 5px 8px rgba(109, 121, 156, 0.2);
+					transition: 0.3s;
 					cursor: pointer;
+
+					&:hover {
+						box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
+						background-color: var(--color-hover);
+					  }
 				}
 
 				margin-bottom: 3.2rem;
@@ -130,7 +139,13 @@
 				font-size: 1.6rem;
 				letter-spacing: 0.2px;
 			}
-			margin-bottom: 3.5rem;
+			margin-bottom: 3.2rem;
+			transition: 0.3s;
+			&:hover {
+				
+				box-shadow: 0 10px 10px rgba(0, 102, 147, 0.2);
+				
+			  }
 		}
 		div.npossui {
 			text-align: center;
@@ -140,5 +155,48 @@
 				color: $azul;
 			}
 		}
+	}
+
+	.mostrar-senha {
+		position: relative;
+
+		#btn-senha {
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+			background: var(--color-blue);
+			color: var(--color-white);
+			padding: 8px;
+			border-radius: 5px;
+			border: 0;	
+		}
+
+		.btn-active {
+			background: var(--color-white) !important; 
+			border: 1px solid var(--color-blue) !important;
+			color: var(--color-blue) !important;
+			font-weight: 700;
+		}
+	}
+
+
+}
+
+.footerLogin {
+		
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 16px;
+	background-color: #f0f0f0;
+	margin-top: 4rem;
+	padding: 15px 20px;
+  
+	a {
+	  color: var(--color-black);
+
+	  &:hover {
+		color: var(--color-blue);
+	  }
 	}
 }

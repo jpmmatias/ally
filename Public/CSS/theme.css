@@ -40,6 +40,10 @@ img {
   max-width: 100%;
 }
 
+button {
+  cursor: pointer;
+}
+
 .home h2, .tester h2 {
   margin: 0 30rem 3rem;
   font-size: 3.2rem;
@@ -119,9 +123,8 @@ img {
   position: relative;
 }
 
-#logoLogin {
-  margin-top: 3.019vh;
-  margin-left: 7.5vw;
+header#logoLogin {
+  margin: 1.2rem 0 0 7rem;
 }
 
 #loginSection {
@@ -161,7 +164,7 @@ img {
   color: #0A0016;
 }
 
-#loginSection .container form div {
+#loginSection .container form .campo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,23 +178,23 @@ img {
   margin-bottom: 3.2rem;
 }
 
-#loginSection .container form div label {
+#loginSection .container form .campo label {
   color: #3B1AE3;
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
 
-#loginSection .container form div input[type='email'],
-#loginSection .container form div input[type='password'],
-#loginSection .container form div input[type='text'] {
+#loginSection .container form .campo input[type='email'],
+#loginSection .container form .campo input[type='password'],
+#loginSection .container form .campo input[type='text'] {
   width: 100%;
   font-size: 1.6rem;
   border: 1px solid #3B1AE3;
   border-radius: 6px;
-  padding: 1rem 1.6rem;
+  padding: 1.5rem 1.6rem;
 }
 
-#loginSection .container form div input[type='submit'] {
+#loginSection .container form .campo input[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -204,14 +207,25 @@ img {
   -ms-flex-item-align: center;
       align-self: center;
   width: 28rem;
-  height: 5rem;
+  height: 6rem;
+  letter-spacing: 1px;
   font-size: 2rem;
   color: white;
   background-color: #3B1AE3;
   font-weight: 700;
   border-radius: 5.1rem;
   border: 0px;
+  -webkit-box-shadow: 0 5px 8px rgba(109, 121, 156, 0.2);
+          box-shadow: 0 5px 8px rgba(109, 121, 156, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   cursor: pointer;
+}
+
+#loginSection .container form .campo input[type='submit']:hover {
+  -webkit-box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
+          box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
+  background-color: var(--color-hover);
 }
 
 #loginSection .container div.ou {
@@ -251,7 +265,9 @@ img {
   border-radius: 51px;
   -webkit-box-shadow: 0px 3px 4px 2px rgba(125, 124, 124, 0.16);
           box-shadow: 0px 3px 4px 2px rgba(125, 124, 124, 0.16);
-  margin-bottom: 3.5rem;
+  margin-bottom: 3.2rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 #loginSection .container .google-btn a {
@@ -303,6 +319,11 @@ img {
   letter-spacing: 0.2px;
 }
 
+#loginSection .container .google-btn:hover {
+  -webkit-box-shadow: 0 10px 10px rgba(0, 102, 147, 0.2);
+          box-shadow: 0 10px 10px rgba(0, 102, 147, 0.2);
+}
+
 #loginSection .container div.npossui {
   text-align: center;
   font-size: 1.8rem;
@@ -310,6 +331,52 @@ img {
 
 #loginSection .container div.npossui a {
   color: #3B1AE3;
+}
+
+#loginSection .mostrar-senha {
+  position: relative;
+}
+
+#loginSection .mostrar-senha #btn-senha {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: var(--color-blue);
+  color: var(--color-white);
+  padding: 8px;
+  border-radius: 5px;
+  border: 0;
+}
+
+#loginSection .mostrar-senha .btn-active {
+  background: var(--color-white) !important;
+  border: 1px solid var(--color-blue) !important;
+  color: var(--color-blue) !important;
+  font-weight: 700;
+}
+
+.footerLogin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 16px;
+  background-color: #f0f0f0;
+  margin-top: 4rem;
+  padding: 15px 20px;
+}
+
+.footerLogin a {
+  color: var(--color-black);
+}
+
+.footerLogin a:hover {
+  color: var(--color-blue);
 }
 
 :root {
@@ -825,7 +892,8 @@ img {
 }
 
 .headerDashboard {
-
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: header;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1042,6 +1110,8 @@ img {
 }
 
 main.semTestes {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: main;
   background-color: var(--color-white);
 }
@@ -1531,6 +1601,8 @@ main.comTestes .cards-testes .teste .btn-outline {
 }
 
 .footerDashboard {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
   grid-area: footer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1547,6 +1619,10 @@ main.comTestes .cards-testes .teste .btn-outline {
 
 .footerDashboard a {
   color: var(--color-black);
+}
+
+.footerDashboard a:hover {
+  color: var(--color-blue);
 }
 
 @media only screen and (min-width: 750px) {
@@ -2660,8 +2736,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role='button'] a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #FBFBFD;
-
+  background-color: #fbfbfd;
   color: #3B1AE3;
 }
 
@@ -2674,7 +2749,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role='button'] a {
 }
 
 .convidarTestersContainer div#testersTable ul li#tr {
-  border-bottom: solid 1px #BDBDBD;
+  border-bottom: solid 1px #bdbdbd;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
