@@ -30,7 +30,7 @@ const fetchData = () => {
 			.then((response) => response.text())
 			.then((data) => createCalendar(data))
 			.catch(function(err) {
-				console.error(err);
+				console.log(err);
 			});
 	});
 };
