@@ -49,6 +49,24 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
   }
+
+
+  // dashboard tester
+
+  .dashboardTester {
+    .info {
+      padding: 3rem 2rem 3rem 3rem;
+    }
+
+    .testes {
+      flex-direction: column;
+
+      .convites,
+      .testes-realizados {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -155,6 +173,8 @@
   .highlight {
     background: none !important;
   }
+
+
 }
 
 @media (max-width: 540px) {
