@@ -24,7 +24,7 @@ const mandarAnotacao = () => {
 	li.appendChild(conteudo);
 	anotacoesTods.appendChild(li);
 	setTimeout(() => li.classList.add('animacaoAnotacao'), 100);
-	return fetch(`http://localhost:5000/testes/${id}/chamada/anotacao`, {
+	return fetch(`https://allyticc.herokuapp.com//testes/${id}/chamada/anotacao`, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
