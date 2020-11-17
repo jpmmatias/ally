@@ -2034,7 +2034,7 @@ div.contentDashboard div.grid div#calendar button {
 #editTeste form div input[type="url"] {
   width: 100%;
   font-family: "museo-sans", sans-serif;
-  height: 2.8rem;
+  height: 3rem;
   padding: 0.5rem;
   font-size: 1.6rem;
   border: 1px solid #8692a6;
@@ -2055,6 +2055,7 @@ div.contentDashboard div.grid div#calendar button {
   border: 1px solid #8692a6;
   font-family: "museo-sans", sans-serif;
   border-radius: 6px;
+  font-size: 15px;
 }
 
 #addTeste form div textarea,
@@ -2065,6 +2066,8 @@ div.contentDashboard div.grid div#calendar button {
   border: 1px solid #8692a6;
   border-radius: 6px;
   height: 10rem;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 #addTeste form div input[type="submit"],

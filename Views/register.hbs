@@ -54,32 +54,32 @@
                         <div class="campo">
                             <label for="senha">Senha</label>
                             <input id="senha" type="password" name="senha" placeholder="Digite sua senha">
-                             <p class="legend">Sua senha deve ter no mínimo 6 caracteres.</p>
+                            <p class="legend">Sua senha deve ter no mínimo 6 caracteres.</p>
                         </div>
 
                         <div class="campo">
                             <label for="senha2">Confirmar senha</label>
                             <input id="senha2" type="password" name="senha2" placeholder="Digite sua senha">
                         </div>
-                       
-                       
+
+
 
                     </fieldset>
 
                     <fieldset>
                         <legend>Apenas mais algumas informações</legend>
                         <div class="campo">
-                            <label for="idade">Idade</label>
+                            <label for="idade">Idade (opcional)</label>
                             <input min="16" placeholder="Insira sua idade" id="idade" type="number" name='idade'
                                 value='{{tipoDiferente idade 'undefined'}}'>
                         </div>
                         <div class="campo">
-                            <label for="profissao">Profissão</label>
+                            <label for="profissao">Profissão (opcional)</label>
                             <input placeholder="Insira sua Profissão" id="profissao" type="text" name='profissao'
                                 value='{{tipoDiferente profissao 'undefined'}}'>
                         </div>
                         <div class="campo">
-                            <label for="deficiencia">Tipo de deficiência</label>
+                            <label for="deficiencia">Tipo de deficiência (opcional)</label>
                             <input id="deficiencia" type="text" name="deficiencia"
                                 placeholder="Qual tipo de deficiência você possui? ">
                         </div>
@@ -90,7 +90,7 @@
 
                     </div>
                 </form>
-{{!-- / criar conta tester --}}
+                {{!-- / criar conta tester --}}
 
 
                 {{!-- criar conta empresa --}}
@@ -114,7 +114,7 @@
                                 placeholder="Digite sua senha">
                             <span id="btn-senha" tabindex="0" aria-hidden="true">Mostrar</span>
                         </div>
-                         <p class="legend">Sua senha deve ter no mínimo 6 caracteres.</p>
+                        <p class="legend">Sua senha deve ter no mínimo 6 caracteres.</p>
 
                     </div>
                     <div class="campo">
@@ -124,7 +124,7 @@
                                 placeholder="Digite sua senha">
                             <span id="btn-senha2" tabindex="0" aria-hidden="true">Mostrar</span>
                         </div>
-                       
+
                     </div>
 
                     <div class="campo">
@@ -156,7 +156,7 @@
     </main>
 
 
-<noscript>Seu navegador não dá suporte a javascript</noscript>  
+    <noscript>Seu navegador não dá suporte a javascript</noscript>
     <script>
         var inputPass3 = document.getElementById('senha'),
             inputPass4 = document.getElementById('senha2'),
@@ -196,5 +196,3 @@
 
         }
     </script>
-
-  
