@@ -2587,6 +2587,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role='button'] a {
       -ms-flex-align: center;
           align-items: center;
   background-color: #FBFBFD;
+
   color: #3B1AE3;
 }
 
@@ -2626,6 +2627,7 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role='button'] a {
   width: 13.5rem;
   border: 5px solid #3B1AE3;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .convidarTestersContainer div#testersTable div[role='button'] {
