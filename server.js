@@ -1,4 +1,4 @@
-require('dotenv').config({path: './Config/config.env'});
+require('dotenv').config({ path: './Config/config.env' });
 const morgan = require('morgan');
 const express = require('express');
 const expshbs = require('express-handlebars');
@@ -18,17 +18,16 @@ const colors = require('colors');
 app.use(express.static(path.join(__dirname, './Public')));
 app.use(express.static(path.join(__dirname, './Uploads')));
 
-
 //Helmet middleware (Segurança do site)
-app.use(helmet({ contentSecurityPolicy: false,}));
+app.use(helmet({ contentSecurityPolicy: false }));
 
 //Bodyparser
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 //Method Override
 app.use(
-	methodOverride(function (req, res) {
+	methodOverride(function(req, res) {
 		if (req.body && typeof req.body === 'object' && '_method' in req.body) {
 			let method = req.body._method;
 			delete req.body._method;
@@ -48,13 +47,13 @@ mongoose
 	.connect(db, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
-		useFindAndModify: false,
+		useFindAndModify: false
 	})
 	.then(console.log('MongoDB conctado'.cyan.bold))
 	.catch((err) => console.log(err));
 
 //Handlebars Helper
-const {formatarData, tipoDiferente,stringfy,ifCond} = require('./Helpers/hbs');
+const { formatarData, tipoDiferente, stringfy, ifCond, nomeVideo, dataF } = require('./Helpers/hbs');
 
 app.set('views', path.join(__dirname, 'Views'));
 
@@ -63,14 +62,13 @@ app.set('view engine', '.hbs');
 app.engine(
 	'.hbs',
 	expshbs({
-		helpers: {formatarData, tipoDiferente,stringfy,ifCond},
+		helpers: { formatarData, tipoDiferente, stringfy, ifCond, nomeVideo, dataF },
 		defaultLayout: 'main',
 		extname: '.hbs',
 		partialsDir: path.join(__dirname, 'Views/Partials'),
-		layoutsDir: path.join(__dirname, 'Views/Layouts')	
+		layoutsDir: path.join(__dirname, 'Views/Layouts')
 	})
 );
-
 
 //Express session
 app.use(
@@ -78,7 +76,7 @@ app.use(
 		secret: 'secret',
 		resave: true,
 		saveUninitialized: true,
-		store: new MongoStore({mongooseConnection: mongoose.connection}),
+		store: new MongoStore({ mongooseConnection: mongoose.connection })
 	})
 );
 
@@ -103,7 +101,6 @@ app.use('/users', require('./Routes/users'));
 app.use('/testes', require('./Routes/testes'));
 app.use('/calendario', require('./Routes/calendario'));
 
-
 const PORT = process.env.PORT || 5000;
 
 //Logging
@@ -111,21 +108,18 @@ if ((process.env.NODE_ENV = 'desenvolvimento')) {
 	app.use(morgan('dev'));
 }
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
 	res.status(404);
 	res.render('Erros/404');
 });
 
 app.use('/favicon.ico', (req, res, next) => {
-    console.log('favicon handler');
-    res.sendStatus(200);
+	console.log('favicon handler');
+	res.sendStatus(200);
 });
 
 const server = app.listen(PORT, () => {
-	console.log(
-		`O servidor foi iniciado no modo ${process.env.NODE_ENV} na porta ${PORT}`
-			.yellow.bold
-	);
+	console.log(`O servidor foi iniciado no modo ${process.env.NODE_ENV} na porta ${PORT}`.yellow.bold);
 });
 
 //----------------Socket.io------------------

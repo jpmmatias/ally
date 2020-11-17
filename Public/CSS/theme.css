@@ -1582,6 +1582,12 @@ div.contentDashboard div.grid div#calendar button {
   margin: 0;
   font-size: 20px;
 }
+#anotacoes #testerArea ul {
+  padding: 1rem;
+}
+#anotacoes #testerArea ul li {
+  margin-bottom: 1rem;
+}
 #anotacoes #todasAnotacoes {
   height: 80%;
 }
