@@ -7,27 +7,6 @@ const pegarID = () => {
 	return ROOM_ID;
 };
 
-let mandarConvite = (nome, btnId) => {
-	alert('hi');
-	console.log(btnId);
-	let id = pegarID();
-	fetch(`http://localhost:5000/testes/add/${id}/convidar/`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			nome: nome
-		})
-	})
-		.then((data) => {
-			console.log('Request success: ', data);
-		})
-		.catch((err) => {
-			console.log('Request failure: ', err);
-		});
-};
-
 let aceitarConvite = (userNome, userId, testeNome, testeId) => {
 	fetch(`http://localhost:5000/testes/add/${testeId}/convidar/aceitar`, {
 		method: 'POST',
