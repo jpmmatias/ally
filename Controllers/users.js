@@ -308,8 +308,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 			senha,
 			senha2,
 			idade,
-			profissao,
-			deficiencia
+			profissao
 		});
 	} else {
 		//Passou na validação
@@ -326,8 +325,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 					senha,
 					senha2,
 					idade,
-					profissao,
-					deficiencia
+					profissao
 				});
 			} else {
 				const novoUser = new User({
@@ -336,8 +334,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 					senha,
 					tipo: 'tester',
 					idade,
-					profissao,
-					deficiencia
+					profissao
 				});
 				//Hash senha
 				bcrypt.genSalt(10, (err, salt) =>
