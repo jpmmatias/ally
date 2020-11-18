@@ -81,6 +81,10 @@ header#logoLogin {
           transition: 0.3s;
           cursor: pointer;
 
+          &:focus {
+            outline: none; //tirar isso o mais rapido possivel
+          }
+
           &:hover {
             box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
             background-color: var(--color-hover);

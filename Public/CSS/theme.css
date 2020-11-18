@@ -239,6 +239,10 @@ header#logoLogin img {
   cursor: pointer;
 }
 
+#loginSection .container form .campo input[type="submit"]:focus {
+  outline: none;
+}
+
 #loginSection .container form .campo input[type="submit"]:hover {
   -webkit-box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
           box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
@@ -1807,7 +1811,8 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
           justify-content: flex-end;
 }
 
-.dashboardTester .convites table tbody .btn-action button, .dashboardTester .convites table tbody .btn-action a {
+.dashboardTester .convites table tbody .btn-action button,
+.dashboardTester .convites table tbody .btn-action a {
   background: none;
   color: var(--color-black);
   padding: 8px 15px;
