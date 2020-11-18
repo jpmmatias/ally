@@ -8,7 +8,7 @@ const pegarID = () => {
 };
 
 let aceitarConvite = (userNome, userId, testeNome, testeId) => {
-	fetch(`http://localhost:5000/testes/add/${testeId}/convidar/aceitar`, {
+	fetch(`https://localhost:5000/testes/add/${testeId}/convidar/aceitar`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ let aceitarConvite = (userNome, userId, testeNome, testeId) => {
 };
 
 let recusarConvite = (userNome, userId, testeNome, testeId) => {
-	fetch(`http://localhost:5000/testes/add/${testeId}/convidar/recusar`, {
+	fetch(`https://localhost:5000/testes/add/${testeId}/convidar/recusar`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
