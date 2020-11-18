@@ -51,10 +51,13 @@ let recusarConvite = (userNome, userId, testeNome, testeId) => {
 
 invitesBtns.forEach((btn) => {
 	btn.addEventListener('click', () => {
-		btn.style.backgroundColor = '#3B1AE3';
+		btn.style.backgroundColor = '#26890c';
 		btn.style.color = '#fff';
+		btn.style.border = '2px solid #26890c';
 		btn.style.cursor = 'auto';
 		btn.innerHTML = 'Convidado';
+		btn.parentNode.parentNode.classList.add('convidado');
+
 
 		let id = pegarID();
 		fetch(`http://localhost:5000/testes/add/${id}/convidar/`, {
@@ -74,3 +77,4 @@ invitesBtns.forEach((btn) => {
 			});
 	});
 });
+

@@ -15,7 +15,7 @@
     {{!-- skip links --}}
     <ul class="skip-links">
 
-        <li><a href="#conteudo">Pular para conteúdo</a></li>
+        <li><a href="#conta">Pular para criar conta</a></li>
         <li><a href="#rodape">Pular para rodapé</a></li>
 
     </ul>
@@ -29,16 +29,16 @@
 
 
 
-    <main id="conteudo">
+    <main>
         <section id="loginSection">
             <div class="container">
                 <h1>Crie uma Conta</h1>
 
                 {{!-- criar conta tester --}}
                 {{#if tester}}
-                <form action="/users/register/tester" method="POST">
+                <form id="conta" action="/users/register/tester" method="POST">
 
-                    <fieldset>
+                    <fieldset >
                         <legend class="sr-only">Informações para cadastro</legend>
                         <div class="campo">
                             <label for="nome">Nome</label>
@@ -95,7 +95,7 @@
 
                 {{!-- criar conta empresa --}}
                 {{else}}
-                <form action="/users/register" method="POST">
+                <form id="conta" action="/users/register" method="POST">
                     <div class="campo">
                         <label for="nome">Nome</label>
                         <input placeholder="Como você quer ser chamado?" id="nome" type="text" name='nome'

@@ -1,5 +1,5 @@
 #headerHome {
-  background: url(../../../Imagens/bg-home.svg);
+  background: url(../../../Imagens/bg-home.svg) no-repeat center center / cover;;
   padding-bottom: 4rem;
 }
 
@@ -44,7 +44,7 @@
     padding-bottom: 4rem;
     text-align: center;
 
-    background: url(../../../Imagens/bg-colors.png);
+    background: url(../../../Imagens/bg-colors.png) no-repeat center center / cover;;
   }
 
   #como-funciona {

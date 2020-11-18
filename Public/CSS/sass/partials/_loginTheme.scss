@@ -4,6 +4,14 @@
 // 	background: url(../Imagens/bg-circles.svg) no-repeat center center / cover;
 // }
 
+.login {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: ". .";
+  height: 100vh;
+}
 header#logoLogin {
   margin: 1.2rem 0 0 7rem;
 
@@ -211,6 +219,7 @@ header#logoLogin {
 }
 
 .footerLogin {
+ 
   display: flex;
   align-items: center;
   justify-content: space-between;

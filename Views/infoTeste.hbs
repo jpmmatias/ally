@@ -1,1 +1,85 @@
-<h1>Info</h1>
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
+    <link rel="stylesheet" href="/CSS/theme.css">
+    <title>Testes - Ally</title>
+</head>
+
+
+<body>
+
+    {{> _skip_links}}
+    <div id="dashboard">
+
+        <!-- aside -->
+        <aside class="sidenav">
+            <button class="close">Fechar</button>
+            <div class="logo">
+                <a href="/"><img src="/Imagens/logo-ally.svg" alt="Logo do Ally"></a>
+            </div>
+
+            <nav id="menu" class="main-nav" aria-label="Navegação principal">
+                <ul class="navList">
+                    <li class="item">
+                        <a href="/dashboard"> <img src="/Imagens/IconeTestes.svg" alt="Ícone para ver testes"
+                                aria-hidden="true">Dashboard</a>
+                    </li>
+                    <li class="item">
+                        <a href="/orientacoes"> <img src="/Imagens/IconeOrientacao.svg" alt="Ícone para ver Orientações"
+                                aria-hidden="true">Orientações</a>
+                    </li>
+                    <li class="item">
+                        <a href="/calendario"> <img src="/Imagens/IconeCalendario.svg" alt="Ícone para ver Calendário"
+                                aria-hidden="true">Agenda</a>
+                    </li>
+                    <li class="item">
+                        <a href="/configuracoes"> <img src="/Imagens/IconeConfiguracao.svg"
+                                alt="Ícone para ver Configurações" aria-hidden="true">Configurações</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </aside>
+        <!-- / aside -->
+
+        <!-- header -->
+        <header class="headerDashboard">
+            <button class="menutoggle" aria-expanded="false">Menu</button>
+            <h1>Informações</h1>
+            <div class="utilities">
+                <a tabindex="0" class="logout" href="/users/logout">Sair</a>
+            </div>
+        </header>
+        <!-- /header -->
+
+
+
+        <main id="conteudo">
+            <section class="dashboardTester">
+                <div class="info">
+                    <h2>Informações do Teste</h2>
+                    <p>{{convite.testeNome}}</p>
+                    <p>{{convite.testeId}}</p>
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/Javascript/mobileDashboard.js"></script>
+    <script src="/Javascript/convite.js"></script>

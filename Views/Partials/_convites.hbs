@@ -11,6 +11,10 @@
                 <a href="/dashboard"> <img src="/Imagens/IconeTestes.svg" alt="Ícone para ver testes"
                         aria-hidden="true">Dashboard</a>
             </li>
+             <li class="item">
+                <a href="/orientacoes"> <img src="/Imagens/IconeOrientacao.svg" alt="Ícone para ver Orientações"
+                        aria-hidden="true">Orientações</a>
+            </li>
             <li class="item">
                 <a href="/calendario"> <img src="/Imagens/IconeCalendario.svg" alt="Ícone para ver Calendário"
                         aria-hidden="true">Agenda</a>
@@ -37,8 +41,16 @@
 
 
 {{#if convites}}
-{{!-- 
-<div class="convites">
+
+<main id="conteudo" class="semConvites">
+    <section class="dashboardTester">
+        <div class="info">
+            <h2>Olá {{nome}}!</h2>
+            <p>Aqui é o espaço onde as empresas irão te convidar para realizar os testes. Assim que o convite for
+                enviado,
+                aparecerá a solicitação.</p>
+        </div>
+       <div class="convites">
     <h3>Convites</h3>
 
     <table class="striped">
@@ -56,47 +68,14 @@
             <tr>
                 <td>{{convite.userNome}}</td>
                 <td class="btn-action">
-                    <button
+                    {{!-- <button
                         onclick="aceitarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')"
                         class="blue">
                         Aceitar
-                    </button>
+                    </button> --}}
+                    <a class="blue" href="/testes/{{convite.testeId}}/info">Aceitar</a>
                     <button
                         onclick="recusarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')"
-                        id="recusarBtn" class="red">
-                        Recusar
-                    </button>
-                </td>
-            </tr>
-            {{/each}}
-
-    </table>
-
-<div class="convites">
-    <h3>Convites</h3>
-
-    <table class="striped">
-        <caption class="sr-only">Convites Recebidos</caption>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>&nbsp;</th>
-
-            </tr>
-        </thead>
-        <tbody>
-
-            {{#each convites as |convite|}}
-            <tr>
-                <td>{{convite.userNome}}Exemplo</td>
-                <td class="btn-action">
-                    <button
-                        {{!-- onclick="aceitarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')" --}}
-                        class="blue">
-                        Aceitar
-                    </button>
-                    <button
-                        {{!-- onclick="recusarConvite('{{convite.userNome}}','{{convite.userId}}','{{convite.testeNome}}','{{convite.testeId}}')" --}}
                         id="recusarBtn" class="red">
                         Recusar
                     </button>
@@ -113,6 +92,18 @@
 </div>
 
 
+    </section>
+
+    {{!-- <section class="testes"> --}}
+
+    {{!-- <div class="testes-realizados">
+            <h3>Testes realizados</h3>
+            <p>Não há testes realizados.</p>
+        </div> --}}
+    {{!-- </section> --}}
+</main>
+
+
 
 
 {{else}}
@@ -123,7 +114,7 @@
             <h2>Olá {{nome}}!</h2>
             <p>Aqui é o espaço onde as empresas irão te convidar para realizar os testes. Assim que o convite for
                 enviado,
-                aparecerá a solicitação logo abaixo.</p>
+                aparecerá a solicitação.</p>
         </div>
         <div class="convites">
             <h3>Convites</h3>
@@ -142,7 +133,7 @@
 </main>
 {{/if}}
 
-{{#if testesAceitos}}
+{{!-- {{#if testesAceitos}}
 
 <div class="testes-realizados">
     <h3>Testes realizados</h3>
@@ -169,5 +160,5 @@
 </div>
 
 
-{{/if}}
+{{/if}} --}}
 <script src="/Javascript/convite.js"></script>
