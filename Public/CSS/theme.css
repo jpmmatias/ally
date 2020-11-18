@@ -739,8 +739,7 @@ header#logoLogin img {
 }
 
 #headerTester {
-  background: url(../../../Imagens/bgTester.svg);
-  background-size: cover;
+  background: url(../../../Imagens/bgTester.svg) no-repeat center center/cover;
   padding-bottom: 8rem;
 }
 
