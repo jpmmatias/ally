@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/theme.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="/Imagens/favicon.ico">
     <title>Ally - Testes de Acessibilidade e Usabilidade</title>
 </head>
@@ -54,7 +55,7 @@
                 <p>Teste remotos com feedbacks em tempo real.</p>
                 <a class="btn-cta" href="/users/register">Quero testar meu site</a>
             </div>
-            <img src="Imagens/bannerHome.svg"
+            <img data-aos="fade-up" src="Imagens/bannerHome.svg"
                 alt="Homem de óculos escuros utilizando um notebook. Balão de fala: 'Como faço para concluir este formulário?'">
         </div>
     </div>
@@ -69,8 +70,8 @@
     {{!-- video explicativo --}}
     <section id="video">
         <div class="container">
-            <h2>Você sabe como as pessoas que usam leitores de tela, navegam no seu site? </h2>
-            <img src="Imagens/video.png" alt="Video">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Você sabe como as pessoas que usam leitores de tela, navegam no seu site? </h2>
+            <img data-aos="fade-up" data-aos-duration="1200" src="Imagens/video.png" alt="Video">
         </div>
     </section>
     {{!-- / video explicativo --}}
@@ -79,21 +80,21 @@
     {{!-- como funciona --}}
     <section id="como-funciona">
         <div class="container">
-            <h2>Como funcionam os <br>testes de acessibilidade</h2>
+            <h2 data-aos="fade-up" data-aos-duration="1200">Como funcionam os <br>testes de acessibilidade</h2>
 
             <div class="steps">
-                <div class="step">
+                <div class="step"  data-aos="fade-right" data-aos-duration="1300">
                     <img src="Imagens/step1.svg" alt="Ilustração de passo a passo" aria-hidden="true">
                     <h3>Agendamento</h3>
                     <p>Entre em contato com os usuários e agende os testes de acessibilidade.</p>
                 </div>
 
-                <div class="step">
+                <div class="step"  data-aos="fade-up" data-aos-duration="1300">
                     <img src="Imagens/step2.svg" alt="Ilustração de passo a passo" aria-hidden="true">
                     <h3>Testes em tempo real, com compartilhamento de tela</h3>
                     <p>Entre em contato com os usuários e agende os testes de acessibilidade.</p>
                 </div>
-                <div class="step">
+                <div class="step"  data-aos="fade-left" data-aos-duration="1300">
                     <img src="Imagens/step3.svg" alt="Ilustração de passo a passo" aria-hidden="true">
                     <h3>Resultado</h3>
                     <p>Entre em contato com os usuários e agende os testes de acessibilidade.</p>
@@ -105,7 +106,7 @@
 
 
     {{!-- por onde comecar --}}
-    <section id="orientacoes">
+    <section id="orientacoes" data-aos="fade-up" data-aos-duration="1600">
         <div class="container">
             <h2>Por onde começar a aplicar acessibilidade no meu site?</h2>
             <p>Separamos algumas dicas de como começar a <br>implantar acessibilidade Web</p>
@@ -118,10 +119,10 @@
     {{!-- motivos --}}
     <section id="motivos">
         <div class="container">
-            <h2>Motivos para tornar seu site acessível </h2>
-            <p class="subtitle">Selecionamos 4 motivos para começar a testar com a gente</p>
-            <div class="itens-motivos">
-                <div class="item">
+            <h2 data-aos="fade-up" data-aos-duration="1200">Motivos para tornar seu site acessível </h2>
+            <p data-aos="fade-up" data-aos-duration="1200" class="subtitle">Selecionamos 4 motivos para começar a testar com a gente</p>
+            <div class="itens-motivos" data-aos="fade-up" data-aos-duration="1200">
+                <div class="item" >
                     <span aria-label="Motivo 1">1</span>
                     <h3>Conformidade com a lei</h3>
                     <p>A acessibilidade nos sites é obrigatória para organizações públicas e privadas, conforme a
@@ -162,12 +163,12 @@
     <section id="call-to-action">
         <div class="cta container">
 
-            <div class="cta-text">
+            <div class="cta-text" data-aos="fade-left" data-aos-duration="1200">
                 <h2>Pronto para começar <br>a testar seu site?</h2>
                 <p>Comece hoje a encontrar pessoas e compreender<br> suas experiências.</p>
                 <a class="btn-cta" href="/users/register">Quero testar meu site</a>
             </div>
-            <img src="Imagens/callToAction.svg" alt="Mulher está sorrindo ao fazer uma videochamada pelo notebook">
+            <img data-aos="fade-right" data-aos-duration="1200" src="Imagens/callToAction.svg" alt="Mulher está sorrindo ao fazer uma videochamada pelo notebook">
 
         </div>
     </section>
@@ -177,3 +178,7 @@
 
 {{> _footer}}
 <script src="/Javascript/menu.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
