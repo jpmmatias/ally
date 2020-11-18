@@ -158,25 +158,33 @@ header#logoLogin img {
 	margin-bottom: 2.6rem;
 }
 #loginSection .container form .campo label {
-<<<<<<< HEAD
 	color: #3b1ae3;
 	margin-bottom: 1rem;
 	font-size: 1.8rem;
 }
-#loginSection .container form .campo input[type=email],
-#loginSection .container form .campo input[type=number],
-#loginSection .container form .campo input[type=password],
-#loginSection .container form .campo input[type=text] {
+
+#loginSection .container form .campo input[type="email"],
+#loginSection .container form .campo input[type="number"],
+#loginSection .container form .campo input[type="password"],
+#loginSection .container form .campo input[type="text"] {
 	width: 100%;
 	font-size: 1.6rem;
 	border: 1px solid #3b1ae3;
 	border-radius: 6px;
 	padding: 1.5rem 1.6rem;
 }
-#loginSection .container form .campo input[type=submit] {
+
+#loginSection .container form .campo input[type="submit"] {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-ms-flex-item-align: center;
 	align-self: center;
 	width: 22rem;
 	height: 5rem;
@@ -187,67 +195,21 @@ header#logoLogin img {
 	font-weight: 700;
 	border-radius: 5.1rem;
 	border: 0px;
+	-webkit-box-shadow: 0 5px 8px rgba(109, 121, 156, 0.2);
 	box-shadow: 0 5px 8px rgba(109, 121, 156, 0.2);
+	-webkit-transition: 0.3s;
 	transition: 0.3s;
 	cursor: pointer;
 }
-#loginSection .container form .campo input[type=submit]:hover {
-	box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
-	background-color: var(--color-hover);
-=======
-  color: #3B1AE3;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-
-#loginSection .container form .campo input[type="email"],
-#loginSection .container form .campo input[type="number"],
-#loginSection .container form .campo input[type="password"],
-#loginSection .container form .campo input[type="text"] {
-  width: 100%;
-  font-size: 1.6rem;
-  border: 1px solid #3B1AE3;
-  border-radius: 6px;
-  padding: 1.5rem 1.6rem;
-}
-
-#loginSection .container form .campo input[type="submit"] {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-item-align: center;
-      align-self: center;
-  width: 22rem;
-  height: 5rem;
-  letter-spacing: 1px;
-  font-size: 18px;
-  color: white;
-  background-color: #3B1AE3;
-  font-weight: 700;
-  border-radius: 5.1rem;
-  border: 0px;
-  -webkit-box-shadow: 0 5px 8px rgba(109, 121, 156, 0.2);
-          box-shadow: 0 5px 8px rgba(109, 121, 156, 0.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  cursor: pointer;
-}
 
 #loginSection .container form .campo input[type="submit"]:focus {
-  outline: none;
+	outline: none;
 }
 
 #loginSection .container form .campo input[type="submit"]:hover {
-  -webkit-box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
-          box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
-  background-color: var(--color-hover);
->>>>>>> 1fd43019f92503147d5a9950f4a5c22ea30831ad
+	-webkit-box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
+	box-shadow: 0 10px 15px rgba(0, 102, 147, 0.3);
+	background-color: var(--color-hover);
 }
 #loginSection .container div.ou {
 	text-align: center;
@@ -1402,21 +1364,18 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
 	font-size: 15px;
 	cursor: pointer;
 }
-<<<<<<< HEAD
-=======
 
 .dashboardTester .convites table tbody .btn-action button,
 .dashboardTester .convites table tbody .btn-action a {
-  background: none;
-  color: var(--color-black);
-  padding: 8px 15px;
-  border-radius: 50px;
-  margin-right: 10px;
-  font-size: 15px;
-  cursor: pointer;
+	background: none;
+	color: var(--color-black);
+	padding: 8px 15px;
+	border-radius: 50px;
+	margin-right: 10px;
+	font-size: 15px;
+	cursor: pointer;
 }
 
->>>>>>> 1fd43019f92503147d5a9950f4a5c22ea30831ad
 .dashboardTester .convites .red {
 	border: 3px solid var(--color-red);
 	transition: 0.2s;
