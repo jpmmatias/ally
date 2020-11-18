@@ -37,7 +37,7 @@ const videoUpload = (videoUrl) => {
 	fileReader.onload = (e) => {
 		let fd = new FormData();
 		fd.append('video', videoUrl, `${id}_${Date.now()}.mp4`);
-		return fetch(`https://allyticc.herokuapp.com/testes/${id}/chamada/videoUpload`, {
+		return fetch(`http://localhost:5000/testes/${id}/chamada/videoUpload`, {
 			method: 'POST',
 			body: fd
 		})

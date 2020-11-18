@@ -189,3 +189,24 @@ exports.deletarTeste = async (req, res, next) => {
 		return res.render('Erros/500');
 	}
 };
+
+//descrição         Mostrar pagina de info
+//route             GET /testes/:id/mostrarPagInfo
+//Acesso            Privado
+exports.mostrarPagInfo = async (req, res, next) => {
+	try {
+		const teste = await Teste.findOne({
+			_id: req.params.id
+		}).lean();
+
+		if (!teste) {
+			return res.render('Erros/404');
+		}
+		res.render('infoTeste', {
+			teste
+		});
+	} catch (err) {
+		console.log(err);
+		return res.render('Erros/500');
+	}
+};

@@ -9,7 +9,7 @@ const pegarIDD = () => {
 	return ROOM_ID;
 };
 
-const mandarAnotacao = () => {
+const mandarAnotacao = async () => {
 	let id = pegarIDD();
 	let li = document.createElement('li');
 	let horario = document.createElement('div');
@@ -24,7 +24,7 @@ const mandarAnotacao = () => {
 	li.appendChild(conteudo);
 	anotacoesTods.appendChild(li);
 	setTimeout(() => li.classList.add('animacaoAnotacao'), 100);
-	return fetch(`https://allyticc.herokuapp.com//testes/${id}/chamada/anotacao`, {
+	return fetch(`https://localhost:5000/testes/${id}/chamada/anotacao`, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
