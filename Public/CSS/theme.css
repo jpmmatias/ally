@@ -581,7 +581,7 @@ header#logoLogin img {
 }
 
 #headerHome {
-  background: url(../../../Imagens/bg-home.svg);
+  background: url(../../../Imagens/bg-home.svg) no-repeat center center/cover;
   padding-bottom: 4rem;
 }
 
@@ -632,7 +632,7 @@ header#logoLogin img {
   margin-top: 8rem;
   padding-bottom: 4rem;
   text-align: center;
-  background: url(../../../Imagens/bg-colors.png);
+  background: url(../../../Imagens/bg-colors.png) no-repeat center center/cover;
 }
 
 .home #como-funciona {
@@ -1424,6 +1424,8 @@ main.comTestes .cards-testes .teste .btn-outline {
 .testeIndividual .infoTeste .info-main .actions button {
   cursor: pointer;
   border: none;
+  padding: 15px;
+  background: none;
 }
 
 .testeIndividual .infoTeste .info-main p {
@@ -1979,7 +1981,7 @@ div.contentDashboard div.grid div#calendar button {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-top: 3rem;
+  margin-top: 1.8rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2083,7 +2085,6 @@ div.contentDashboard div.grid div#calendar button {
       -ms-flex-pack: center;
           justify-content: center;
   width: 17.5rem;
-  height: 3.5rem;
   font-size: 1.6rem;
   color: white;
   background-color: #3B1AE3;
