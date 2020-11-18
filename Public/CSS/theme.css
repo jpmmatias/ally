@@ -1335,15 +1335,18 @@ main.comTestes .cards-testes .teste {
   -webkit-box-shadow: 0px 4px 10px rgba(157, 155, 155, 0.25);
           box-shadow: 0px 4px 10px rgba(157, 155, 155, 0.25);
   position: relative;
-  min-height: 230px;
+  min-height: 250px;
   padding: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
 }
 
 main.comTestes .cards-testes .teste h2 {
-  font-size: 20px;
+  font-size: 24px;
   color: var(--color-blue);
-  margin: 10px 0 20px;
-  text-align: left;
+  margin: 0px 0 20px;
 }
 
 main.comTestes .cards-testes .teste p {
@@ -1352,17 +1355,35 @@ main.comTestes .cards-testes .teste p {
   color: var(--color-black);
 }
 
+main.comTestes .cards-testes .teste img {
+  width: 65px;
+  height: auto;
+  margin: -40px auto 0 auto;
+}
+
 main.comTestes .cards-testes .teste .btn-outline {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  display: inline-block;
+  /* position: absolute; */
+  /* bottom: 20px; */
+  /* left: 20px; */
+  display: table;
+  margin: 0 auto;
   color: var(--color-blue);
-  border: 2px solid var(--color-blue);
-  font-size: 14px;
-  padding: 0.8rem 1rem;
+  border: 3px solid var(--color-blue);
+  /* font-size: 14px; */
+  padding: 0.8rem 15px;
   font-weight: 500;
   border-radius: 3em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main.comTestes .cards-testes .teste .btn-outline:hover {
+  -webkit-box-shadow: 0 10px 10px rgba(0, 102, 147, 0.09);
+          box-shadow: 0 10px 10px rgba(0, 102, 147, 0.09);
+  -webkit-transition: -webkit-box-shadow 0.3s ease;
+  transition: -webkit-box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
 }
 
 .testeIndividual {
