@@ -1,31 +1,28 @@
 @import 'cores';
-div.contentDashboard{
-    div.grid{
-        display: flex;
-        height: 80%;   
-        width:90%;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 3rem;
-        margin-left: auto;
-        margin-right: auto;
-        
+div.contentDashboard {
+	div.grid {
+		display: flex;
+		height: 80%;
+		width: 75%;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top: 3rem;
+		margin-left: auto;
+		margin-right: auto;
 
-        h1{
-            margin-bottom: 5rem;
-            display: inline-block;
-            
-        }
-        div#calendar{
-            font-family: "museo-sans", sans-serif !important; 
-            width: 100%;
-            height: 35rem;
-            button{
-                background-color: $azul !important;
-                border: .2px  rgb(119, 128, 255) solid !important;
-                font-family: "museo-sans", sans-serif !important; 
-            }
-        }
-    }
-
+		h1 {
+			margin-bottom: 5rem;
+			display: inline-block;
+		}
+		div#calendar {
+			font-family: "museo-sans", sans-serif !important;
+			width: 100%;
+			height: 35rem;
+			button {
+				background-color: $azul !important;
+				border: .2px rgb(119, 128, 255) solid !important;
+				font-family: "museo-sans", sans-serif !important;
+			}
+		}
+	}
 }
