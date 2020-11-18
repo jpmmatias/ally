@@ -146,7 +146,7 @@ exports.mostrarPaginaRegisterTester = (req, res, next) => {
 //route             POST /users/register/tester
 //Acesso            Pulico
 exports.criarUsuarioTester = (req, res, next) => {
-	const { nome, email, senha, senha2 } = req.body;
+	const { nome, email, senha, senha2, profissao, idade } = req.body;
 	let erros = [];
 
 	//Checando os requisitados
@@ -204,7 +204,9 @@ exports.criarUsuarioTester = (req, res, next) => {
 					nome,
 					email,
 					senha,
-					tipo: 'tester'
+					tipo: 'tester',
+					profissao,
+					idade
 				});
 				//Hash senha
 				bcrypt.genSalt(10, (err, salt) =>
