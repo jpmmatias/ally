@@ -21,7 +21,7 @@
             <button class="menutoggle" aria-expanded="false">Menu</button>
             <h1>Novo teste</h1>
             <div class="utilities">
-                <span class="user">Olá {{teste.nome}}!</span>
+                <span class="user">Olá {{user}}!</span>
                 <a tabindex="0" class="logout" href="/users/logout">Sair</a>
             </div>
         </header>
@@ -45,7 +45,7 @@
                     <div class="sec1addTeste">
                         <div class="input-field">
                             <label for="title">Nome do Teste</label>
-                            <input placeholder="Qual o nome do Teste" type="text" id="title" name="nome">
+                            <input placeholder=" Exemplo: Site PUC-SP" type="text" id="title" name="nome">
                         </div>
 
                         <div class="input-field">
@@ -79,7 +79,7 @@
                             <label for="horarioMarcado">Horário</label>
                             <input type="time" id="horarioMarcado" name="horarioMarcado">
                         </div>
-                        <input type="submit" value="Próximo">
+                        <input type="submit" class="btn-cta" value="Próximo">
                     </div>
                 </form>
             </div>

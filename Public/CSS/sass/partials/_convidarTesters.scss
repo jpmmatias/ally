@@ -44,6 +44,7 @@
 				justify-content: space-between;
 				align-items: center;
 				height: 10rem;
+				
 
 				div {
 					text-align: center;
@@ -56,13 +57,25 @@
 						background-color: #fff;
 						height: 4.5rem;
 						width: 13.5rem;
-						border: 5px solid $azul;
+						border: 3px solid $azul;
 						border-radius: 50px;
+						transition: 0.2s;
 						cursor: pointer;
+
+						&:focus {
+						outline: none; //tirar assim que possivel
+					}
+						&:hover {
+							background:  $azul;
+							color: #fff;
+							transition: 0.2s;
+						}
+						
 					}
 				}
 			}
 
+			
 			margin-bottom: 5rem;
 		}
 
@@ -89,4 +102,12 @@
 			}
 		}
 	}
+
+
 }
+
+.convidado {
+	background: #edffed !important;
+	
+}
+

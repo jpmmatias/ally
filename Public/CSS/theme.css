@@ -123,6 +123,18 @@ button {
   position: relative;
 }
 
+.login {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-areas: ". .";
+  height: 100vh;
+}
+
 header#logoLogin {
   margin: 1.2rem 0 0 7rem;
 }
@@ -1159,7 +1171,7 @@ main.semTestes .main-panel {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 210px;
-  margin: 2rem 0;
+  margin: 5rem 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1304,8 +1316,8 @@ main.comTestes a.btn-cta {
 main.comTestes .cards-testes {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(220px, 245px))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(220px, 245px));
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
 
@@ -1320,6 +1332,7 @@ main.comTestes .cards-testes .teste {
   width: 100%;
   min-height: 235px;
   margin-bottom: 20px;
+  min-width: 240px;
   -webkit-box-shadow: 0px 4px 10px rgba(157, 155, 155, 0.25);
           box-shadow: 0px 4px 10px rgba(157, 155, 155, 0.25);
   position: relative;
@@ -1424,8 +1437,6 @@ main.comTestes .cards-testes .teste .btn-outline {
 .testeIndividual .infoTeste .info-main .actions button {
   cursor: pointer;
   border: none;
-  padding: 15px;
-  background: none;
 }
 
 .testeIndividual .infoTeste .info-main p {
@@ -1776,8 +1787,9 @@ svg.svg-inline--fa.fa-video.fa-w-18 {
           justify-content: flex-end;
 }
 
-.dashboardTester .convites table tbody button {
+.dashboardTester .convites table tbody .btn-action button, .dashboardTester .convites table tbody .btn-action a {
   background: none;
+  color: var(--color-black);
   padding: 8px 15px;
   border-radius: 50px;
   margin-right: 10px;
@@ -1981,7 +1993,7 @@ div.contentDashboard div.grid div#calendar button {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-top: 1.8rem;
+  margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2036,7 +2048,7 @@ div.contentDashboard div.grid div#calendar button {
 #editTeste form div input[type="url"] {
   width: 100%;
   font-family: "museo-sans", sans-serif;
-  height: 3rem;
+  height: 4rem;
   padding: 0.5rem;
   font-size: 1.6rem;
   border: 1px solid #8692a6;
@@ -2849,9 +2861,22 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role='button'] a {
   background-color: #fff;
   height: 4.5rem;
   width: 13.5rem;
-  border: 5px solid #3B1AE3;
+  border: 3px solid #3B1AE3;
   border-radius: 50px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   cursor: pointer;
+}
+
+.convidarTestersContainer div#testersTable ul li#tr div button:focus {
+  outline: none;
+}
+
+.convidarTestersContainer div#testersTable ul li#tr div button:hover {
+  background: #3B1AE3;
+  color: #fff;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .convidarTestersContainer div#testersTable div[role='button'] {
@@ -2889,6 +2914,10 @@ div#addTesteFinalizadoContainer div#addTesteFinalizado div[role='button'] a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.convidado {
+  background: #edffed !important;
 }
 
 main.contato {
