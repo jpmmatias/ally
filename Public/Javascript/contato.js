@@ -7,7 +7,7 @@ form.addEventListener('submit', async (e) => {
 	console.log(msg.value);
 	if (nome.value !== '' && email.value !== '' && msg.value !== '') {
 		try {
-			fetch('http://localhost:5000/contato', {
+			fetch('https://allyticc.herokuapp.com/contato', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

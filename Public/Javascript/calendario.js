@@ -25,7 +25,7 @@ const createCalendar = async (data) => {
 
 const fetchData = () => {
 	return new Promise((resolve, reject) => {
-		fetch('http://localhost:5000/calendario/data', {
+		fetch('https://allyticc.herokuapp.com/calendario/data', {
 			method: 'GET'
 		})
 			.then((response) => response.text())
