@@ -14,40 +14,42 @@
 <body>
 
     {{> _skip_links}}
-    
+
     <div id="dashboard">
 
-{{!-- gravacoes --}}
-            <!-- breadcrumbs -->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Testes </a>
+        {{!-- gravacoes --}}
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Testes </a>
+                </li>
+                <li class="breadcrumb-item"><a href="/">{{teste.nome}}</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Gravações e Anotações</li>
+            </ol>
+        </nav>
+        <!-- / breadcrumbs -->
+
+        {{> _sidebar}}
+
+        
+        <section class="videoAnotacoes">
+            <div class="video">
+                <iframe class="responsive-iframe" src="{{video.filePath}}" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div class="anotacoes">
+                <h2>Anotações</h2>
+
+                <ul>
+                    {{#each anotacoes as |anotacao|}}
+                    <li>
+                        <span class="tempo">{{nomeVideo anotacao.data}}</span>
+                        <p>{{anotacao.anotacao}}</p>
                     </li>
-                    <li class="breadcrumb-item"><a href="/">{{teste.nome}}</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Gravações e Anotações</li>
-                </ol>
-            </nav>
-            <!-- / breadcrumbs -->
-
-            {{> _sidebar}}
-     <section class="videoAnotacoes">
-                <div class="video">
-                    <iframe class="responsive-iframe" src="{{video.filePath}}" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-
-                <div class="anotacoes">
-                    <h2>Anotações</h2>
-
-                    <ul>
-                        {{#each anotacoes as |anotacao|}}
-                        <li>
-                            <span class="tempo">{{nomeVideo anotacao.data}}</span>
-                            <p>{{anotacao.anotacao}}</p>
-                        </li>
-                         {{/each}}
-                    </ul>
-                </div>
-            </section>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>

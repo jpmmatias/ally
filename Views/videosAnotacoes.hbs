@@ -14,34 +14,38 @@
 <body>
 
     {{> _skip_links}}
-    
+
     <div id="dashboard">
 
-{{!-- gravacoes --}}
-            <!-- breadcrumbs -->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Testes </a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="/">{{teste.nome}}</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Gravações e Anotações</li>
-                </ol>
-            </nav>
-            <!-- / breadcrumbs -->
+        {{!-- gravacoes --}}
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Testes </a>
+                </li>
+                <li class="breadcrumb-item"><a href="/">{{teste.nome}}</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Gravações e Anotações</li>
+            </ol>
+        </nav>
+        <!-- / breadcrumbs -->
 
-            {{> _sidebar}}
-            <section class="gravacoesAnotacoes">
-                {{#each videos as |video|}}
-                    <a href="/testes/{{video.testeId}}/gravacoesanotcacoes/{{video._id}}">
-                    <div class="gravacao">
-                        <img src="/Imagens/gravacaoPrint.svg" alt="" aria-hidden="true">
-                        <div class="text">
-                            <h2>Teste com {{video.userNome}} </p>
-                                <p>Realizada em {{dataF video.createdAt}}</p>
-                        </div>
+        {{> _sidebar}}
+        {{#if videos}}
+        <section class="gravacoesAnotacoes">
+            {{#each videos as |video|}}
+            <a href="/testes/{{video.testeId}}/gravacoesanotcacoes/{{video._id}}">
+                <div class="gravacao">
+                    <img src="/Imagens/gravacaoPrint.svg" alt="" aria-hidden="true">
+                    <div class="text">
+                        <h2>Teste com {{video.userNome}} </p>
+                            <p>Realizada em {{dataF video.createdAt}}</p>
                     </div>
-                </a>
-                {{/each}}
-            </section>
-            {{!-- / gravacoes --}}
+                </div>
+            </a>
+            {{/each}}
+        </section>
+        {{!-- / gravacoes --}}
+        {{else}}
+        <h2>Teste</h2>
+        {{/if}}

@@ -38,10 +38,11 @@
 		#remote-video-text {
 			/* width: 15rem; */
 			color: black;
-			font-size: 1.2rem;
+			font-size: 1.6rem;
 			font-weight: bold;
 			text-align: center;
 			grid-column: 3/4;
+			
 			grid-row: 2;
 			display: flex;
 			justify-self: center;
@@ -87,7 +88,7 @@
 			box-shadow: none;
 			border: none;
 			border-radius: 15px;
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 		button:hover {
 			color: $azul;
@@ -96,11 +97,15 @@
 			background-color: $rosa;
 			color: #ffffff;
 		}
+
+		.fa-phone-slash {
+			color: var(--color-red);
+		}
 	}
 
 	.HoverState {
 		color: white;
-		font-size: 0.8rem;
+		font-size: 1.4rem;
 		position: absolute;
 		left: 60px;
 		white-space: nowrap;
@@ -160,6 +165,8 @@
 			color: #fff;
 			justify-content: space-between;
 
+		
+
 			div[role="button"] {
 				font-size: 1.8rem;
 				display: flex;
@@ -174,6 +181,8 @@
 				background-color: $roxo;
 				color: #ccc;
 			}
+
+		
 		}
 		#tarefasWrapper {
 			display: none;
@@ -255,6 +264,10 @@
 			box-shadow: none;
 			cursor: pointer;
 		}
+	}
+
+	p.url {
+		padding: 10px;
 	}
 }
 
