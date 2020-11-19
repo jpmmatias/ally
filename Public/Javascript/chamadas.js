@@ -303,7 +303,7 @@ function muteMicrophone() {
 }
 function swap() {
 	if (!VideoChat.connected) {
-		alert('Você precia estar em uma chamada para compartilhar a tela');
+		alert('Você precisa estar em uma chamada para compartilhar a tela');
 		return;
 	}
 	const swapIcon = document.getElementById('swap-icon');

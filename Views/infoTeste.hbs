@@ -60,11 +60,34 @@
 
 
         <main id="conteudo">
-            <section class="dashboardTester">
+            <!-- breadcrumbs -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Informações</li>
+                </ol>
+            </nav>
+
+            <!-- / breadcrumbs -->
+            <section class="informacoesTeste">
                 <div class="info">
-                    <h2>Informações do Teste</h2>
-                    <p>{{convite.testeNome}}</p>
-                    <p>{{convite.testeId}}</p>
+                    <h2> {{teste.nome}}</h2>
+
+                    <p>{{teste.mensgaemdeboasvindas}}</p>
+
+                    <br>
+
+                    <p>O site a ser testado:<a class="url" href="teste.url">{{teste.url}}</a></p><br>
+
+                    <h3>Informações sobre a videochamada:</h3>
+                    <ul>
+                        <li>Acesse a URL acima antes de entrar na videochamada;</li>
+                        <li>Assim que entrar, busque por compartilhar a tela;</li>
+                        <li>Quando compartilhar a tela, a mesma começara a ser gravada automaticamente.</li>
+                    </ul>
+                    <a class="btn-cta" href="chamada">Ir para videochamada</a>
+
                 </div>
 
 

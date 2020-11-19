@@ -50,20 +50,21 @@
     }
   }
 
-
   // dashboard tester
 
-  .dashboardTester {
-    .info {
-      padding: 3rem 2rem 3rem 3rem;
-    }
+  .semConvites {
+    .dashboardTester {
+      .info {
+        padding: 3rem 2rem 3rem 3rem;
+      }
 
-    .testes {
-      flex-direction: column;
+      .testes {
+        flex-direction: column;
 
-      .convites,
-      .testes-realizados {
-        width: 100%;
+        .convites,
+        .testes-realizados {
+          width: 100%;
+        }
       }
     }
   }
@@ -173,8 +174,6 @@
   .highlight {
     background: none !important;
   }
-
-
 }
 
 @media (max-width: 540px) {

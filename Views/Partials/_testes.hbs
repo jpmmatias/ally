@@ -9,19 +9,19 @@
 
         {{#each testes}}
         <div class="teste">
-           
-                <img src="/Imagens/web.png" alt="Ícone para ver testes" aria-hidden="true">
-                    <h2>{{nome}}</h2>
-                    {{!-- <p>Teste sobre a página inicial do site Lorem {{{teste.descricao}}}</p> --}}
-                    <a href="/testes/{{_id}}" class="btn-outline">Ver mais detalhes do teste</a>
-                
-            
+
+
+            <h2>{{nome}}</h2>
+            {{!-- <p>Teste sobre a página inicial do site Lorem {{{teste.descricao}}}</p> --}}
+            <a href="/testes/{{_id}}" class="btn-outline">Ver mais detalhes do teste</a>
+            {{!-- <p>{{data}}</p> --}}
+
         </div>
         {{/each}}
 
 
     </section>
-     <a class="btn-cta" href="/testes/add">Crie um novo teste</a>
+    <a class="btn-cta" href="/testes/add">Crie um novo teste</a>
 </main>
 
 <!-- / pagina testes c/ teste -->
