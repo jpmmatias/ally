@@ -88,20 +88,30 @@
                         <div>
                             <ul>
                                 <li>Site URL: <a href="teste.url">{{teste.url}}</a></li>
+                                <li>Quando a tela foi compartilhada sua tela começara a ser gravada automaticamente</li>
                             </ul>
                         </div>
                     </div>
                 {{else}}
                  <div id="todasAnotacoes">
                         <div class="todasAnotacoesHead">
-                            <figure class="anotationIcon">
-                                <img src="/Imagens/noteicon.svg" alt="Icone de anotação" aria-hidden="true">
-                            </figure>
-                            <h2>Anotações</h2>
+                            <div role="button" aria-pressed="true" tabindex="0" class="btnDivAnotacao">
+                                Anotações
+                            </div>
+                            <div role="button" aria-pressed="false" tabindex="0" class="btnDivRoteiro">
+                                Tarefas
+                            </div>
                         </div>
                         <div id="wrapper">
                             <ul role="listbox">
 
+                            </ul>
+                        </div>
+                        <div id="tarefasWrapper">
+                            <ul>
+                                {{#each teste.tarefas as |tarefa index|}}
+                                    <li>Tarefa {{indexNum index}}: {{tarefa}}</li>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>

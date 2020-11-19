@@ -1,6 +1,9 @@
 const anotacao = document.querySelector('#anotacoes input[type="text"]');
 const formulario = document.querySelector('#anotacoes form');
 const anotacoesTods = document.querySelector('#anotacoes #todasAnotacoes ul');
+const anotacaoBtn = document.querySelector('.btnDivAnotacao');
+const roteiroBtn = document.querySelector('.btnDivRoteiro');
+const tarefas = document.querySelector('#tarefasWrapper');
 
 const pegarIDD = () => {
 	let url = window.location.href;
@@ -39,6 +42,22 @@ const mandarAnotacao = async () => {
 			console.log(err);
 		});
 };
+
+anotacaoBtn.addEventListener('click', () => {
+	anotacaoBtn.setAttribute('aria-pressed', true);
+	roteiroBtn.setAttribute('aria-pressed', false);
+	formulario.style.display = 'flex';
+	anotacoesTods.style.display = 'block';
+	tarefas.style.display = 'none';
+});
+
+roteiroBtn.addEventListener('click', () => {
+	roteiroBtn.setAttribute('aria-pressed', true);
+	anotacaoBtn.setAttribute('aria-pressed', false);
+	formulario.style.display = 'none';
+	anotacoesTods.style.display = 'none';
+	tarefas.style.display = 'block';
+});
 
 formulario.addEventListener('submit', (e) => {
 	mandarAnotacao();

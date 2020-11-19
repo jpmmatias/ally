@@ -53,7 +53,7 @@ mongoose
 	.catch((err) => console.log(err));
 
 //Handlebars Helper
-const { formatarData, tipoDiferente, stringfy, ifCond, nomeVideo, dataF } = require('./Helpers/hbs');
+const { formatarData, tipoDiferente, stringfy, ifCond, nomeVideo, dataF, indexNum } = require('./Helpers/hbs');
 
 app.set('views', path.join(__dirname, 'Views'));
 
@@ -62,7 +62,7 @@ app.set('view engine', '.hbs');
 app.engine(
 	'.hbs',
 	expshbs({
-		helpers: { formatarData, tipoDiferente, stringfy, ifCond, nomeVideo, dataF },
+		helpers: { formatarData, tipoDiferente, stringfy, ifCond, nomeVideo, dataF, indexNum },
 		defaultLayout: 'main',
 		extname: '.hbs',
 		partialsDir: path.join(__dirname, 'Views/Partials'),

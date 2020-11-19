@@ -39,5 +39,8 @@ module.exports = {
 		return date.toLocaleDateString('pt-BR', {
 			dateStyle: 'medium'
 		});
+	},
+	indexNum: function(value) {
+		return parseInt(value) + 1;
 	}
 };

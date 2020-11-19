@@ -48,10 +48,9 @@
 			align-self: center;
 		}
 		#remoteContainer {
-			width: 85%;
+			width: 95%;
 			height: 95%;
 			grid-row: 1/4;
-			margin-top: 1.5%;
 			margin-bottom: 2.5%;
 			margin-left: auto;
 			margin-right: auto;
@@ -152,27 +151,46 @@
 	}
 	#todasAnotacoes {
 		height: 80%;
+		position: relative;
 		.todasAnotacoesHead {
 			display: flex;
 			height: 12%;
 			align-items: center;
-			padding-left: 2rem;
-			padding-right: 2rem;
 			background-color: #3b1ae3;
 			color: #fff;
-			justify-content: center;
+			justify-content: space-between;
 
-			img {
-				max-width: 20px;
-				margin-right: 20px;
-			}
-			h2 {
+			div[role="button"] {
+				font-size: 1.8rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 50%;
+				height: 100%;
 				text-align: center;
-				margin: 0;
-				font-size: 20px;
+				border-left: .1px #aaa solid;
+			}
+			div[role="button"][aria-pressed="false"] {
+				background-color: $roxo;
+				color: #ccc;
 			}
 		}
+		#tarefasWrapper {
+			display: none;
+			position: absolute;
+			top: 15%;
+			ul {
+				list-style: none;
+				padding: 1rem 2.5rem !important;
 
+				li {
+					margin-bottom: 1rem;
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
 		#wrapper {
 			overflow: auto;
 			height: 85%;
