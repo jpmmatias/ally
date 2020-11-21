@@ -95,13 +95,15 @@
                     </div>
                     <div class="buttonsAll">
                         <div class="buttonContainer">
-                            <button class="hoverButton" onclick="{muteMicrophone()}">
+                            <label for="micro" class="sr-only">Mutar microfone</label>
+                            <button id="micro" class="hoverButton" onclick="{muteMicrophone()}">
                                 <span id="mic-icon" class="fas fa-microphone fa-xs"></span>
                             </button>
                             <div class="HoverState" id="mic-text" tabindex='1'>Mutar</div>
                         </div>
                         <div class="buttonContainer">
-                            <button class="hoverButton" id="share-button" onclick="{swap()}">
+                            <label for="share" class="sr-only">Compartilhar tela</label>
+                            <button  id="share" class="hoverButton" id="share-button" onclick="{swap()}">
                                 <span id="swap-icon" class="fas fa-desktop fa-xs"></span>
                             </button>
                             <div class="HoverState" id="swap-text" tabindex='1'>Compartilhar Tela (quando clicado sua
@@ -110,7 +112,8 @@
                                 gravada)</div>
                         </div>
                         <div class="buttonContainer">
-                            <button class="hoverButton" onclick="{window.location.href = '/dashboard'}">
+                              <label for="end" class="sr-only">Terminar chamada</label>
+                            <button id="end" class="hoverButton" onclick="{window.location.href = '/dashboard'}">
                                 <span class="fas fa-phone-slash fa-xs"></span>
                             </button>
                             <div class="HoverState" tabindex='1'>Terminar Chamada</div>
