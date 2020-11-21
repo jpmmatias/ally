@@ -97,13 +97,13 @@
                             <button class="hoverButton" onclick="{muteMicrophone()}">
                                 <span id="mic-icon" class="fas fa-microphone fa-xs"></span>
                             </button>
-                            <div class="HoverState" id="mic-text">Mutar</div>
+                            <div class="HoverState" id="mic-text"tabindex='1'>Mutar</div>
                         </div>
                         <div class="buttonContainer">
                             <button class="hoverButton" id="share-button" onclick="{swap()}">
                                 <span id="swap-icon" class="fas fa-desktop fa-xs"></span>
                             </button>
-                            <div class="HoverState" id="swap-text">Compartilhar Tela (quando clicado sua tela
+                            <div class="HoverState" id="swap-text" tabindex='1'>Compartilhar Tela (quando clicado sua tela
                                 começará a ser
                                 gravada)</div>
                         </div>
@@ -111,7 +111,7 @@
                             <button class="hoverButton" onclick="{window.location.href = '/dashboard'}">
                                 <span class="fas fa-phone-slash fa-xs"></span>
                             </button>
-                            <div class="HoverState">Terminar Chamada</div>
+                            <div class="HoverState" tabindex='1'>Terminar Chamada</div>
                         </div>
                     </div>
                 </div>
@@ -125,23 +125,7 @@
                         </div>
                         <div>
 
-                            <p class="url">Site URL: <a href="{{
-                                
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                
-                            }}" target="_blank">{{teste.url}}</a>
+                            <p class="url">Site URL: <a href="{{teste.url}}" target="_blank">{{teste.url}}</a>
 
                         </div>
                     </div>
@@ -154,8 +138,8 @@
 
 
         {{else}}
-        {{> _skip_links}}
-
+        {{> _skip_links}}           
+        
         <div id="dashboard">
             <!-- header -->
             <header class="headerDashboard">
