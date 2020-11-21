@@ -9,9 +9,6 @@ const TesteSchema = new mongoose.Schema({
 	mensgaemdeboasvindas: {
 		type: String,
 	},
-	cenario: {
-		type: String,
-	},
 	tarefas: {
 		type: [String],
 	},
