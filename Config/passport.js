@@ -9,19 +9,22 @@ const User = require('../Models/User');
 module.exports = function(passport) {
 	passport.use(
 		'local',
-		new LocalStrategy({ usernameField: 'nome' }, (nome, senha, done) => {
-			User.findOne({ nome: nome })
+		new LocalStrategy({ usernameField: 'username' }, (username, senha, done) => {
+			User.findOne({ username: username })
 				.then((user) => {
 					if (!user) {
-						return done(null, false, { message: 'Nome não registrado' });
+						console.log('Nome não registrado');
+						return done(null, false, { message: 'Username não registrado' });
 					}
 					bcrypt.compare(senha, user.senha, (err, isMatch) => {
 						if (err) {
+							console.log(err);
 							throw err;
 						}
 						if (isMatch) {
 							return done(null, user);
 						} else {
+							console.log('Senha incorreta');
 							return done(null, false, { message: 'Senha incorreta' });
 						}
 					});
