@@ -10,11 +10,12 @@ module.exports = function(passport) {
 	passport.use(
 		'local',
 		new LocalStrategy({ usernameField: 'username' }, (username, senha, done) => {
+			let erros = [];
 			User.findOne({ username: username })
 				.then((user) => {
 					if (!user) {
-						console.log('Nome não registrado');
-						return done(null, false, { message: 'Username não registrado' });
+						erros.push('Username não registrado');
+						return done(null, false, { message: erros });
 					}
 					bcrypt.compare(senha, user.senha, (err, isMatch) => {
 						if (err) {
@@ -24,8 +25,8 @@ module.exports = function(passport) {
 						if (isMatch) {
 							return done(null, user);
 						} else {
-							console.log('Senha incorreta');
-							return done(null, false, { message: 'Senha incorreta' });
+							erros.push('Senha incorreta');
+							return done(null, false, { message: erros });
 						}
 					});
 				})

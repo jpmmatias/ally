@@ -1,0 +1,81 @@
+@import 'cores';
+.erros{
+    position: absolute;
+    right: 0;
+    top: 2rem;
+    .alert{
+        position: relative;
+        display: flex;
+        align-items: center;
+        background:$azul;
+        border-left: 8px solid $rosa;
+        padding: 1.5rem 2rem;
+        min-width: 42rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius:5px;
+
+        .msgAlert{
+            padding: 0 2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+ 
+ 
+     .fa-exclamation-circle{
+         font-size: 2rem;
+         color: #fff;
+
+     }
+     .closeBtn{
+        color: #fff;
+        cursor: pointer;
+     }
+     &::before{
+        position: absolute;
+        content: "";
+        background-color: $azul;
+         height: .35rem;
+         width: 100%;
+         top: 0;
+         left: 0;
+     }
+       }
+
+}
+.mostrarErro{
+    animation: mostrarErro 1s ease;
+}
+.tirarErro{
+    animation: tirarErro 1s ease;
+}
+@keyframes mostrarErro{
+    0%{
+        transform:translateX(100%);
+    }
+    40%{
+        transform: translateX(-10%);
+    }
+    80%{
+        transform: translateX(0%);
+    }
+}
+
+@keyframes tirarErro{
+    0%{
+        transform:translateX(-10px);
+    }
+    40%{
+        transform: translateX(0%);
+    }
+    80%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+
