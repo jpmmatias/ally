@@ -24,6 +24,13 @@ exports.mostrarLandingTester = (req, res, next) => {
 	res.render('landingTester');
 };
 
+//descrição         Mostrar página orientações de acessibilidade
+//route             GET /
+//Acesso            Publico
+exports.mostrarGuia = (req, res, next) => {
+	res.render('guia');
+};
+
 //descrição         Mostrar dashboard
 //route             GET /dashboard
 //Acesso            Privado

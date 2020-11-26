@@ -72,4 +72,13 @@
   padding: 1rem 2rem;
   font-weight: 700;
   border-radius: 3em;
+
+  transition-duration: 0.3s;
+  transition-property: background-color;
+  transition-timing-function: ease;
+
+  &:hover {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+  }
 }
