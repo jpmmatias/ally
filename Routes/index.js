@@ -1,8 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const {ensureAuthenticated, ensureGuest} = require('../Config/auth');
+const { ensureAuthenticated, ensureGuest } = require('../Config/auth');
 
-const {mostrarHomepage, mostrarDahboard, mostrarConfiguracoes, mostrarVideos,mostrarLandingTester,mostrarPaginaDeContato,enviarEmailContato} = require('../Controllers/index');
+const {
+	mostrarHomepage,
+	mostrarDahboard,
+	mostrarConfiguracoes,
+	mostrarVideos,
+	mostrarLandingTester,
+	mostrarPaginaDeContato,
+	enviarEmailContato,
+	mostrarOrientacoes
+} = require('../Controllers/index');
 
 router.get('/', ensureGuest, mostrarHomepage);
 
@@ -11,6 +20,8 @@ router.get('/tester', ensureGuest, mostrarLandingTester);
 router.get('/dashboard', ensureAuthenticated, mostrarDahboard);
 
 router.get('/configuracoes', ensureAuthenticated, mostrarConfiguracoes);
+
+router.get('/orientacoes', ensureAuthenticated, mostrarOrientacoes);
 
 router.get('/videos', ensureAuthenticated, mostrarVideos);
 

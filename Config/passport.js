@@ -6,23 +6,27 @@ const bcrypt = require('bcryptjs');
 
 const User = require('../Models/User');
 
-module.exports = function (passport) {
+module.exports = function(passport) {
 	passport.use(
 		'local',
-		new LocalStrategy({usernameField: 'email'}, (email, senha, done) => {
-			User.findOne({email: email})
+		new LocalStrategy({ usernameField: 'username' }, (username, senha, done) => {
+			let erros = [];
+			User.findOne({ username: username })
 				.then((user) => {
 					if (!user) {
-						return done(null, false, {message: 'Email não registrado'});
+						erros.push('Username não registrado');
+						return done(null, false, { message: erros });
 					}
 					bcrypt.compare(senha, user.senha, (err, isMatch) => {
 						if (err) {
+							console.log(err);
 							throw err;
 						}
 						if (isMatch) {
 							return done(null, user);
 						} else {
-							return done(null, false, {message: 'Senha incorreta'});
+							erros.push('Senha incorreta');
+							return done(null, false, { message: erros });
 						}
 					});
 				})
@@ -35,18 +39,18 @@ module.exports = function (passport) {
 			{
 				clientID: keys.GOOGLE_CLIENT_ID,
 				clientSecret: keys.GOOGLE_CLIENT_SECRET,
-				callbackURL: '/users/login/google/callback',
+				callbackURL: '/users/login/google/callback'
 			},
 			async (acessToken, refreshToken, profile, done) => {
 				const novoUser = {
 					nome: profile.displayName,
 					email: profile.emails[0].value,
 					senha: profile.id,
-					imagem: profile.photos[0].value,
+					imagem: profile.photos[0].value
 				};
 
 				try {
-					let user = await User.findOne({email: profile.emails[0].value});
+					let user = await User.findOne({ email: profile.emails[0].value });
 
 					if (user) {
 						done(null, user);
@@ -66,7 +70,7 @@ module.exports = function (passport) {
 	});
 
 	passport.deserializeUser((id, done) => {
-		User.findById(id, function (err, user) {
+		User.findById(id, function(err, user) {
 			done(err, user);
 		});
 	});

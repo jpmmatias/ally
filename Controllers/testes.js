@@ -18,14 +18,14 @@ let ObjectId = require('mongodb').ObjectID;
 //route             GET /testes/add
 //Acesso            Privado
 exports.mostrarPaginaAddTeste = (req, res, next) => {
-	res.render('Testes/add');
+	res.render('Testes/add', { nome: req.user.nome });
 };
 
 //descrição         Mostrar pagina para adicionar teste
 //route             GET /testes/add/finalizado
 //Acesso            Privado
 exports.mostrarPaginaAddTesteFinalizado = (req, res, next) => {
-	res.render('Testes/addFinalizado');
+	res.render('Testes/addFinalizado', { nome: req.user.nome });
 };
 
 //descrição         Adicionar teste
@@ -66,7 +66,8 @@ exports.mostrarEspecificoTeste = async (req, res, next) => {
 		} else {
 			res.render('Testes/teste', {
 				teste,
-				user
+				user,
+				nome: req.user.nome
 			});
 		}
 	} catch (err) {
@@ -90,6 +91,7 @@ exports.mostrarGravacoes = async (req, res, next) => {
 			res.render('videosAnotacoes', {
 				teste,
 				user,
+				nome: req.user.nome,
 				videos: videos.map((video) => video.toJSON())
 			});
 		}
@@ -114,6 +116,7 @@ exports.mostrarVideoeAnotacoes = async (req, res, next) => {
 			res.render('anotacoes', {
 				teste,
 				user,
+				nome: req.user.nome,
 				video: video.toJSON(),
 				anotacoes: anotacoes.map((anotacao) => {
 					return anotacao.toJSON();
@@ -143,7 +146,8 @@ exports.mostrarPaginaPraEditar = async (req, res, next) => {
 			res.redirect('/dashboard');
 		} else {
 			res.render('Testes/edit', {
-				teste
+				teste,
+				nome: req.user.nome
 			});
 		}
 	} catch (err) {
@@ -203,7 +207,8 @@ exports.mostrarPagInfo = async (req, res, next) => {
 			return res.render('Erros/404');
 		}
 		res.render('infoTeste', {
-			teste
+			teste,
+			nome: req.user.nome
 		});
 	} catch (err) {
 		console.log(err);

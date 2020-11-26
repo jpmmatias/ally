@@ -29,7 +29,7 @@ exports.mostrarPaginaDeConvidarTesters = async (req, res, next) => {
 		if (teste.user != req.user.id) {
 			res.redirect('/dashboard');
 		} else {
-			res.render('Testes/convidarTesters', { teste, userCriador, users });
+			res.render('Testes/convidarTesters', { teste, userCriador, users, nome: req.user.nome });
 		}
 	} catch (err) {
 		console.log(err);

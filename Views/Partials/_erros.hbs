@@ -1,0 +1,15 @@
+{{#if erros}}
+    <div class="erros">
+        {{#each erros as |erro|}}
+            <div role="alert" class="alert mostrarErro" >
+                <span role="img" aria-label="Icone ponto de exclamação" class="fas fa-exclamation-circle"></span>
+                <span class="msgAlert">
+                    {{erro.msg}}
+                </span>
+            <div class="closeBtn" tabindex="0"  aria-label='Fechar o Aviso' role="button">
+                <span role="img" aria-label="Icone X" class="fas fa-times"></span>
+            </div>
+            </div>  
+        {{/each}}
+    </div>
+{{/if}}

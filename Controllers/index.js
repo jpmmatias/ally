@@ -48,7 +48,14 @@ exports.mostrarDahboard = async (req, res, next) => {
 //route             GET /
 //Acesso            Privado
 exports.mostrarConfiguracoes = (req, res, next) => {
-	res.render('configuracoes');
+	res.render('configuracoes', { nome: req.user.nome });
+};
+
+//descrição         Mostrar paginá de orientações
+//route             GET /
+//Acesso            Privado
+exports.mostrarOrientacoes = (req, res, next) => {
+	res.render('orientacoes', { nome: req.user.nome });
 };
 
 //descrição         Mostrar videos
