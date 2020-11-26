@@ -54,7 +54,7 @@ exports.mostrarPaginaRegister = (req, res, next) => {
 //route             POST /users/register
 //Acesso            Pulico
 exports.criarUsuario = (req, res, next) => {
-	const { nome, email, senha, senha2, username } = req.body;
+	const { nome, email, senha, senha2 } = req.body;
 	let erros = [];
 
 	//Checando os requisitados
@@ -87,7 +87,6 @@ exports.criarUsuario = (req, res, next) => {
 			email,
 			senha,
 			senha2,
-			username
 		});
 	} else {
 		//Passou na validação
@@ -101,15 +100,13 @@ exports.criarUsuario = (req, res, next) => {
 					nome,
 					email,
 					senha,
-					senha2,
-					username
+					senha2
 				});
 			} else {
 				const novoUser = new User({
 					nome,
 					email,
-					senha,
-					username
+					senha
 				});
 
 				//Hash senha
@@ -150,11 +147,11 @@ exports.mostrarPaginaRegisterTester = (req, res, next) => {
 //route             POST /users/register/tester
 //Acesso            Pulico
 exports.criarUsuarioTester = (req, res, next) => {
-	const { nome, email, senha, senha2, profissao, idade, username } = req.body;
+	const { nome, email, senha, senha2, profissao, idade } = req.body;
 	let erros = [];
 
 	//Checando os requisitados
-	if (!nome || !email || !senha || !senha2 || username) {
+	if (!nome || !email || !senha || !senha2) {
 		erros.push({
 			msg: 'Por favor preencha todos os campos'
 		});
@@ -186,8 +183,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 			nome,
 			email,
 			senha,
-			senha2,
-			username
+			senha2
 		});
 	} else {
 		//Passou na validação
@@ -202,8 +198,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 					nome,
 					email,
 					senha,
-					senha2,
-					username
+					senha2
 				});
 			} else {
 				const novoUser = new User({
@@ -212,8 +207,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 					senha,
 					tipo: 'tester',
 					profissao,
-					idade,
-					username
+					idade
 				});
 				//Hash senha
 				bcrypt.genSalt(10, (err, salt) =>
@@ -277,11 +271,11 @@ exports.atualizarConta = async (req, res, next) => {
 //route             POST /users/register/tester
 //Acesso            Pulico
 exports.criarUsuarioTester = (req, res, next) => {
-	const { nome, email, senha, senha2, idade, profissao, username } = req.body;
+	const { nome, email, senha, senha2, idade, profissao } = req.body;
 	let erros = [];
 
 	//Checando os requisitados
-	if (!nome || !email || !senha || !senha2 || username) {
+	if (!nome || !email || !senha || !senha2 ) {
 		erros.push({
 			msg: 'Por favor preencha todos os campos'
 		});
@@ -315,8 +309,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 			senha,
 			senha2,
 			idade,
-			profissao,
-			username
+			profissao
 		});
 	} else {
 		//Passou na validação
@@ -333,8 +326,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 					senha,
 					senha2,
 					idade,
-					profissao,
-					username
+					profissao
 				});
 			} else {
 				const novoUser = new User({
@@ -343,8 +335,7 @@ exports.criarUsuarioTester = (req, res, next) => {
 					senha,
 					tipo: 'tester',
 					idade,
-					profissao,
-					username
+					profissao
 				});
 				//Hash senha
 				bcrypt.genSalt(10, (err, salt) =>

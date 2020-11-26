@@ -9,12 +9,12 @@ const User = require('../Models/User');
 module.exports = function(passport) {
 	passport.use(
 		'local',
-		new LocalStrategy({ usernameField: 'username' }, (username, senha, done) => {
+		new LocalStrategy({ usernameField: 'email' }, (email, senha, done) => {
 			let erros = [];
-			User.findOne({ username: username })
+			User.findOne({ email: email })
 				.then((user) => {
 					if (!user) {
-						erros.push('Username não registrado');
+						erros.push('Email não registrado');
 						return done(null, false, { message: erros });
 					}
 					bcrypt.compare(senha, user.senha, (err, isMatch) => {
@@ -37,6 +37,7 @@ module.exports = function(passport) {
 	passport.use(
 		new GoogleStrategy(
 			{
+				
 				clientID: keys.GOOGLE_CLIENT_ID,
 				clientSecret: keys.GOOGLE_CLIENT_SECRET,
 				callbackURL: '/users/login/google/callback'
