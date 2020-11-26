@@ -11,6 +11,7 @@ html {
   font-size: 62.5%;
 }
 
+
 body {
   font-family: "museo-sans", sans-serif;
   color: var(--color-black);
@@ -36,29 +37,29 @@ img {
   max-width: 100%;
 }
 
-
 button {
   cursor: pointer;
 }
 
-.home, .tester {
-h2 {
-  margin: 0 30rem 3rem;
-  font-size: 3.2rem;
-  text-align: center;
-}
-
+.home,
+.tester {
+  h2 {
+    margin: 0 30rem 3rem;
+    font-size: 3.2rem;
+    text-align: center;
+  }
 }
 
 .container {
   margin: auto;
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1208px;
+  padding: 0 10px;
 }
 
 .container-fluid {
   margin: auto;
-  padding: 0 6rem; 
+  padding: 0 6rem;
   max-width: 1400px;
 }
 
@@ -94,13 +95,13 @@ h2 {
   padding: 0 6rem 0 12rem;
 }
 
-
-.skip-links a, .skip-links button {
+.skip-links a,
+.skip-links button {
   position: absolute;
   top: -3rem;
   background: var(--color-white);
   padding: 0.5rem;
-  
+
   color: #000;
 
   &:focus {
@@ -113,7 +114,8 @@ h2 {
     color: white;
     width: 100%;
     font-size: 16px;
-    border: 0;
+    border: 2px solid var(--color-blue);
+
     // left: 5rem;
     position: relative;
     // margin: 12rem 0;

@@ -74,8 +74,8 @@
   html {
     font-size: 50%;
   }
-  p {
-    font-size: 2rem !important;
+  p, a {
+    font-size: 18px !important;
   }
 
   .home,
@@ -85,8 +85,7 @@
     }
   }
 
-  .headerHome,
-  .headerTester {
+ .main-nav {
     #menu,
     .account {
       display: none !important;
@@ -106,8 +105,8 @@
     background: var(--color-white);
     font-size: 2.5rem;
     font-weight: 900;
-    border: 0;
-    border-radius: 2px;
+    border: 2px solid var(--color-blue);
+    border-radius: 5px;
 
     cursor: pointer;
   }
@@ -146,18 +145,21 @@
 
     #menu {
       padding-top: 10rem;
+      margin: 0  !important;
     }
 
     #menu li a,
     .account a {
-      transition-duration: 0.5s;
-      font-size: 3rem;
-      line-height: 1.8;
-      display: block;
-      color: var(--color-white);
-      padding: 2rem 0;
-      margin-left: 0;
+      transition-duration: 0.5s !important;
+      font-size: 3rem !important;
+      line-height: 1.8 !important;
+      display: block !important;
+      color: var(--color-white) !important;
+      padding: 2rem 0 !important;
+      margin-left: 0 !important;
       border-radius: 0 !important;
+      font-weight: 700 !important;
+   
 
       &:hover {
         background: var(--color-white) !important;
@@ -174,12 +176,36 @@
   .highlight {
     background: none !important;
   }
+
+  #bannerGuia {
+    text-align: center;
+
+    p {
+      font-size: 22px !important;
+    }
+    img {
+      display: none;
+    }
+  }
+
+  .guia {
+    img {
+      display: none;
+    }
+
+    ul {
+      margin: 0rem 4rem 8rem 4rem;
+    }
+  }
+
+  
 }
 
 @media (max-width: 540px) {
   #bannerHome {
     img {
-      max-width: 410px;
+      width: 410px;
+      max-width: 100%;
       margin: auto;
     }
 
@@ -190,6 +216,10 @@
     h1 {
       font-size: 3.5rem;
     }
+  }
+
+  #bannerTester {
+    text-align: center;
   }
 
   #call-to-action {
@@ -206,4 +236,26 @@
       margin-bottom: 5rem;
     }
   }
+
+  #loginSection .container {
+    overflow-x: hidden;
+    width: 100vw;
+    padding: 20px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    .logo {
+      padding-right: 0;
+  }
+  }
+
+  .itens-motivos {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px 10px;
+    margin: 5rem auto;
+    padding: 0 6rem 0 12rem;
+  }
+ 
 }

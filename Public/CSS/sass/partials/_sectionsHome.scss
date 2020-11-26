@@ -3,6 +3,11 @@
   padding-bottom: 4rem;
 }
 
+.contato {
+  background: none !important;
+  padding-bottom: 1rem !important;
+}
+
 #bannerHome {
   display: flex;
   margin-top: 4rem;
@@ -60,7 +65,8 @@
    
 
     img {
-      max-width: 320px;
+      width: 320px;
+      max-width: 100%;
       margin: 10px auto;
     }
 
@@ -70,7 +76,7 @@
     }
 
     p {
-      padding: 10px 50px;
+      padding: 10px 30px;
       line-height: 1.5;
     }
   }

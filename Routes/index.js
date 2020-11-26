@@ -10,12 +10,15 @@ const {
 	mostrarLandingTester,
 	mostrarPaginaDeContato,
 	enviarEmailContato,
-	mostrarOrientacoes
+	mostrarOrientacoes,
+	mostrarGuia,
 } = require('../Controllers/index');
 
 router.get('/', ensureGuest, mostrarHomepage);
 
 router.get('/tester', ensureGuest, mostrarLandingTester);
+
+router.get('/guia', ensureGuest, mostrarGuia);
 
 router.get('/dashboard', ensureAuthenticated, mostrarDahboard);
 
